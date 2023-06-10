@@ -36,7 +36,7 @@
                 <com.xuexiang.xui.widget.textview.supertextview.SuperTextView
                     android:id="@+id/account"
                     style="@style/InfoItem.Account"
-                    app:sLeftTextString="账号" />
+                    app:sLeftTextString="账户" />
 
                 <com.xuexiang.xui.widget.textview.supertextview.SuperTextView
                     android:id="@+id/tips"

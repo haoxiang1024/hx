@@ -101,12 +101,9 @@ public class LostFragment extends BaseFragment<FragmentLostBinding> {
     protected void initListeners() {
         super.initListeners();
         //跳转丢失物品详情页面
-        binding.listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Lost lost = lostDetailAdapter.getItem(position);//获取lost实例
-                openPage(LostDetailFragment.class, LostDetailFragment.KEY_LOST, lost);
-            }
+        binding.listview.setOnItemClickListener((parent, view, position, id) -> {
+            Lost lost = lostDetailAdapter.getItem(position);//获取lost实例
+            openPage(LostDetailFragment.class, LostDetailFragment.KEY_LOST, lost);
         });
 
     }

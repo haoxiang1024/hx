@@ -118,7 +118,7 @@ public class AccountFragment extends BaseFragment<FragmentAccountBinding> implem
      */
     @Override
     protected String getPageTitle() {
-        return "账号";
+        return "账户";
     }
 
     /**

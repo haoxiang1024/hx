@@ -17,6 +17,8 @@
 
 package com.xuexiang.templateproject.adapter.entity;
 
+import java.util.Date;
+
 /**
  * 新闻信息
  *
@@ -65,14 +67,44 @@ public class NewInfo {
 
     private String uniquekey;//新闻唯一码用于获取新闻内容
     private String State;//状态
+    private String Phone;//联系方式
+    private String Place;//地点
+    private Date Pub_Date;//时间
+
+    public Date getPub_Date() {
+        return Pub_Date;
+    }
+
+    public NewInfo setPub_Date(Date pub_Date) {
+        Pub_Date = pub_Date;
+        return this;
+    }
+
+    public String getPhone() {
+        return Phone;
+    }
+
+    public NewInfo setPhone(String phone) {
+        Phone = phone;
+        return this;
+    }
+
+    public String getPlace() {
+        return Place;
+    }
+
+    public NewInfo setPlace(String place) {
+        Place = place;
+        return this;
+    }
 
     public String getState() {
         return State;
     }
 
     public NewInfo setState(String state) {
-       State=state;
-       return this;
+        State = state;
+        return this;
     }
 
     public NewInfo() {
@@ -210,6 +242,11 @@ public class NewInfo {
                 ", Comment=" + Comment +
                 ", Read=" + Read +
                 ", DetailUrl='" + DetailUrl + '\'' +
+                ", uniquekey='" + uniquekey + '\'' +
+                ", State='" + State + '\'' +
+                ", Phone='" + Phone + '\'' +
+                ", Place='" + Place + '\'' +
+                ", Pub_Date=" + Pub_Date +
                 '}';
     }
 }

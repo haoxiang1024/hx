@@ -30,6 +30,17 @@ public class Found {
     private String nickname;
     private Lostfoundtype lostfoundtype;
 
+    public Found(String title, String img, Date pub_date, String content, String place, String phone, String state, String nickname) {
+        this.title = title;
+        this.img = img;
+        this.pub_date = pub_date;
+        this.content = content;
+        this.place = place;
+        this.phone = phone;
+        this.state = state;
+        this.nickname = nickname;
+    }
+
     public Lostfoundtype getLostfoundtype() {
         return lostfoundtype;
     }

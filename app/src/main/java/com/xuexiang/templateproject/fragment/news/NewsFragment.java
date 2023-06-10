@@ -25,6 +25,7 @@ import com.xuexiang.templateproject.core.webview.AgentWebActivity;
 import com.xuexiang.templateproject.databinding.FragmentNewsBinding;
 import com.xuexiang.templateproject.fragment.navigation.FoundFragment;
 import com.xuexiang.templateproject.fragment.navigation.LostFragment;
+import com.xuexiang.templateproject.fragment.navigation.content.FoundDetailFragment;
 import com.xuexiang.templateproject.fragment.navigation.content.LostDetailFragment;
 import com.xuexiang.templateproject.utils.DemoDataProvider;
 import com.xuexiang.templateproject.utils.Utils;
@@ -61,6 +62,7 @@ public class NewsFragment extends BaseFragment<FragmentNewsBinding> {
     public static String newsKey = "9fbfe1092fa33bf4bf99d8b6a661963e";//新闻key
     private SimpleDelegateAdapter<NewInfo> mNewsAdapter;
     private DelegateAdapter delegateAdapter;
+    private List<NewInfo> list = new ArrayList<>();
 
     @NonNull
     @Override
@@ -144,7 +146,7 @@ public class NewsFragment extends BaseFragment<FragmentNewsBinding> {
 
         //推荐
         mNewsAdapter = new BroccoliSimpleDelegateAdapter<NewInfo>(R.layout.adapter_news_card_view_list_item, new LinearLayoutHelper(), DemoDataProvider.getEmptyNewInfo()) {
-            List<NewInfo> newInfoList = getNewInfo();
+
 
             @Override
             protected void onBindData(RecyclerViewHolder holder, NewInfo model, int position) {
@@ -154,21 +156,27 @@ public class NewsFragment extends BaseFragment<FragmentNewsBinding> {
                     holder.text(R.id.tv_title, model.getTitle());
                     holder.text(R.id.tv_summary, model.getSummary());
                     holder.image(R.id.iv_image, model.getImageUrl());
-                    holder.click(R.id.card_view, new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            NewInfo newInfo = getItem(position);
-                            //判断是招领or失物
-                            if(newInfo.getState().equals("未找到")){
-                                //失物
-                                openPage(LostDetailFragment.class, LostDetailFragment.KEY_LOST, newInfo);
-                            }
-
-
+                    holder.click(R.id.card_view, v -> {
+                        if (position > list.size()) {
+                            Utils.showResponse("好像出错了哦,下拉刷新重试一次吧");
+                            return;
+                        }
+                        NewInfo newInfo = getItem(position);
+                        //重构lost
+                        Lost lost = new Lost(newInfo.getTitle(), newInfo.getImageUrl(), newInfo.getPub_Date(), newInfo.getSummary(), newInfo.getPlace(), newInfo.getPhone(), newInfo.getState(), newInfo.getUserName());
+                        //重构found
+                        Found found = new Found(newInfo.getTitle(), newInfo.getImageUrl(), newInfo.getPub_Date(), newInfo.getSummary(), newInfo.getPlace(), newInfo.getPhone(), newInfo.getState(), newInfo.getUserName());
+                        if (newInfo.getState().equals("未找到")) {
+                            //跳转失物详情页
+                            openNewPage(LostDetailFragment.class, LostDetailFragment.KEY_LOST, lost);
+                        } else {
+                            //跳转招领页
+                            openNewPage(FoundDetailFragment.class, FoundDetailFragment.KEY_FOUND, found);
                         }
                     });
                 }
             }
+
 
             /**
              * 获取列表项
@@ -178,7 +186,7 @@ public class NewsFragment extends BaseFragment<FragmentNewsBinding> {
              */
             @Override
             public NewInfo getItem(int position) {
-                return newInfoList.get(position);
+                return getNewInfo().get(position);
             }
 
             @Override
@@ -253,8 +261,6 @@ public class NewsFragment extends BaseFragment<FragmentNewsBinding> {
     }
 
     public List<NewInfo> getNewInfo() {
-        //定义一个空列表，用于存储解析出来的置顶信息
-        final List<NewInfo> list = new ArrayList<>();
         //失物置顶信息添加
         new Thread() {
             @Override
@@ -275,8 +281,10 @@ public class NewsFragment extends BaseFragment<FragmentNewsBinding> {
                                     .setSummary(lost.getContent())
                                     .setUserName(lost.getNickname())
                                     .setState(lost.getState())
+                                    .setPhone(lost.getPhone())
+                                    .setPlace(lost.getPlace())
+                                    .setPub_Date(lost.getPubDate())
                                     .setImageUrl(lost.getImg()));
-
                         }
 
                     }
@@ -296,20 +304,22 @@ public class NewsFragment extends BaseFragment<FragmentNewsBinding> {
                                     .setSummary(found.getContent())
                                     .setUserName(found.getNickname())
                                     .setState(found.getState())
+                                    .setPhone(found.getPhone())
+                                    .setPlace(found.getPlace())
+                                    .setPub_Date(found.getPub_date())
                                     .setImageUrl(found.getImg()));
-
                         }
                     }
                 });
             }
         }.start();
+        //返回解析出来的列表
         //等待网络请求和数据解析完成
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        //返回解析出来的新闻列表
         return list;
     }
 
