@@ -7,7 +7,7 @@ git init
 git add . 
  git commit -m "bat推送:%date:~0,10%,%time:~0,8%" 
 ::  git commit -m "%commitMessage%" 
-git push origin master
+git push origin main
 @echo 已经完成
 pause
 
