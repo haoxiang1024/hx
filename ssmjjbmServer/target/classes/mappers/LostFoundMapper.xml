@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.school.dao.LostFoundDao">
+
+
+    <select id="GetAll" resultType="com.school.entity.Lostfoundtype">
+        select id, name
+        from lostfoundtype
+    </select>
+    <select id="getAllType" resultType="java.lang.String">
+        select name
+        from lostfoundtype
+    </select>
+    <select id="typeIdByName" resultType="java.lang.Integer">
+        select id
+        from android_test.lostfoundtype
+        where name = #{name}
+    </select>
+</mapper>

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd">
+    <!--    扫描包，创建对象-->
+    <context:component-scan base-package="com.school">
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+    <!--    读取配置文件    -->
+    <context:property-placeholder location="classpath:dbConfig.properties"></context:property-placeholder>
+    <context:property-placeholder location="classpath:redis.properties"/>
+    <!--从properties文件中加载对应的值来使用连接的方式来创建数据源-->
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <!--  数据连接信息-->
+        <property name="jdbcUrl" value="${jdbc.url}"></property>
+        <property name="driverClass" value="${jdbc.driverClassName}"></property>
+        <property name="user" value="${jdbc.user}"></property>
+        <property name="password" value="${jdbc.password}"></property>
+
+        <!--        初始化时获取三个连接-->
+        <property name="initialPoolSize" value="${jdbc.initialPoolSize}"></property>
+        <!-- 连接池中保留的最小连接数，默认值：3 -->
+        <property name="minPoolSize" value="${jdbc.minPoolSize}"></property>
+        <!-- 连接池中保留的最大连接数，默认值：15 -->
+        <property name="maxPoolSize" value="${jdbc.maxPoolSize}"></property>
+        <!-- 当连接池中的连接数耗尽的时候，c3p0一次同时获取的连接数，默认值：3 -->
+        <property name="acquireIncrement" value="${jdbc.acquireIncrement}"></property>
+        <!-- 控制数据源内加载的PreparedStatements数量。如果maxStatements与maxStatementsPerConnection均为0，则缓存被关闭。Default: 0 -->
+        <property name="maxStatements" value="${jdbc.maxStatements}"></property>
+        <!--maxStatementsPerConnection定义了连接池内单个连接所拥有的最大缓存statements数。Default: 0 -->
+        <property name="maxStatementsPerConnection" value="${jdbc.maxStatementsPerConnection}"></property>
+        <!--最大空闲时间,1800秒内未使用则连接被丢弃。若为0则永不丢弃。Default: 0 -->
+        <property name="maxIdleTime" value="${jdbc.maxIdleTime}"></property>
+    </bean>
+    <!--redis-->
+    <bean id="annotationPropertyConfigurerRedis"
+          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="order" value="1"/>
+        <property name="ignoreUnresolvablePlaceholders" value="true"/>
+        <property name="locations">
+            <list>
+                <value>classpath:redis.properties</value>
+            </list>
+        </property>
+    </bean>
+
+    <!-- redis数据源 -->
+    <bean id="poolConfig" class="redis.clients.jedis.JedisPoolConfig">
+        <!-- 最大空闲数 -->
+        <property name="maxIdle" value="${redis.maxIdle}"/>
+        <!-- 最大空连接数 -->
+        <property name="maxTotal" value="${redis.maxTotal}"/>
+        <!-- 最大等待时间 -->
+        <property name="maxWaitMillis" value="${redis.maxWaitMillis}"/>
+        <!-- 返回连接时，检测连接是否成功 -->
+        <property name="testOnBorrow" value="${redis.testOnBorrow}"/>
+    </bean>
+
+    <!-- Spring-redis连接池管理工厂 -->
+    <bean id="jedisConnectionFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory">
+        <!-- IP地址 -->
+        <property name="hostName" value="${redis.host}"/>
+        <!-- 端口号 -->
+        <property name="port" value="${redis.port}"/>
+        <property name="password" value="${redis.password}"/>
+        <!-- 超时时间 默认2000-->
+        <property name="timeout" value="${redis.timeout}"/>
+        <!-- 连接池配置引用 -->
+        <property name="poolConfig" ref="poolConfig"/>
+        <!-- usePool：是否使用连接池 -->
+        <property name="usePool" value="true"/>
+    </bean>
+
+    <!-- redis template definition -->
+    <bean id="redisTemplate" class="org.springframework.data.redis.core.RedisTemplate">
+        <property name="connectionFactory" ref="jedisConnectionFactory"/>
+        <property name="keySerializer">
+            <bean class="org.springframework.data.redis.serializer.StringRedisSerializer"/>
+        </property>
+        <property name="valueSerializer">
+            <bean class="org.springframework.data.redis.serializer.JdkSerializationRedisSerializer"/>
+        </property>
+        <property name="hashKeySerializer">
+            <bean class="org.springframework.data.redis.serializer.StringRedisSerializer"/>
+        </property>
+        <property name="hashValueSerializer">
+            <bean class="org.springframework.data.redis.serializer.JdkSerializationRedisSerializer"/>
+        </property>
+        <!--开启事务  -->
+        <property name="enableTransactionSupport" value="true"></property>
+    </bean>
+
+    <!--自定义redis工具类,在需要缓存的地方注入此类  -->
+    <bean id="redisService" class="com.school.utils.RedisService">
+        <constructor-arg name="redisTemplate" ref="redisTemplate"/>
+    </bean>
+    <!--    配置mybatis框架中需要的sessionFactory-->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"></property>
+        <property name="mapperLocations" value="classpath:mappers/*Mapper.xml"></property>
+    </bean>
+    <!--    DAO接口所在包名，Spring会自动查找其下的类，包下的类需要使用@MapperScan注解，否则容器注入失败-->
+    <bean id="mapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.school.dao"></property>
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
+    </bean>
+
+    <!--    声明事务配置-->
+    <!-- 配置事务管理器 -->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+    <!-- 配置通知（配置事务执行的方法定义的名称规则） -->
+    <tx:advice id="myAdvice" transaction-manager="transactionManager">
+        <tx:attributes>
+            <tx:method name="update*" propagation="REQUIRED" rollback-for="java.lang.RuntimeException"/>
+            <tx:method name="save*" propagation="REQUIRED" rollback-for="java.lang.RuntimeException"/>
+            <tx:method name="delete*" propagation="REQUIRED" rollback-for="java.lang.RuntimeException"/>
+            <tx:method name="*" propagation="SUPPORTS" read-only="true"/>
+        </tx:attributes>
+    </tx:advice>
+
+    <!--    配置AOP的规则-->
+    <aop:config>
+        <aop:pointcut id="mypc" expression="execution(* com.school.services.*.*(..))"/>
+        <aop:advisor advice-ref="myAdvice" pointcut-ref="mypc"></aop:advisor>
+    </aop:config>
+
+</beans>
