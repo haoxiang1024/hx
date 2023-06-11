@@ -44,10 +44,17 @@ public class SMSController {
             redisService.set("phone", phone);//将手机号存入redis用于验证码校验
             redisService.set("mobile_code", mobile_code); //将验证码存入redis用于验证码校验
             String content = "您的验证码是：" + mobile_code + "。请不要把验证码泄露给其他人。";
+<<<<<<< HEAD
             //发送短信  参考网站 https://user.ihuyi.com/new/login.html
             NameValuePair[] data = {//提交短信
                     new NameValuePair("account", "你的账户"), //查看用户名 登录用户中心->验证码通知短信>产品总览->API接口信息->APIID
                     new NameValuePair("password", "你的密码"), //查看密码 登录用户中心->验证码通知短信>产品总览->API接口信息->APIKEY
+=======
+            //发送短信 api 网站 https://user.ihuyi.com/new/login.html
+            NameValuePair[] data = {//提交短信
+                    new NameValuePair("account", "你自己的用户名"), //查看用户名 登录用户中心->验证码通知短信>产品总览->API接口信息->APIID
+                    new NameValuePair("password", "你自己的密码"), //查看密码 登录用户中心->验证码通知短信>产品总览->API接口信息->APIKEY
+>>>>>>> 431ed57026ba4c31efb56236e2985971708f9c44
                     new NameValuePair("mobile", phone),
                     new NameValuePair("content", content),
             };
