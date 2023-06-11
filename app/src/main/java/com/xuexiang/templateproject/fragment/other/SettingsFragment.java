@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import com.xuexiang.templateproject.R;
 import com.xuexiang.templateproject.core.BaseFragment;
 import com.xuexiang.templateproject.databinding.FragmentSettingsBinding;
+import com.xuexiang.templateproject.fragment.settings.GeneralFragment;
 import com.xuexiang.templateproject.utils.TokenUtils;
 import com.xuexiang.xaop.annotation.SingleClick;
 import com.xuexiang.xpage.annotation.Page;
@@ -46,7 +47,7 @@ public class SettingsFragment extends BaseFragment<FragmentSettingsBinding> impl
         switch (id) {
             case R.id.menu_common:
                 //通用设置页面
-
+                openPage(GeneralFragment.class);
                 break;
             case R.id.menu_privacy:
                 //隐私页面

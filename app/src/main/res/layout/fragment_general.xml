@@ -15,19 +15,19 @@
                 android:orientation="vertical"
                 android:paddingTop="20dp">
                 <com.xuexiang.xui.widget.textview.supertextview.SuperTextView
-                    android:id="@+id/menu_common"
+                    android:id="@+id/menu_night"
                     style="@style/InfoItem.Account"
-                    app:sLeftTextString="上传" />
+                    app:sLeftTextString="夜间模式" />
 
                 <com.xuexiang.xui.widget.textview.supertextview.SuperTextView
-                    android:id="@+id/menu_privacy"
+                    android:id="@+id/menu_font"
                     style="@style/InfoItem.Account"
-                    app:sLeftTextString="多语言" />
-
+                    app:sLeftTextString="字体大小" />
                 <com.xuexiang.xui.widget.textview.supertextview.SuperTextView
-                    android:id="@+id/menu_push"
+                    android:id="@+id/menu_cache"
                     style="@style/InfoItem.Account"
-                    app:sLeftTextString="通知" />
+                    app:sLeftTextString="清除缓存" />
+
 
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>

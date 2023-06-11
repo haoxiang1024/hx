@@ -43,8 +43,7 @@ public class DemoDataProvider  {
             "紧急通知",
             "意见反馈",
             "app闪退",
-            "湖泊",
-            "冰雪",
+            "隐私",
     };
     public static String newsKey = "9fbfe1092fa33bf4bf99d8b6a661963e";//新闻key
     //    public static String newsKey = "bec633393690881151584f0ce9462ecf";//新闻key
@@ -54,9 +53,8 @@ public class DemoDataProvider  {
     public static String[] urls = new String[]{//640*360 360/640=0.5625
             "https://p5.itc.cn/q_70/images03/20211108/6811c0f831614cebbabe194bdf4566cf.jpeg",//紧急通知"
             "https://www.lmlccdn.com/www.lmlc.com.new/cdn/desktop/popular/feedback/img/header.6284a0d800.jpg",//意见反馈
-            "http://192.168.1.107:8080/ssmjjbm/images/exit.jpg",//app闪退
-            "https://www.toopic.cn/public/uploads/small/164274949370716427494923.jpg",//湖泊
-            "https://www.toopic.cn/public/uploads/small/1642749080997164274908080.jpg",//冰雪
+            "https://p8.itc.cn/q_70/images03/20210322/e3b1fd5131054817a2430aee925f86a4.png",//app帮助
+            "https://demons.yirendai.com/introductionPages/image/privacy-icon.png",//隐私
     };
 
     @MemoryCache

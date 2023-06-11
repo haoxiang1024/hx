@@ -37,7 +37,6 @@ import com.xuexiang.xpage.annotation.Page;
 import com.xuexiang.xpage.enums.CoreAnim;
 import com.xuexiang.xui.adapter.recyclerview.RecyclerViewHolder;
 import com.xuexiang.xui.adapter.simple.AdapterItem;
-import com.xuexiang.xui.utils.XToastUtils;
 import com.xuexiang.xui.widget.actionbar.TitleBar;
 import com.xuexiang.xui.widget.banner.widget.banner.BannerItem;
 import com.xuexiang.xui.widget.banner.widget.banner.SimpleImageBanner;
@@ -101,14 +100,20 @@ public class NewsFragment extends BaseFragment<FragmentNewsBinding> {
                         .setOnItemClickListener(new BaseBanner.OnItemClickListener<BannerItem>() {
                             @Override
                             public void onItemClick(View view, BannerItem item, int position) {
-                               switch (item.title){
-                                   case "紧急通知":
-                                       AgentWebActivity.goWeb(getContext(), Utils.rebuildUrl("/pages/notification.html", getContext()));
-                                       break;
-                                   case "意见反馈":
-                                       AgentWebActivity.goWeb(getContext(), Utils.rebuildUrl("/pages/contract.html", getContext()));
-                                       break;
-                               }
+                                switch (item.title) {
+                                    case "紧急通知":
+                                        AgentWebActivity.goWeb(getContext(), Utils.rebuildUrl("/pages/notification.html", getContext()));
+                                        break;
+                                    case "意见反馈":
+                                        AgentWebActivity.goWeb(getContext(), Utils.rebuildUrl("/pages/contract.html", getContext()));
+                                        break;
+                                    case "app闪退":
+                                        AgentWebActivity.goWeb(getContext(), Utils.rebuildUrl("/pages/appcrash.html", getContext()));
+                                        break;
+                                    case "隐私":
+                                        AgentWebActivity.goWeb(getContext(), Utils.rebuildUrl("/pages/privacy.html", getContext()));
+                                        break;
+                                }
 
                             }
                         }).startScroll();
@@ -242,8 +247,6 @@ public class NewsFragment extends BaseFragment<FragmentNewsBinding> {
             }, 1000);
         });
         binding.refreshLayout.autoRefresh();//第一次进入触发自动刷新，演示效果
-
-
     }
 
     //获取新闻信息
@@ -266,14 +269,7 @@ public class NewsFragment extends BaseFragment<FragmentNewsBinding> {
                 });
             }
         }.start();
-
-        //等待网络请求和数据解析完成
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        //返回解析出来的新闻列表
+        //返回解析出来的列表
         return list;
     }
 
@@ -333,7 +329,7 @@ public class NewsFragment extends BaseFragment<FragmentNewsBinding> {
         //返回解析出来的列表
         //等待网络请求和数据解析完成
         try {
-            Thread.sleep(1000);
+            Thread.sleep(500);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
