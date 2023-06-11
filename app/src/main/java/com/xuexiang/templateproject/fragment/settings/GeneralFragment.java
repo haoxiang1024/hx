@@ -2,13 +2,11 @@ package com.xuexiang.templateproject.fragment.settings;
 
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.view.ContextThemeWrapper;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import com.xuexiang.templateproject.R;
 import com.xuexiang.templateproject.core.BaseFragment;
@@ -18,7 +16,7 @@ import com.xuexiang.templateproject.utils.Utils;
 import com.xuexiang.xpage.annotation.Page;
 import com.xuexiang.xui.widget.textview.supertextview.SuperTextView;
 
-@Page(name = "通用设置")
+@Page(name = "通用")
 public class GeneralFragment extends BaseFragment<FragmentGeneralBinding> implements SuperTextView.OnSuperTextViewClickListener {
 
 
@@ -58,20 +56,20 @@ public class GeneralFragment extends BaseFragment<FragmentGeneralBinding> implem
     public void onClick(SuperTextView view) {
         switch (view.getId()) {
             case R.id.menu_night:
-                Activity currentActivity = getActivity();
-                ContextThemeWrapper contextThemeWrapper = new ContextThemeWrapper(currentActivity, currentActivity.getTheme());
-                int currentTheme = contextThemeWrapper.getThemeResId();
-                currentActivity.setTheme(R.style.AppTheme_Dark);
-                currentActivity.recreate();
                 break;
             case R.id.menu_font:
                 //字体大小
+
                 break;
             case R.id.menu_cache:
                 //清除缓存
                 String cacheSize = CacheClean.getTotalCacheSize(getContext());
-                Utils.showResponse("共清理" + cacheSize + "缓存数据");
-                CacheClean.clearAllCache(getContext());
+                if (cacheSize.equals("0.00MB")) {
+                    Utils.showResponse("没有需要清理的缓存");
+                } else {
+                    CacheClean.clearAllCache(getContext());
+                    Utils.showResponse("共清理" + cacheSize + "缓存");
+                }
                 break;
         }
 

@@ -10,20 +10,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a80bac8e-27ad-46de-a48e-9846d84b180b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/xuexiang/templateproject/utils/CacheClean.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/xuexiang/templateproject/fragment/other/ChangeFontSizeFragment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_change_font_size.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.2/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.2/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.2/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.2/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.2/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.2/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.2/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.2/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.2/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/mob_log/mob_build_log_1686468409844" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/mob_log/mob_build_log_1686478976102" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/xuexiang/templateproject/fragment/news/NewsFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/xuexiang/templateproject/fragment/news/NewsFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/xuexiang/templateproject/fragment/other/SettingsFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/xuexiang/templateproject/fragment/other/SettingsFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/xuexiang/templateproject/fragment/settings/GeneralFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/xuexiang/templateproject/fragment/settings/GeneralFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/xuexiang/templateproject/utils/DemoDataProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/xuexiang/templateproject/utils/DemoDataProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_general.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_general.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_search_info.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_search_info.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -31,7 +32,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[D:\android\avd\.android\avd\API_29.avd]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[adb-320915732891-W0OpfP._adb-tls-connect._tcp]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -102,60 +103,60 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "PROJECT_TRUSTED_KEY": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "android-custom-viewD:/android/gradle/caches/modules-2/files-2.1/androidx.appcompat/appcompat/1.4.1/f9e48179ea0c6ac0080a277b9383f74523f56aa2/appcompat-1.4.1-sources.jar!/androidx/appcompat/widget/Toolbar.java_SELECTED": "Toolbar",
-    "android-custom-viewD:/android/gradle/caches/modules-2/files-2.1/androidx.core/core/1.7.0/f1c3685231d49092ae301932de1481d9b7a9e025/core-1.7.0-sources.jar!/androidx/core/widget/NestedScrollView.java_SELECTED": "NestedScrollView",
-    "android-custom-viewD:/android/gradle/caches/modules-2/files-2.1/androidx.drawerlayout/drawerlayout/1.1.1/d95f7d9cd7d95cc0c038bbcf9c65f521b56fee55/drawerlayout-1.1.1-sources.jar!/androidx/drawerlayout/widget/DrawerLayout.java_SELECTED": "DrawerLayout",
-    "android-custom-viewD:/android/gradle/caches/modules-2/files-2.1/androidx.viewpager/viewpager/1.0.0/db045f92188b9d247d5f556866f8861ab68528f0/viewpager-1.0.0-sources.jar!/androidx/viewpager/widget/ViewPager.java_SELECTED": "ViewPager",
-    "android-custom-viewD:/android/gradle/caches/modules-2/files-2.1/androidx.viewpager2/viewpager2/1.0.0/3c3569044e6969f1ee5c3aa03b08e6717a2d782f/viewpager2-1.0.0-sources.jar!/androidx/viewpager2/widget/ViewPager2.java_SELECTED": "ViewPager2",
-    "android-custom-viewD:/android/gradle/caches/modules-2/files-2.1/com.github.xuexiangjys.SmartRefreshLayout/refresh-header/1.1.5/9aacc995c29880aa1bbc492c84bc4b00dc283699/refresh-header-1.1.5-sources.jar!/com/scwang/smartrefresh/header/MaterialHeader.java_SELECTED": "MaterialHeader",
-    "android-custom-viewD:/android/gradle/caches/modules-2/files-2.1/com.github.xuexiangjys.SmartRefreshLayout/refresh-layout/1.1.5/f9085453c80c4267f607deafedf28a276fde994f/refresh-layout-1.1.5-sources.jar!/com/scwang/smartrefresh/layout/SmartRefreshLayout.java_SELECTED": "SmartRefreshLayout",
-    "android-custom-viewD:/android/gradle/caches/modules-2/files-2.1/com.github.xuexiangjys/XUI/1.2.0/adac885a70e914da24c613b075b47dc14c4d4923/XUI-1.2.0-sources.jar!/com/xuexiang/xui/widget/actionbar/TitleBar.java_SELECTED": "TitleBar",
-    "android-custom-viewD:/android/gradle/caches/modules-2/files-2.1/com.github.xuexiangjys/XUI/1.2.0/adac885a70e914da24c613b075b47dc14c4d4923/XUI-1.2.0-sources.jar!/com/xuexiang/xui/widget/alpha/XUIAlphaTextView.java_SELECTED": "XUIAlphaTextView",
-    "android-custom-viewD:/android/gradle/caches/modules-2/files-2.1/com.github.xuexiangjys/XUI/1.2.0/adac885a70e914da24c613b075b47dc14c4d4923/XUI-1.2.0-sources.jar!/com/xuexiang/xui/widget/banner/widget/banner/base/BaseBanner.java_SELECTED": "BaseBanner",
-    "android-custom-viewD:/android/gradle/caches/modules-2/files-2.1/com.github.xuexiangjys/XUI/1.2.0/adac885a70e914da24c613b075b47dc14c4d4923/XUI-1.2.0-sources.jar!/com/xuexiang/xui/widget/edittext/materialedittext/MaterialEditText.java_SELECTED": "MaterialEditText",
-    "android-custom-viewD:/android/gradle/caches/modules-2/files-2.1/com.github.xuexiangjys/XUI/1.2.0/adac885a70e914da24c613b075b47dc14c4d4923/XUI-1.2.0-sources.jar!/com/xuexiang/xui/widget/grouplist/XUIGroupListView.java_SELECTED": "XUIGroupListView",
-    "android-custom-viewD:/android/gradle/caches/modules-2/files-2.1/com.github.xuexiangjys/XUI/1.2.0/adac885a70e914da24c613b075b47dc14c4d4923/XUI-1.2.0-sources.jar!/com/xuexiang/xui/widget/layout/XUIFrameLayout.java_SELECTED": "XUIFrameLayout",
-    "android-custom-viewD:/android/gradle/caches/modules-2/files-2.1/com.github.xuexiangjys/XUI/1.2.0/adac885a70e914da24c613b075b47dc14c4d4923/XUI-1.2.0-sources.jar!/com/xuexiang/xui/widget/textview/supertextview/SuperTextView.java_SELECTED": "SuperTextView",
-    "android-custom-viewD:/android/gradle/caches/modules-2/files-2.1/com.google.android.material/material/1.4.0/51035a8f6342c20d4d8f242d100e6f25e0c271ac/material-1.4.0-sources.jar!/com/google/android/material/tabs/TabLayout.java_SELECTED": "TabLayout",
-    "android-custom-viewD:/android/gradle/caches/modules-2/files-2.1/com.google.android.material/material/1.5.0/8d3b87c7463f55053836b805e014cb238f64757a/material-1.5.0-sources.jar!/com/google/android/material/navigation/NavigationView.java_SELECTED": "NavigationView",
-    "android-custom-viewD:/android/project/SchoolHelper/app/src/main/java/com/xuexiang/templateproject/widget/MaterialFooter.java_SELECTED": "MaterialFooter",
-    "android-custom-viewD:/android/sdk/sources/android-29/android/view/View.java_SELECTED": "View",
-    "android-custom-viewD:/android/sdk/sources/android-29/android/view/ViewGroup.java_SELECTED": "ViewGroup",
-    "android-custom-viewD:/android/sdk/sources/android-29/android/widget/ListView.java_SELECTED": "ListView",
-    "android-custom-viewD:/android/sdk/sources/android-31/android/view/View.java_SELECTED": "View",
-    "android-custom-viewD:/android/sdk/sources/android-31/android/view/ViewGroup.java_SELECTED": "ViewGroup",
-    "android-custom-viewD:/android/sdk/sources/android-31/android/widget/AbsListView.java_SELECTED": "AbsListView",
-    "android-custom-viewD:/android/sdk/sources/android-31/android/widget/AdapterView.java_SELECTED": "AdapterView",
-    "android-custom-viewD:/android/sdk/sources/android-31/android/widget/CompoundButton.java_SELECTED": "CompoundButton",
-    "android-custom-viewD:/android/sdk/sources/android-31/android/widget/EditText.java_SELECTED": "EditText",
-    "android-custom-viewD:/android/sdk/sources/android-31/android/widget/ListView.java_SELECTED": "ListView",
-    "android-custom-viewD:/android/sdk/sources/android-31/android/widget/RadioGroup.java_SELECTED": "RadioGroup",
-    "android-custom-viewD:/android/sdk/sources/android-31/android/widget/RelativeLayout.java_SELECTED": "RelativeLayout",
-    "android-custom-viewD:/android/sdk/sources/android-31/android/widget/ScrollView.java_SELECTED": "ScrollView",
-    "android-custom-viewD:/android/sdk/sources/android-31/android/widget/TextView.java_SELECTED": "TextView",
-    "cidr.known.project.marker": "true",
-    "dart.analysis.tool.window.visible": "false",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.17",
-    "project.structure.side.proportion": "0.2",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "preferences.sourceCode.Java",
-    "show.migrate.to.gradle.popup": "false"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;PROJECT_TRUSTED_KEY&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;android-custom-viewD:/android/gradle/caches/modules-2/files-2.1/androidx.appcompat/appcompat/1.4.1/f9e48179ea0c6ac0080a277b9383f74523f56aa2/appcompat-1.4.1-sources.jar!/androidx/appcompat/widget/Toolbar.java_SELECTED&quot;: &quot;Toolbar&quot;,
+    &quot;android-custom-viewD:/android/gradle/caches/modules-2/files-2.1/androidx.core/core/1.7.0/f1c3685231d49092ae301932de1481d9b7a9e025/core-1.7.0-sources.jar!/androidx/core/widget/NestedScrollView.java_SELECTED&quot;: &quot;NestedScrollView&quot;,
+    &quot;android-custom-viewD:/android/gradle/caches/modules-2/files-2.1/androidx.drawerlayout/drawerlayout/1.1.1/d95f7d9cd7d95cc0c038bbcf9c65f521b56fee55/drawerlayout-1.1.1-sources.jar!/androidx/drawerlayout/widget/DrawerLayout.java_SELECTED&quot;: &quot;DrawerLayout&quot;,
+    &quot;android-custom-viewD:/android/gradle/caches/modules-2/files-2.1/androidx.viewpager/viewpager/1.0.0/db045f92188b9d247d5f556866f8861ab68528f0/viewpager-1.0.0-sources.jar!/androidx/viewpager/widget/ViewPager.java_SELECTED&quot;: &quot;ViewPager&quot;,
+    &quot;android-custom-viewD:/android/gradle/caches/modules-2/files-2.1/androidx.viewpager2/viewpager2/1.0.0/3c3569044e6969f1ee5c3aa03b08e6717a2d782f/viewpager2-1.0.0-sources.jar!/androidx/viewpager2/widget/ViewPager2.java_SELECTED&quot;: &quot;ViewPager2&quot;,
+    &quot;android-custom-viewD:/android/gradle/caches/modules-2/files-2.1/com.github.xuexiangjys.SmartRefreshLayout/refresh-header/1.1.5/9aacc995c29880aa1bbc492c84bc4b00dc283699/refresh-header-1.1.5-sources.jar!/com/scwang/smartrefresh/header/MaterialHeader.java_SELECTED&quot;: &quot;MaterialHeader&quot;,
+    &quot;android-custom-viewD:/android/gradle/caches/modules-2/files-2.1/com.github.xuexiangjys.SmartRefreshLayout/refresh-layout/1.1.5/f9085453c80c4267f607deafedf28a276fde994f/refresh-layout-1.1.5-sources.jar!/com/scwang/smartrefresh/layout/SmartRefreshLayout.java_SELECTED&quot;: &quot;SmartRefreshLayout&quot;,
+    &quot;android-custom-viewD:/android/gradle/caches/modules-2/files-2.1/com.github.xuexiangjys/XUI/1.2.0/adac885a70e914da24c613b075b47dc14c4d4923/XUI-1.2.0-sources.jar!/com/xuexiang/xui/widget/actionbar/TitleBar.java_SELECTED&quot;: &quot;TitleBar&quot;,
+    &quot;android-custom-viewD:/android/gradle/caches/modules-2/files-2.1/com.github.xuexiangjys/XUI/1.2.0/adac885a70e914da24c613b075b47dc14c4d4923/XUI-1.2.0-sources.jar!/com/xuexiang/xui/widget/alpha/XUIAlphaTextView.java_SELECTED&quot;: &quot;XUIAlphaTextView&quot;,
+    &quot;android-custom-viewD:/android/gradle/caches/modules-2/files-2.1/com.github.xuexiangjys/XUI/1.2.0/adac885a70e914da24c613b075b47dc14c4d4923/XUI-1.2.0-sources.jar!/com/xuexiang/xui/widget/banner/widget/banner/base/BaseBanner.java_SELECTED&quot;: &quot;BaseBanner&quot;,
+    &quot;android-custom-viewD:/android/gradle/caches/modules-2/files-2.1/com.github.xuexiangjys/XUI/1.2.0/adac885a70e914da24c613b075b47dc14c4d4923/XUI-1.2.0-sources.jar!/com/xuexiang/xui/widget/edittext/materialedittext/MaterialEditText.java_SELECTED&quot;: &quot;MaterialEditText&quot;,
+    &quot;android-custom-viewD:/android/gradle/caches/modules-2/files-2.1/com.github.xuexiangjys/XUI/1.2.0/adac885a70e914da24c613b075b47dc14c4d4923/XUI-1.2.0-sources.jar!/com/xuexiang/xui/widget/grouplist/XUIGroupListView.java_SELECTED&quot;: &quot;XUIGroupListView&quot;,
+    &quot;android-custom-viewD:/android/gradle/caches/modules-2/files-2.1/com.github.xuexiangjys/XUI/1.2.0/adac885a70e914da24c613b075b47dc14c4d4923/XUI-1.2.0-sources.jar!/com/xuexiang/xui/widget/layout/XUIFrameLayout.java_SELECTED&quot;: &quot;XUIFrameLayout&quot;,
+    &quot;android-custom-viewD:/android/gradle/caches/modules-2/files-2.1/com.github.xuexiangjys/XUI/1.2.0/adac885a70e914da24c613b075b47dc14c4d4923/XUI-1.2.0-sources.jar!/com/xuexiang/xui/widget/textview/supertextview/SuperTextView.java_SELECTED&quot;: &quot;SuperTextView&quot;,
+    &quot;android-custom-viewD:/android/gradle/caches/modules-2/files-2.1/com.google.android.material/material/1.4.0/51035a8f6342c20d4d8f242d100e6f25e0c271ac/material-1.4.0-sources.jar!/com/google/android/material/tabs/TabLayout.java_SELECTED&quot;: &quot;TabLayout&quot;,
+    &quot;android-custom-viewD:/android/gradle/caches/modules-2/files-2.1/com.google.android.material/material/1.5.0/8d3b87c7463f55053836b805e014cb238f64757a/material-1.5.0-sources.jar!/com/google/android/material/navigation/NavigationView.java_SELECTED&quot;: &quot;NavigationView&quot;,
+    &quot;android-custom-viewD:/android/project/SchoolHelper/app/src/main/java/com/xuexiang/templateproject/widget/MaterialFooter.java_SELECTED&quot;: &quot;MaterialFooter&quot;,
+    &quot;android-custom-viewD:/android/sdk/sources/android-29/android/view/View.java_SELECTED&quot;: &quot;View&quot;,
+    &quot;android-custom-viewD:/android/sdk/sources/android-29/android/view/ViewGroup.java_SELECTED&quot;: &quot;ViewGroup&quot;,
+    &quot;android-custom-viewD:/android/sdk/sources/android-29/android/widget/ListView.java_SELECTED&quot;: &quot;ListView&quot;,
+    &quot;android-custom-viewD:/android/sdk/sources/android-31/android/view/View.java_SELECTED&quot;: &quot;View&quot;,
+    &quot;android-custom-viewD:/android/sdk/sources/android-31/android/view/ViewGroup.java_SELECTED&quot;: &quot;ViewGroup&quot;,
+    &quot;android-custom-viewD:/android/sdk/sources/android-31/android/widget/AbsListView.java_SELECTED&quot;: &quot;AbsListView&quot;,
+    &quot;android-custom-viewD:/android/sdk/sources/android-31/android/widget/AdapterView.java_SELECTED&quot;: &quot;AdapterView&quot;,
+    &quot;android-custom-viewD:/android/sdk/sources/android-31/android/widget/CompoundButton.java_SELECTED&quot;: &quot;CompoundButton&quot;,
+    &quot;android-custom-viewD:/android/sdk/sources/android-31/android/widget/EditText.java_SELECTED&quot;: &quot;EditText&quot;,
+    &quot;android-custom-viewD:/android/sdk/sources/android-31/android/widget/ListView.java_SELECTED&quot;: &quot;ListView&quot;,
+    &quot;android-custom-viewD:/android/sdk/sources/android-31/android/widget/RadioGroup.java_SELECTED&quot;: &quot;RadioGroup&quot;,
+    &quot;android-custom-viewD:/android/sdk/sources/android-31/android/widget/RelativeLayout.java_SELECTED&quot;: &quot;RelativeLayout&quot;,
+    &quot;android-custom-viewD:/android/sdk/sources/android-31/android/widget/ScrollView.java_SELECTED&quot;: &quot;ScrollView&quot;,
+    &quot;android-custom-viewD:/android/sdk/sources/android-31/android/widget/TextView.java_SELECTED&quot;: &quot;TextView&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.17&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.Java&quot;,
+    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
   },
-  "keyToStringList": {
-    "android-custom-viewD:/android/sdk/sources/android-31/android/widget/TextView.java_TextView_DIMENSIONS": [
-      "1080",
-      "1920"
+  &quot;keyToStringList&quot;: {
+    &quot;android-custom-viewD:/android/sdk/sources/android-31/android/widget/TextView.java_TextView_DIMENSIONS&quot;: [
+      &quot;1080&quot;,
+      &quot;1920&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="PsdUISettings">
     <option name="LAST_EDITED_BUILD_TYPE" value="release" />
   </component>

@@ -119,4 +119,6 @@
     <string name="read">阅读量 123</string>
     <string name="key">搜索标题、地点或状态</string>
     <string name="search">搜索</string>
+    <string name="save">保存更改</string>
+    <string name="hello_world">Hello, World!</string>
 </resources>
