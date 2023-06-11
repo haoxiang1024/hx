@@ -27,6 +27,7 @@ import com.xuexiang.templateproject.fragment.navigation.FoundFragment;
 import com.xuexiang.templateproject.fragment.navigation.LostFragment;
 import com.xuexiang.templateproject.fragment.navigation.content.FoundDetailFragment;
 import com.xuexiang.templateproject.fragment.navigation.content.LostDetailFragment;
+import com.xuexiang.templateproject.fragment.other.SearchFragment;
 import com.xuexiang.templateproject.utils.DemoDataProvider;
 import com.xuexiang.templateproject.utils.Utils;
 import com.xuexiang.templateproject.utils.internet.OkHttpCallback;
@@ -38,7 +39,9 @@ import com.xuexiang.xui.adapter.recyclerview.RecyclerViewHolder;
 import com.xuexiang.xui.adapter.simple.AdapterItem;
 import com.xuexiang.xui.utils.XToastUtils;
 import com.xuexiang.xui.widget.actionbar.TitleBar;
+import com.xuexiang.xui.widget.banner.widget.banner.BannerItem;
 import com.xuexiang.xui.widget.banner.widget.banner.SimpleImageBanner;
+import com.xuexiang.xui.widget.banner.widget.banner.base.BaseBanner;
 import com.xuexiang.xui.widget.imageview.ImageLoader;
 import com.xuexiang.xui.widget.imageview.RadiusImageView;
 
@@ -95,7 +98,20 @@ public class NewsFragment extends BaseFragment<FragmentNewsBinding> {
             public void onBindViewHolder(@NonNull RecyclerViewHolder holder, int position) {
                 SimpleImageBanner banner = holder.findViewById(R.id.sib_simple_usage);
                 banner.setSource(DemoDataProvider.getBannerList())
-                        .setOnItemClickListener((view, item, position1) -> XToastUtils.toast("" + item.title)).startScroll();
+                        .setOnItemClickListener(new BaseBanner.OnItemClickListener<BannerItem>() {
+                            @Override
+                            public void onItemClick(View view, BannerItem item, int position) {
+                               switch (item.title){
+                                   case "紧急通知":
+                                       AgentWebActivity.goWeb(getContext(), Utils.rebuildUrl("/pages/notification.html", getContext()));
+                                       break;
+                                   case "意见反馈":
+                                       AgentWebActivity.goWeb(getContext(), Utils.rebuildUrl("/pages/contract.html", getContext()));
+                                       break;
+                               }
+
+                            }
+                        }).startScroll();
             }
         };
 
@@ -125,8 +141,9 @@ public class NewsFragment extends BaseFragment<FragmentNewsBinding> {
                                 openNewPage(FoundFragment.class, FoundFragment.KEY_TITLE_NAME, title);
                                 break;
                             case "搜索":
+                                openNewPage(SearchFragment.class);
                                 break;
-                            case "意见反馈":
+                            case "意见":
                                 AgentWebActivity.goWeb(getContext(), Utils.rebuildUrl("/pages/contract.html", getContext()));
                                 break;
                         }

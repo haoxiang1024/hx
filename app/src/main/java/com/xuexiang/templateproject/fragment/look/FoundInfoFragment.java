@@ -75,6 +75,11 @@ public class FoundInfoFragment extends BaseFragment<FragmentFoundInfoBinding> im
                     public void onResponse(Call call, Response response) throws IOException {
                         super.onResponse(call, response);
                         getActivity().runOnUiThread(FoundInfoFragment.this::stopAnim);//结束加载动画
+                        //没有发布信息
+                        if (JsonOperate.getValue(result, "msg").equals("还未发布任何信息")) {
+                            Utils.showResponse("还未发布任何信息");
+                            return;
+                        }
                         getActivity().runOnUiThread(() -> setAdapter(result));//设置适配器
                     }
                 });

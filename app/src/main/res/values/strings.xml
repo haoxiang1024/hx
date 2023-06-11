@@ -117,4 +117,6 @@
     <string name="good">点赞</string>
     <string name="commont">评论</string>
     <string name="read">阅读量 123</string>
+    <string name="key">搜索标题、地点或状态</string>
+    <string name="search">搜索</string>
 </resources>

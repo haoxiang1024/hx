@@ -225,7 +225,7 @@ public final class Utils {
         String url = properties.getProperty("url");
         //改造url
         if (url != null) {
-            endUrl = String.valueOf(url + reurl);
+            endUrl = url + reurl;
         }
         return endUrl;
     }

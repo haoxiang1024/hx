@@ -40,9 +40,9 @@ public class DemoDataProvider  {
     private static final int MSG_GET_NEWS_LIST_SUCCESS = 1;
 
     public static String[] titles = new String[]{
-            "江景",
-            "雪山",
-            "蓝天",
+            "紧急通知",
+            "意见反馈",
+            "app闪退",
             "湖泊",
             "冰雪",
     };
@@ -52,9 +52,9 @@ public class DemoDataProvider  {
     public static String APPSECRET = "b0MwcllXNVB4eHdBaDN1cFFqQmR0QT09";//新闻接口密钥
 
     public static String[] urls = new String[]{//640*360 360/640=0.5625
-            "https://www.toopic.cn/public/uploads/small/1642749405357164274940535.jpg",//江景"
-            "https://www.toopic.cn/public/uploads/small/1642749399720164274939972.jpg",//雪山
-            "https://www.toopic.cn/public/uploads/small/1658043801505165804380122.jpg",//蓝天
+            "https://p5.itc.cn/q_70/images03/20211108/6811c0f831614cebbabe194bdf4566cf.jpeg",//紧急通知"
+            "https://www.lmlccdn.com/www.lmlc.com.new/cdn/desktop/popular/feedback/img/header.6284a0d800.jpg",//意见反馈
+            "http://192.168.1.107:8080/ssmjjbm/images/exit.jpg",//app闪退
             "https://www.toopic.cn/public/uploads/small/164274949370716427494923.jpg",//湖泊
             "https://www.toopic.cn/public/uploads/small/1642749080997164274908080.jpg",//冰雪
     };

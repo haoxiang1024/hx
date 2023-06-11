@@ -30,6 +30,7 @@ import com.xuexiang.templateproject.core.BaseFragment;
 import com.xuexiang.templateproject.databinding.ActivityMainBinding;
 import com.xuexiang.templateproject.fragment.news.NewsFragment;
 import com.xuexiang.templateproject.fragment.other.AboutFragment;
+import com.xuexiang.templateproject.fragment.other.SearchFragment;
 import com.xuexiang.templateproject.fragment.other.SettingsFragment;
 import com.xuexiang.templateproject.fragment.profile.ProfileFragment;
 import com.xuexiang.templateproject.fragment.profile.user.AccountFragment;
@@ -99,10 +100,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> implements V
     }
 
     private void initData() {
-        // GuideTipsDialog.showTips(this);
         XUpdateInit.checkUpdate(this, false);
-
-
     }
 
 
@@ -180,18 +178,21 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> implements V
 
         //侧边栏点击事件
         binding.navView.setNavigationItemSelectedListener(menuItem -> {
+            //判断菜单是否有选中行为的菜单项有则切换,无则打开页面
             if (menuItem.isCheckable()) {
-                binding.drawerLayout.closeDrawers();
-                return handleNavigationItemSelected(menuItem);
+                binding.drawerLayout.closeDrawers();//关闭抽屉
+                return handleNavigationItemSelected(menuItem);//打开被选中项
             } else {
                 int id = menuItem.getItemId();
                 if (id == R.id.nav_settings) {
+                    //设置页
                     openNewPage(SettingsFragment.class);
                 } else if (id == R.id.nav_about) {
+                    //关于页
                     openNewPage(AboutFragment.class);
-                } else if (id==R.id.nav_search) {
-
-
+                } else if (id == R.id.nav_search) {
+                    //搜索页
+                    openNewPage(SearchFragment.class);
                 }
             }
             return true;
