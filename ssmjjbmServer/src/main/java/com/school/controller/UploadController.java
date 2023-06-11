@@ -35,10 +35,6 @@ public class UploadController {
     public ServerResponse upload(MultipartFile upload_file, String lostJson, String foundJson, String op) throws IOException {
         String fileName = upload_file.getOriginalFilename();
         String filePath = System.getProperty("catalina.home") + File.separator + "webapps\\images" + File.separator + fileName;
-//        String filePath = session.getServletContext().getRealPath("/");
-//        //对文件路径进行修改
-//        String delString = "target\\ssmjjbm\\";
-//        String endPath = filePath.replace(delString, "") + "/src/main/webapp/images/" + fileName;
         File dest = new File(filePath);
         upload_file.transferTo(dest);
         //判断是丢失or招领

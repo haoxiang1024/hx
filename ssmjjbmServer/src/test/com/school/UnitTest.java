@@ -1,10 +1,7 @@
 package com.school;
 
 import com.alibaba.fastjson.JSON;
-import com.school.dao.FoundDao;
-import com.school.dao.LostDao;
-import com.school.dao.LostFoundDao;
-import com.school.dao.UserDao;
+import com.school.dao.*;
 import com.school.entity.Found;
 import com.school.entity.Lost;
 import com.school.entity.Lostfoundtype;
@@ -13,6 +10,7 @@ import com.school.services.impl.FoundDatailService;
 import com.school.services.impl.LostDetailService;
 import com.school.services.impl.LostFoundTypeService;
 import com.school.services.impl.UserService;
+import com.school.services.interfaces.SearchNeedInfo;
 import com.school.utils.DateUtil;
 import com.school.utils.RedisService;
 import com.school.utils.Util;
@@ -53,6 +51,10 @@ public class UnitTest {
     private LostDao lostDao;
     @Resource
     private FoundDatailService foundDatailService;
+    @Resource
+    private SearchDao searchDao;
+    @Resource
+    private SearchNeedInfo searchNeedInfo;
 
     @Test
     public void type() {
@@ -243,8 +245,7 @@ public class UnitTest {
     }
 
     @Test
-    public void lost() {
-        System.err.println(foundDatailService.showFoundList(0));
-
+    public void search() {
+        System.err.println(searchNeedInfo.searchInfo("教学楼"));
     }
 }
