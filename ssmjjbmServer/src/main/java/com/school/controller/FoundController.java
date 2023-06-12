@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class FoundController {
@@ -36,9 +38,23 @@ public class FoundController {
         //获取标题id
         int id = 0;
         List<Lostfoundtype> lostfoundtypes = lostFoundDao.GetAll();
+        //中英文转换
+        String[] en = {"Digital Devices", "Certificates", "Daily Necessities", "Clothing and Apparel", "Other"};
+        String[] cn = {"数码设备", "证件", "日用品", "服饰", "其他"};
+        Map<String, String> map = new HashMap<>();//建立关系
+        for (int i = 0; i < en.length; i++) {
+            map.put(en[i], cn[i]);
+        }
         for (Lostfoundtype lostfoundtype : lostfoundtypes) {
             if (lostfoundtype.getName().equals(title)) {
+                //中文
                 id = lostfoundtype.getId();
+            } else {
+                //英文
+                String cnValue = map.get(title);
+                if (lostfoundtype.getName().equals(cnValue)) {
+                    id = lostfoundtype.getId();
+                }
             }
         }
         ServerResponse foundDetailList = foundDetail.getFoundDetailList(id);
