@@ -2,4 +2,4 @@ mian分支为校园助手服务端,校园助手app客户端在master分支
 
 服务端文档在jjbm-master\Server\ssmjjbmServer目录下
 
-客户端在SchoolHelper目录下
+客户端文档在SchoolHelper目录下
