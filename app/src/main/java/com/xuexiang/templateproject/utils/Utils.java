@@ -249,7 +249,7 @@ public final class Utils {
             String ObjStr = Base64.encodeToString(bytes, Base64.DEFAULT);
             SharedPreferences.Editor editor = preferences.edit();
             editor.putString(keyName, ObjStr);
-            editor.commit();
+            editor.apply();
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
@@ -275,9 +275,7 @@ public final class Utils {
             bis = new ByteArrayInputStream(bytes);
             ois = new ObjectInputStream(bis);
             obj = (T) ois.readObject();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         } finally {
             if (ois != null) {

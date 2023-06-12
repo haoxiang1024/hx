@@ -4,12 +4,13 @@ import static com.xuexiang.xutil.app.ActivityUtils.startActivity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Build;
+import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
-import android.util.Log;
 
 import com.xuexiang.templateproject.adapter.entity.User;
 import com.xuexiang.templateproject.utils.internet.OkHttpCallback;
@@ -36,6 +37,7 @@ public class LanguageUtil {
     private static final String ENGLISH = "en";
     private static final String CHINESE = "ch";
     private static final String TRADITIONAL_CHINESE = "zh_rTW";
+    public static final String LANG_KEY = "language";
     private static HashMap<String, Locale> languagesList = new HashMap<String, Locale>(3) {{
         put(ENGLISH, Locale.ENGLISH);
         put(CHINESE, Locale.CHINESE);
@@ -61,7 +63,11 @@ public class LanguageUtil {
         }
         DisplayMetrics dm = resources.getDisplayMetrics();
         resources.updateConfiguration(configuration, dm);
-        //finish();
+        // 保存语言设置
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(activity);
+        SharedPreferences.Editor editor = sp.edit();
+        editor.putString(LANG_KEY, language);
+        editor.apply();
         // 重启app
         User user = Utils.getBeanFromSp(activity, "User", "user");//获取存储对象
         String phone = user.getPhone();

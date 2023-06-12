@@ -21,6 +21,7 @@ import com.xuexiang.templateproject.activity.MainActivity;
 import com.xuexiang.templateproject.core.BaseFragment;
 import com.xuexiang.templateproject.databinding.FragmentLoginBinding;
 import com.xuexiang.templateproject.utils.SettingUtils;
+import com.xuexiang.templateproject.utils.TokenUtils;
 import com.xuexiang.templateproject.utils.Utils;
 import com.xuexiang.templateproject.utils.internet.OkHttpCallback;
 import com.xuexiang.templateproject.utils.internet.OkhttpUtils;
@@ -268,9 +269,10 @@ public class LoginFragment extends BaseFragment<FragmentLoginBinding> implements
                     public void onResponse(Call call, Response response) throws IOException {
                         super.onResponse(call, response);
                         loginMsg = JsonOperate.getValue(result, "data");
+                        //设置令牌
+                        TokenUtils.setToken("login_token");
                         Intent intent = new Intent(getContext(), MainActivity.class);
                         intent.putExtra("loginMsg", loginMsg);
-                        popToBack();
                         startActivity(intent);
                     }
 
@@ -283,6 +285,11 @@ public class LoginFragment extends BaseFragment<FragmentLoginBinding> implements
                 });
             }
         }.start();
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
