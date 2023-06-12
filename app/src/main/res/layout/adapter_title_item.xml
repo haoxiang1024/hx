@@ -14,7 +14,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="start|center_vertical"
         android:paddingStart="16dp"
-        android:paddingEnd="16dp"
-        tools:text="标题" />
+        android:paddingEnd="16dp" android:text="@string/recommendation"/>
 
 </FrameLayout>

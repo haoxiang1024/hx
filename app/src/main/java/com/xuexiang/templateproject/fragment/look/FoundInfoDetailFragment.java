@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import androidx.annotation.NonNull;
 
 import com.bumptech.glide.Glide;
+import com.xuexiang.templateproject.R;
 import com.xuexiang.templateproject.adapter.entity.Found;
 import com.xuexiang.templateproject.core.BaseFragment;
 import com.xuexiang.templateproject.databinding.FragmentFoundInfoDetailBinding;
@@ -26,7 +27,7 @@ import java.util.Arrays;
 import okhttp3.Call;
 import okhttp3.Response;
 
-@Page(name = "招领详情")
+@Page()
 public class FoundInfoDetailFragment extends BaseFragment<FragmentFoundInfoDetailBinding> {
 
     public static final String KEY_FOUND = "found";
@@ -42,6 +43,14 @@ public class FoundInfoDetailFragment extends BaseFragment<FragmentFoundInfoDetai
     protected void initArgs() {
         super.initArgs();
         XRouter.getInstance().inject(this);
+    }
+
+    /**
+     * 获取页面标题
+     */
+    @Override
+    protected String getPageTitle() {
+        return getResources().getString(R.string.found_info_detail);
     }
 
     /**

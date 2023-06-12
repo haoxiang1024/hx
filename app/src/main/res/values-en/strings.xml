@@ -5,9 +5,9 @@
     <string name="navigation_drawer_open">Side menu</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
-    <string name="menu_news">News</string>
-    <string name="menu_trending">Trending</string>
-    <string name="menu_profile">Profile</string>
+    <string name="menu_news">Dynamic</string>
+    <string name="menu_trending">Look</string>
+    <string name="menu_profile">Personal Center</string>
 
     <string name="menu_notifications">Notifications</string>
     <string name="menu_issues">Issues</string>
@@ -15,6 +15,7 @@
     <string name="menu_search">Search</string>
     <string name="menu_settings">Settings</string>
     <string name="menu_about">About</string>
+    <string name="recommendation">recommendation</string>
 
     <string name="about_copyright">© %1$s Campus Assistant All rights reserved.</string>
     <string name="about_item_homepage">Visit official website</string>
@@ -43,7 +44,7 @@
 
     <!-- Login -->
     <string name="title_login_register">Login/Register</string>
-    <string name="action_get_verify_code">Get Verification Code</string>
+    <string name="action_get_verify_code">Get Code</string>
     <string name="title_login">Login</string>
     <string name="title_login_by_verify_code">Login by Verification Code</string>
     <string name="title_register">Register</string>
@@ -95,8 +96,8 @@
     <string name="title">Lost and Found Title</string>
     <string name="content">Content</string>
     <string name="loation">Location</string>
-    <string name="loster">Publisher:</string>
-    <string name="contract">Contact Information:</string>
+    <string name="loster">Publish:</string>
+    <string name="contract">Contact:</string>
     <string name="submit">Submit</string>
     <string name="todo">TODO</string>
     <string name="founttitle">Found Item Title</string>
@@ -117,4 +118,35 @@
     <string name="good">Like</string>
     <string name="commont">Comment</string>
     <string name="read">Number of reading 123</string>
+
+    <string name="key">Search for titles, locations or statuses.</string>
+    <string name="search">Search</string>
+    <string name="save">Save changes</string>
+    <string name="hello_world">Hello, World!</string>
+    <string name="text">After setting, font size in all modules will be changed. If there are any problems or suggestions during use, please provide feedback to us.</string>
+<!--页面标题-->
+    <string name="detail">Detail</string>
+    <string name="send_lost_info">Post Lost Info</string>
+    <string name="send_found_info">Post Found Info</string>
+    <string name="lost_info">LostInfo</string>
+    <string name="lost_info_detail">LostDetail</string>
+    <string name="found_info">Found Info</string>
+    <string name="found_info_detail">Found Detail</string>
+    <string name="update_photo">Update Photo</string>
+    <string name="ac">Account</string>
+    <string name="notification">Notification</string>
+    <string name="help">HelpFeedback</string>
+    <string name="setting">Settings</string>
+    <string name="about">About Us</string>
+    <string name="generalsetting">General Setting</string>
+    <string name="photo">Photo</string>
+    <string name="crash">How to solve the app crash issue of Campus Assistant?</string>
+    <string name="ac_problem">Phone number/Account Problems</string>
+    <string name="how_protect">How to Protect User Privacy</string>
+    <string name="common">Common</string>
+    <string name="privacy">Privacy</string>
+    <string name="notifications">Notification</string>
+    <string name="switch_account">Switch Account</string>
+    <string name="logout">Logout</string>
+
 </resources>

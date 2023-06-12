@@ -151,7 +151,7 @@
                             android:textSize="15sp" />
 
                         <TextView
-                            android:layout_marginStart="65dp"
+                            android:layout_marginStart="80dp"
                             android:id="@+id/author_name"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"

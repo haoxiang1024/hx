@@ -18,24 +18,24 @@
                 <com.xuexiang.xui.widget.textview.supertextview.SuperTextView
                     android:id="@+id/menu_common"
                     style="@style/InfoItem.Account"
-                    app:sLeftTextString="通用" />
+                    app:sLeftTextString="@string/common" />
 
                 <com.xuexiang.xui.widget.textview.supertextview.SuperTextView
                     android:id="@+id/menu_privacy"
                     style="@style/InfoItem.Account"
-                    app:sLeftTextString="隐私" />
+                    app:sLeftTextString="@string/privacy" />
 
                 <com.xuexiang.xui.widget.textview.supertextview.SuperTextView
                     android:id="@+id/menu_push"
                     style="@style/InfoItem.Account"
-                    app:sLeftTextString="通知" />
+                    app:sLeftTextString="@string/notifications" />
 
 
                 <com.xuexiang.xui.widget.textview.supertextview.SuperTextView
                     android:id="@+id/menu_change_account"
                     style="@style/InfoItem"
                     android:layout_marginTop="16dp"
-                    app:sCenterTextString="切换账号"
+                    app:sCenterTextString="@string/switch_account"
                     app:sDividerLineType="none" />
 
                 <com.xuexiang.xui.widget.textview.supertextview.SuperTextView
@@ -43,7 +43,7 @@
                     style="@style/InfoItem"
                     android:layout_marginTop="16dp"
                     app:sCenterTextColor="@color/xui_config_color_red"
-                    app:sCenterTextString="退出登录"
+                    app:sCenterTextString="@string/logout"
                     app:sDividerLineType="none" />
 
             </LinearLayout>

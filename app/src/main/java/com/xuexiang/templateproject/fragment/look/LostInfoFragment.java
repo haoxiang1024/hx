@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 
+import com.xuexiang.templateproject.R;
 import com.xuexiang.templateproject.adapter.entity.Lost;
 import com.xuexiang.templateproject.adapter.entity.User;
 import com.xuexiang.templateproject.adapter.lostandfoundnav.LostDetailAdapter;
@@ -26,7 +27,7 @@ import okhttp3.Call;
 import okhttp3.Response;
 
 //显示失物信息页
-@Page(name = "失物信息")
+@Page()
 public class LostInfoFragment extends BaseFragment<FragmentLostInfoBinding> {
     private LostDetailAdapter lostDetailAdapter;//丢失物品详情adapter
 
@@ -53,7 +54,13 @@ public class LostInfoFragment extends BaseFragment<FragmentLostInfoBinding> {
         initData();//初始化列表数据
 
     }
-
+    /**
+     * 获取页面标题
+     */
+    @Override
+    protected String getPageTitle() {
+        return getResources().getString(R.string.lost_info);
+    }
     @Override
     protected void initListeners() {
         super.initListeners();

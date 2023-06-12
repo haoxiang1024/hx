@@ -24,6 +24,10 @@
                     style="@style/InfoItem.Account"
                     app:sLeftTextString="字体大小" />
                 <com.xuexiang.xui.widget.textview.supertextview.SuperTextView
+                    android:id="@+id/menu_language"
+                    style="@style/InfoItem.Account"
+                    app:sLeftTextString="多语言" />
+                <com.xuexiang.xui.widget.textview.supertextview.SuperTextView
                     android:id="@+id/menu_cache"
                     style="@style/InfoItem.Account"
                     app:sLeftTextString="清除缓存" />

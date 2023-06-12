@@ -2,21 +2,25 @@ package com.xuexiang.templateproject.fragment.settings;
 
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatDelegate;
 
 import com.xuexiang.templateproject.R;
+import com.xuexiang.templateproject.activity.MainActivity;
+import com.xuexiang.templateproject.adapter.entity.User;
 import com.xuexiang.templateproject.core.BaseFragment;
 import com.xuexiang.templateproject.databinding.FragmentGeneralBinding;
 import com.xuexiang.templateproject.utils.CacheClean;
+import com.xuexiang.templateproject.utils.LanguageUtil;
 import com.xuexiang.templateproject.utils.Utils;
+import com.xuexiang.templateproject.utils.service.JsonOperate;
 import com.xuexiang.xpage.annotation.Page;
 import com.xuexiang.xui.widget.textview.supertextview.SuperTextView;
 
-@Page(name = "通用")
+@Page()
 public class GeneralFragment extends BaseFragment<FragmentGeneralBinding> implements SuperTextView.OnSuperTextViewClickListener {
 
 
@@ -32,7 +36,13 @@ public class GeneralFragment extends BaseFragment<FragmentGeneralBinding> implem
     protected FragmentGeneralBinding viewBindingInflate(LayoutInflater inflater, ViewGroup container) {
         return FragmentGeneralBinding.inflate(inflater, container, false);
     }
-
+    /**
+     * 获取页面标题
+     */
+    @Override
+    protected String getPageTitle() {
+        return getResources().getString(R.string.generalsetting);
+    }
     /**
      * 初始化控件
      */
@@ -46,6 +56,7 @@ public class GeneralFragment extends BaseFragment<FragmentGeneralBinding> implem
         super.initListeners();
         binding.menuNight.setOnSuperTextViewClickListener(this);//夜间模式
         binding.menuFont.setOnSuperTextViewClickListener(this);//字体大小
+        binding.menuLanguage.setOnSuperTextViewClickListener(this);//多语言
         binding.menuCache.setOnSuperTextViewClickListener(this);//缓存清理
 
     }
@@ -59,7 +70,10 @@ public class GeneralFragment extends BaseFragment<FragmentGeneralBinding> implem
                 break;
             case R.id.menu_font:
                 //字体大小
-
+                break;
+            case R.id.menu_language:
+                //多语言
+                LanguageUtil.changeAppLanguage(getActivity(), "en", MainActivity.class);
                 break;
             case R.id.menu_cache:
                 //清除缓存

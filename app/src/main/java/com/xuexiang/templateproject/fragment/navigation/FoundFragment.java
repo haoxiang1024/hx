@@ -88,8 +88,9 @@ public class FoundFragment extends BaseFragment<FragmentFoundBinding> {
     @Override
     protected void initViews() {
         startAnim();//显示加载动画
-        getTypeData();//获取类型数据
-        tabTitle = "数码设备";//初始值
+        String[] types = getResources().getStringArray(R.array.type_titles);//根据app语言获取不同的数据
+        operate_tabs(types);//选项卡
+        tabTitle = types[0];//初始值
         foundDetailAdapter = new FoundDetailAdapter(getContext());
         binding.listview.setAdapter(foundDetailAdapter);
         getTypeDetailList();
@@ -138,32 +139,7 @@ public class FoundFragment extends BaseFragment<FragmentFoundBinding> {
         }.start();
     }
 
-    //发送请求,从服务器获取类型数据
-    private void getTypeData() {
-        //耗时操作
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                OkhttpUtils.get(Utils.rebuildUrl("/getAllTypeByFound", getContext()), new OkHttpCallback() {
-                    @Override
-                    public void onResponse(Call call, Response response) throws IOException {
-                        super.onResponse(call, response);
-                        //获取返回结果
-                        if (response.body() != null) {
-                            //载入选项卡,获取到的数据转换成string数组
-                            tabs_data = JsonOperate.getJsonArray(result, "data");
-                            //回到主线程更新ui
-                            getActivity().runOnUiThread(() -> {
-                                operate_tabs(tabs_data);
-                            });
-                        }
-                    }
-                });
-            }
-        }).start();
 
-
-    }
 
     //对选项卡进行操作
     private void operate_tabs(String[] tabs_datas) {

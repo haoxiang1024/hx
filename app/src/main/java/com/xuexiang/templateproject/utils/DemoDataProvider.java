@@ -1,30 +1,20 @@
 package com.xuexiang.templateproject.utils;
 
-import static com.xuexiang.templateproject.core.webview.AgentWebFragment.TAG;
 
-import android.annotation.SuppressLint;
-import android.app.Application;
+
 import android.content.Context;
 import android.graphics.drawable.Drawable;
-import android.util.Log;
 
 import com.xuexiang.templateproject.R;
-import com.xuexiang.templateproject.adapter.entity.Lost;
 import com.xuexiang.templateproject.adapter.entity.NewInfo;
-import com.xuexiang.templateproject.utils.internet.OkHttpCallback;
-import com.xuexiang.templateproject.utils.internet.OkhttpUtils;
-import com.xuexiang.templateproject.utils.service.JsonOperate;
 import com.xuexiang.xaop.annotation.MemoryCache;
 import com.xuexiang.xui.adapter.simple.AdapterItem;
 import com.xuexiang.xui.utils.ResUtils;
 import com.xuexiang.xui.widget.banner.widget.banner.BannerItem;
 
-import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-
-import okhttp3.Call;
-import okhttp3.Response;
 
 /**
  * 演示数据
@@ -32,7 +22,7 @@ import okhttp3.Response;
  * @author xuexiang
  * @since 2018/11/23 下午5:52
  */
-public class DemoDataProvider  {
+public class DemoDataProvider {
 
     /**
      * 定义Handler常量
@@ -118,7 +108,7 @@ public class DemoDataProvider  {
 
     private static List<AdapterItem> getGridItems(Context context, int titleArrayId, int iconArrayId) {
         List<AdapterItem> list = new ArrayList<>();
-        String[] titles = ResUtils.getStringArray(titleArrayId);
+        String[] titles =context.getResources().getStringArray(titleArrayId);
         Drawable[] icons = ResUtils.getDrawableArray(context, iconArrayId);
         for (int i = 0; i < titles.length; i++) {
             list.add(new AdapterItem(titles[i], icons[i]));

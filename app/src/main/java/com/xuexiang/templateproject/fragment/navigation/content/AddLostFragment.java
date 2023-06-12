@@ -20,6 +20,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import com.alibaba.fastjson.JSON;
+import com.xuexiang.templateproject.R;
 import com.xuexiang.templateproject.adapter.entity.Lost;
 import com.xuexiang.templateproject.adapter.entity.User;
 import com.xuexiang.templateproject.core.BaseFragment;
@@ -34,6 +35,7 @@ import com.xuexiang.xui.widget.toast.XToast;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -89,7 +91,7 @@ public class AddLostFragment extends BaseFragment<FragmentAddLostBinding> {
      */
     @Override
     protected String getPageTitle() {
-        return "发布丢失物品信息";
+        return getResources().getString(R.string.send_lost_info);
     }
 
     @Override
@@ -212,7 +214,8 @@ public class AddLostFragment extends BaseFragment<FragmentAddLostBinding> {
         binding.authorName.setText(user.getNickname());
         binding.phone.setText(user.getPhone());
         //获取分类数据并设置多选按钮
-        getAllType();
+        String[] types = getResources().getStringArray(R.array.type_titles);//根据app语言获取分类数据
+        setRadioBtn(Arrays.asList(types));
         //获取标题id
         binding.radioGroup.setOnCheckedChangeListener((group, checkedId) -> {
             int checkedRadioButtonId = binding.radioGroup.getCheckedRadioButtonId();
@@ -220,25 +223,6 @@ public class AddLostFragment extends BaseFragment<FragmentAddLostBinding> {
             String name = String.valueOf(radioButton.getText());
             getIdByName(name);
         });
-    }
-
-    //获取所有分类
-    private void getAllType() {
-        new Thread() {
-            @Override
-            public void run() {
-                super.run();
-                OkhttpUtils.get(Utils.rebuildUrl("/getAllTypeByR", getContext()), new OkHttpCallback() {
-                    @Override
-                    public void onResponse(Call call, Response response) throws IOException {
-                        super.onResponse(call, response);
-                        typeList = JsonOperate.getList(result, String.class);
-                        getActivity().runOnUiThread(() -> setRadioBtn(typeList));
-                        //  Log.e(TAG, "onResponse: "+typeList.toString() );
-                    }
-                });
-            }
-        }.start();
     }
 
     //获取分类id

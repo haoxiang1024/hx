@@ -24,17 +24,17 @@
                 <com.xuexiang.xui.widget.textview.supertextview.SuperTextView
                     android:id="@+id/hot1"
                     style="@style/InfoItem.hot"
-                    app:sLeftTextString="校园小助手app闪退如何解决?" />
+                    app:sLeftTextString="@string/crash" />
 
                 <com.xuexiang.xui.widget.textview.supertextview.SuperTextView
                     android:id="@+id/hot2"
                     style="@style/InfoItem.hot"
-                    app:sLeftTextString="手机号/账户问题" />
+                    app:sLeftTextString="@string/ac_problem" />
 
                 <com.xuexiang.xui.widget.textview.supertextview.SuperTextView
                     android:id="@+id/hot3"
                     style="@style/InfoItem.hot"
-                    app:sLeftTextString="如何保护用户隐私?" />
+                    app:sLeftTextString="@string/how_protect" />
 
                 <Button
                     android:id="@+id/su_btn"

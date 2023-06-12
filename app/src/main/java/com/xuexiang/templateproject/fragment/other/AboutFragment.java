@@ -39,9 +39,15 @@ import java.util.Locale;
  * @author xuexiang
  * @since 2019-10-30 00:02
  */
-@Page(name = "关于")
+@Page()
 public class AboutFragment extends BaseFragment<FragmentAboutBinding> {
-
+    /**
+     * 获取页面标题
+     */
+    @Override
+    protected String getPageTitle() {
+        return getResources().getString(R.string.about);
+    }
     @Override
     protected void initViews() {
         binding.tvVersion.setText(String.format("版本号：%s", AppUtils.getAppVersionName()));

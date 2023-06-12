@@ -7,6 +7,7 @@ import android.widget.AdapterView;
 
 import androidx.annotation.NonNull;
 
+import com.xuexiang.templateproject.R;
 import com.xuexiang.templateproject.adapter.entity.Found;
 import com.xuexiang.templateproject.adapter.entity.User;
 import com.xuexiang.templateproject.adapter.lostandfoundnav.FoundDetailAdapter;
@@ -24,7 +25,7 @@ import java.util.List;
 import okhttp3.Call;
 import okhttp3.Response;
 
-@Page(name = "招领信息")
+@Page()
 public class FoundInfoFragment extends BaseFragment<FragmentFoundInfoBinding> implements AdapterView.OnItemClickListener {
 
     private FoundDetailAdapter foundDetailAdapter;
@@ -50,7 +51,13 @@ public class FoundInfoFragment extends BaseFragment<FragmentFoundInfoBinding> im
         startAnim();//显示加载动画
         initData();//初始化列表数据
     }
-
+    /**
+     * 获取页面标题
+     */
+    @Override
+    protected String getPageTitle() {
+        return getResources().getString(R.string.found_info);
+    }
     private void initData() {
         foundDetailAdapter = new FoundDetailAdapter(getContext());
         binding.listview.setAdapter(foundDetailAdapter);

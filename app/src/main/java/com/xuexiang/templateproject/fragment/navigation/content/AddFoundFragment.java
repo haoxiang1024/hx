@@ -19,6 +19,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import com.alibaba.fastjson.JSON;
+import com.xuexiang.templateproject.R;
 import com.xuexiang.templateproject.adapter.entity.Found;
 import com.xuexiang.templateproject.adapter.entity.User;
 import com.xuexiang.templateproject.core.BaseFragment;
@@ -33,6 +34,7 @@ import com.xuexiang.xui.widget.toast.XToast;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -84,7 +86,7 @@ public class AddFoundFragment extends BaseFragment<FragmentAddFoundBinding> {
      */
     @Override
     protected String getPageTitle() {
-        return "发布招领信息";
+        return getResources().getString(R.string.send_found_info);
     }
 
     @Override
@@ -204,7 +206,8 @@ public class AddFoundFragment extends BaseFragment<FragmentAddFoundBinding> {
         binding.authorName.setText(user.getNickname());
         binding.phone.setText(user.getPhone());
         //获取分类数据并设置多选按钮
-        getAllType();
+        String[] types = getResources().getStringArray(R.array.type_titles);//根据app语言获取分类数据
+        setRadioBtn(Arrays.asList(types));
         //获取标题id
         binding.radioGroup.setOnCheckedChangeListener((group, checkedId) -> {
             int checkedRadioButtonId = binding.radioGroup.getCheckedRadioButtonId();
@@ -214,23 +217,6 @@ public class AddFoundFragment extends BaseFragment<FragmentAddFoundBinding> {
         });
     }
 
-    private void getAllType() {
-        new Thread() {
-            @Override
-            public void run() {
-                super.run();
-                OkhttpUtils.get(Utils.rebuildUrl("/getAllTypeByR", getContext()), new OkHttpCallback() {
-                    @Override
-                    public void onResponse(Call call, Response response) throws IOException {
-                        super.onResponse(call, response);
-                        typeList = JsonOperate.getList(result, String.class);
-                        getActivity().runOnUiThread(() -> setRadioBtn(typeList));
-                        //  Log.e(TAG, "onResponse: "+typeList.toString() );
-                    }
-                });
-            }
-        }.start();
-    }
 
     //获取分类id
     private void getIdByName(String name) {

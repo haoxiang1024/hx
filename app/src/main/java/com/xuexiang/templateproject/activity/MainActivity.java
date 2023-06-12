@@ -28,13 +28,13 @@ import com.xuexiang.templateproject.adapter.entity.User;
 import com.xuexiang.templateproject.core.BaseActivity;
 import com.xuexiang.templateproject.core.BaseFragment;
 import com.xuexiang.templateproject.databinding.ActivityMainBinding;
-import com.xuexiang.templateproject.fragment.news.NewsFragment;
+import com.xuexiang.templateproject.fragment.dynamic.DynamicFragment;
 import com.xuexiang.templateproject.fragment.other.AboutFragment;
 import com.xuexiang.templateproject.fragment.other.SearchFragment;
-import com.xuexiang.templateproject.fragment.other.SettingsFragment;
-import com.xuexiang.templateproject.fragment.profile.ProfileFragment;
-import com.xuexiang.templateproject.fragment.profile.user.AccountFragment;
-import com.xuexiang.templateproject.fragment.trending.TrendingFragment;
+import com.xuexiang.templateproject.fragment.settings.SettingsFragment;
+import com.xuexiang.templateproject.fragment.personal.PersonalFragment;
+import com.xuexiang.templateproject.fragment.personal.user.AccountFragment;
+import com.xuexiang.templateproject.fragment.look.LookFragment;
 import com.xuexiang.templateproject.utils.Utils;
 import com.xuexiang.templateproject.utils.sdkinit.XUpdateInit;
 import com.xuexiang.xaop.annotation.SingleClick;
@@ -49,6 +49,7 @@ import com.xuexiang.xutil.common.ClickUtils;
 import com.xuexiang.xutil.common.CollectionUtils;
 import com.xuexiang.xutil.display.Colors;
 
+import java.util.Arrays;
 import java.util.Date;
 
 /**
@@ -82,17 +83,16 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> implements V
 
     private void initViews() {
         WidgetUtils.clearActivityBackground(this);
-
-        mTitles = ResUtils.getStringArray(R.array.home_titles);
+        mTitles = getResources().getStringArray(R.array.home_titles);
         binding.includeMain.toolbar.setTitle(mTitles[0]);
         binding.includeMain.toolbar.inflateMenu(R.menu.menu_main);
         binding.includeMain.toolbar.setOnMenuItemClickListener(this);
         initHeader();
         //主页内容填充
         BaseFragment[] fragments = new BaseFragment[]{
-                new NewsFragment(),//主页
-                new TrendingFragment(),//查看信息页
-                new ProfileFragment()//我的页面
+                new DynamicFragment(),//主页
+                new LookFragment(),//查看信息页
+                new PersonalFragment()//我的页面
         };
         FragmentAdapter<BaseFragment> adapter = new FragmentAdapter<>(getSupportFragmentManager(), fragments);
         binding.includeMain.viewPager.setOffscreenPageLimit(mTitles.length - 1);

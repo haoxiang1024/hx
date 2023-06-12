@@ -93,6 +93,7 @@
     <string name="sumbit">提交</string>
     <string name="choose">选择图片</string>
     <string name="title">丢失物品标题</string>
+    <string name="recommendation">推荐</string>
     <string name="content">内容</string>
     <string name="loation">地点</string>
     <string name="loster">发布人：</string>
@@ -121,4 +122,30 @@
     <string name="search">搜索</string>
     <string name="save">保存更改</string>
     <string name="hello_world">Hello, World!</string>
+    <string name="text">设置后，会改变所有模块中的字体大小。如果在使用过程中存在问题或意见，可反馈给我们。</string>
+<!--页面标题-->
+    <string name="detail">详情</string>
+    <string name="send_lost_info">发布丢失信息</string>
+    <string name="send_found_info">发布招领信息</string>
+    <string name="lost_info">失物信息</string>
+    <string name="lost_info_detail">失物详情</string>
+    <string name="found_info">招领信息</string>
+    <string name="found_info_detail">招领详情</string>
+    <string name="update_photo">修改头像</string>
+    <string name="ac">账户</string>
+    <string name="notification">公告</string>
+    <string name="help">帮助与反馈</string>
+    <string name="setting">设置</string>
+    <string name="about">关于</string>
+    <string name="generalsetting">通用设置</string>
+    <string name="photo">头像</string>
+    <string name="crash">校园小助手app闪退如何解决?</string>
+    <string name="ac_problem">手机号/账户问题</string>
+    <string name="how_protect">如何保护用户隐私</string>
+    <string name="common">通用</string>
+    <string name="privacy">隐私</string>
+    <string name="notifications">通知</string>
+    <string name="switch_account">切换账号</string>
+    <string name="logout">退出登录</string>
+
 </resources>

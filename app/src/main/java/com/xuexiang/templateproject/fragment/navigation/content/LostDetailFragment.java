@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 
 import com.bumptech.glide.Glide;
+import com.xuexiang.templateproject.R;
 import com.xuexiang.templateproject.adapter.entity.Lost;
 import com.xuexiang.templateproject.core.BaseFragment;
 import com.xuexiang.templateproject.databinding.FragmentLostDetailBinding;
@@ -34,9 +35,12 @@ public class LostDetailFragment extends BaseFragment<FragmentLostDetailBinding> 
         XRouter.getInstance().inject(this);
     }
 
+    /**
+     * 获取页面标题
+     */
     @Override
     protected String getPageTitle() {
-        return "详情";
+        return getResources().getString(R.string.detail);
     }
 
     /**

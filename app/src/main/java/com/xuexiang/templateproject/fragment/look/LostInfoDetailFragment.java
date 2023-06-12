@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import androidx.annotation.NonNull;
 
 import com.bumptech.glide.Glide;
+import com.xuexiang.templateproject.R;
 import com.xuexiang.templateproject.adapter.entity.Lost;
 import com.xuexiang.templateproject.core.BaseFragment;
 import com.xuexiang.templateproject.databinding.FragmentLostInfoDetailBinding;
@@ -26,7 +27,7 @@ import java.util.Arrays;
 import okhttp3.Call;
 import okhttp3.Response;
 
-@Page(name = "失物详情")
+@Page()
 public class LostInfoDetailFragment extends BaseFragment<FragmentLostInfoDetailBinding> {
 
     public static final String KEY_LOST = "lost";
@@ -43,7 +44,13 @@ public class LostInfoDetailFragment extends BaseFragment<FragmentLostInfoDetailB
         super.initArgs();
         XRouter.getInstance().inject(this);
     }
-
+    /**
+     * 获取页面标题
+     */
+    @Override
+    protected String getPageTitle() {
+        return getResources().getString(R.string.lost_info_detail);
+    }
     /**
      * 构建ViewBinding
      *

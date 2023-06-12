@@ -46,6 +46,14 @@
         <item>搜索</item>
         <item>意见</item>
     </string-array>
+
+    <string-array name="type_titles">
+        <item>数码设备</item>
+        <item>证件</item>
+        <item>日用品</item>
+        <item>服饰</item>
+        <item>其他</item>
+    </string-array>
     <string-array name="planets_array">
         <item>未找到</item>
         <item>已找到</item>
