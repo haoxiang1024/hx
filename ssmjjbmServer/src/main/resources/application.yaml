@@ -1,3 +1,5 @@
+server:
+  port: 8082
 spring:
   # RestTemplate的相关属性
   restTemplate:
