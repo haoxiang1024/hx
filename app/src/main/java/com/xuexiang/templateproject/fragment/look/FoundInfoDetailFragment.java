@@ -119,7 +119,7 @@ public class FoundInfoDetailFragment extends BaseFragment<FragmentFoundInfoDetai
                                     @Override
                                     public void onResponse(Call call, Response response) throws IOException {
                                         super.onResponse(call, response);
-                                        Utils.showResponse("提交成功");
+                                        Utils.showResponse(getResources().getString(R.string.submit_success));
                                     }
                                 });
                             }
@@ -133,7 +133,7 @@ public class FoundInfoDetailFragment extends BaseFragment<FragmentFoundInfoDetai
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
                 // 未选择任何项
-                Utils.showResponse("未选择任何项");
+                Utils.showResponse(getResources().getString(R.string.no_selection_made));
             }
         });
         //设置发布日期

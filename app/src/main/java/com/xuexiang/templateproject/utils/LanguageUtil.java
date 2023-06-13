@@ -27,7 +27,7 @@ public class LanguageUtil {
      * 此处支持3种语言类型，更多可以自行添加。
      * */
     private static final String ENGLISH = "en";
-    private static final String CHINESE = "ch";
+    private static final String CHINESE = "zh";
     private static final String TRADITIONAL_CHINESE = "zh_rTW";
     public static final String LANG_KEY = "language";
     private static HashMap<String, Locale> languagesList = new HashMap<String, Locale>(3) {{

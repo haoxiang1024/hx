@@ -1,6 +1,9 @@
 package com.xuexiang.templateproject.fragment.personal.user;
 
+import static com.xuexiang.templateproject.activity.SplashActivity.LANG_KEY;
+
 import android.annotation.SuppressLint;
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +17,8 @@ import com.xuexiang.templateproject.databinding.FragmentSuggestionBinding;
 import com.xuexiang.templateproject.utils.Utils;
 import com.xuexiang.xpage.annotation.Page;
 import com.xuexiang.xui.widget.textview.supertextview.SuperTextView;
+
+import java.util.Locale;
 
 @Page()
 public class SuggestionFragment extends BaseFragment<FragmentSuggestionBinding> implements SuperTextView.OnSuperTextViewClickListener, View.OnClickListener {
@@ -60,20 +65,41 @@ public class SuggestionFragment extends BaseFragment<FragmentSuggestionBinding> 
     @Override
     public void onClick(SuperTextView view) {
         int id = view.getId();
-        switch (id) {
-            case R.id.hot1:
-                //闪退如何解决
-                AgentWebActivity.goWeb(getContext(), Utils.rebuildUrl("/pages/appcrash.html", getContext()));
-                break;
-            case R.id.hot2:
-                //手机号/账户问题
-                AgentWebActivity.goWeb(getContext(), Utils.rebuildUrl("/pages/account.html", getContext()));
-                break;
-            case R.id.hot3:
-                //隐私保护问题
-                AgentWebActivity.goWeb(getContext(), Utils.rebuildUrl("/pages/privacy.html", getContext()));
-                break;
+        //获取app当前语言
+        Locale currentLocale = getResources().getConfiguration().locale;
+        String currentLanguage = currentLocale.getLanguage();
+        if(currentLanguage.equals("zh")){
+            switch (id) {
+                case R.id.hot1:
+                    //闪退如何解决
+                    AgentWebActivity.goWeb(getContext(), Utils.rebuildUrl("/pages/appcrash.html", getContext()));
+                    break;
+                case R.id.hot2:
+                    //手机号/账户问题
+                    AgentWebActivity.goWeb(getContext(), Utils.rebuildUrl("/pages/account.html", getContext()));
+                    break;
+                case R.id.hot3:
+                    //隐私保护问题
+                    AgentWebActivity.goWeb(getContext(), Utils.rebuildUrl("/pages/privacy.html", getContext()));
+                    break;
+            }
+        } else if (currentLanguage.equals("en")) {
+            switch (id) {
+                case R.id.hot1:
+                    //闪退如何解决
+                    AgentWebActivity.goWeb(getContext(), Utils.rebuildUrl("/pages/appcrash_en.html", getContext()));
+                    break;
+                case R.id.hot2:
+                    //手机号/账户问题
+                    AgentWebActivity.goWeb(getContext(), Utils.rebuildUrl("/pages/account_en.html", getContext()));
+                    break;
+                case R.id.hot3:
+                    //隐私保护问题
+                    AgentWebActivity.goWeb(getContext(), Utils.rebuildUrl("/pages/privacy_en.html", getContext()));
+                    break;
+            }
         }
+
     }
 
     /**

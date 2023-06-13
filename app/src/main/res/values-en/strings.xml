@@ -148,5 +148,22 @@
     <string name="notifications">Notification</string>
     <string name="switch_account">Switch Account</string>
     <string name="logout">Logout</string>
+    <string name="splash_title">School Helper</string>
+    <string name="night_mode">Night Mode</string>
+    <string name="font_size">Font Size</string>
+    <string name="multi_language">Multi Language</string>
+    <string name="clear_cache">Clear Cache</string>
+    <string name="lang_zh_cn">Chinese</string>
+    <string name="lang_follow_system">Follow System</string>
+    <string name="lang_en">English</string>
+    <string name="pull_to_refresh">Pull down to refresh and try again</string>
+    <string name="submit_success">Submitted successfully</string>
+    <string name="no_selection_made">No selection made</string>
+    <string name="no_info_posted_yet">No information has been posted yet</string>
+    <string name="verification_code_empty">Verification code is empty!</string>
+    <string name="no_relevant_info_found">No relevant information found</string>
+    <string name="nickname_cannot_be_empty">Nickname cannot be empty!</string>
+    <string name="no_image_selected_yet">No image has been selected yet!</string>
+    <string name="no_cache_to_clear">No cache to clear</string>
 
 </resources>

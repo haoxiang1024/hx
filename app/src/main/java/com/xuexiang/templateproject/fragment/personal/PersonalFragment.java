@@ -43,6 +43,8 @@ import com.xuexiang.xpage.enums.CoreAnim;
 import com.xuexiang.xui.widget.actionbar.TitleBar;
 import com.xuexiang.xui.widget.textview.supertextview.SuperTextView;
 
+import java.util.Locale;
+
 /**
  * @author xuexiang
  * @since 2019-10-30 00:18
@@ -119,7 +121,14 @@ public class PersonalFragment extends BaseFragment<FragmentProfileBinding> imple
                 break;
             case R.id.tips:
                 //公告页
-                AgentWebActivity.goWeb(getContext(), Utils.rebuildUrl("/pages/notification.html", getContext()));
+                //获取app当前语言
+                Locale currentLocale = getResources().getConfiguration().locale;
+                String currentLanguage = currentLocale.getLanguage();
+                if(currentLanguage.equals("zh")){
+                    AgentWebActivity.goWeb(getContext(), Utils.rebuildUrl("/pages/notification.html", getContext()));
+                } else if (currentLanguage.equals("en")) {
+                    AgentWebActivity.goWeb(getContext(), Utils.rebuildUrl("/pages/notification_en.html", getContext()));
+                }
                 break;
             case R.id.suggestion:
                 //帮助与反馈

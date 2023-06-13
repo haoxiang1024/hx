@@ -2,7 +2,6 @@
 
 package com.xuexiang.templateproject.fragment.dynamic;
 
-import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -48,6 +47,7 @@ import com.xuexiang.xui.widget.imageview.RadiusImageView;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import me.samlss.broccoli.Broccoli;
 import okhttp3.Call;
@@ -101,21 +101,42 @@ public class DynamicFragment extends BaseFragment<FragmentNewsBinding> {
                         .setOnItemClickListener(new BaseBanner.OnItemClickListener<BannerItem>() {
                             @Override
                             public void onItemClick(View view, BannerItem item, int position) {
-                                switch (item.title) {
-                                    case "紧急通知":
-                                        AgentWebActivity.goWeb(getContext(), Utils.rebuildUrl("/pages/notification.html", getContext()));
-                                        break;
-                                    case "意见反馈":
-                                        AgentWebActivity.goWeb(getContext(), Utils.rebuildUrl("/pages/contract.html", getContext()));
-                                        break;
-                                    case "app闪退":
-                                        AgentWebActivity.goWeb(getContext(), Utils.rebuildUrl("/pages/appcrash.html", getContext()));
-                                        break;
-                                    case "隐私":
-                                        AgentWebActivity.goWeb(getContext(), Utils.rebuildUrl("/pages/privacy.html", getContext()));
-                                        break;
+                                //获取app当前语言
+                                Locale currentLocale = getResources().getConfiguration().locale;
+                                String currentLanguage = currentLocale.getLanguage();
+                                if (currentLanguage.equals("zh")) {
+                                    //中文页
+                                    switch (item.title) {
+                                        case "紧急通知":
+                                            AgentWebActivity.goWeb(getContext(), Utils.rebuildUrl("/pages/notification.html", getContext()));
+                                            break;
+                                        case "意见反馈":
+                                            AgentWebActivity.goWeb(getContext(), Utils.rebuildUrl("/pages/contract.html", getContext()));
+                                            break;
+                                        case "app闪退":
+                                            AgentWebActivity.goWeb(getContext(), Utils.rebuildUrl("/pages/appcrash.html", getContext()));
+                                            break;
+                                        case "隐私":
+                                            AgentWebActivity.goWeb(getContext(), Utils.rebuildUrl("/pages/privacy.html", getContext()));
+                                            break;
+                                    }
+                                } else if (currentLanguage.equals("en")) {
+                                    //英文页
+                                    switch (item.title) {
+                                        case "紧急通知":
+                                            AgentWebActivity.goWeb(getContext(), Utils.rebuildUrl("/pages/notification_en.html", getContext()));
+                                            break;
+                                        case "意见反馈":
+                                            AgentWebActivity.goWeb(getContext(), Utils.rebuildUrl("/pages/contract_en.html", getContext()));
+                                            break;
+                                        case "app闪退":
+                                            AgentWebActivity.goWeb(getContext(), Utils.rebuildUrl("/pages/appcrash_en.html", getContext()));
+                                            break;
+                                        case "隐私":
+                                            AgentWebActivity.goWeb(getContext(), Utils.rebuildUrl("/pages/privacy_en.html", getContext()));
+                                            break;
+                                    }
                                 }
-
                             }
                         }).startScroll();
             }
@@ -160,7 +181,7 @@ public class DynamicFragment extends BaseFragment<FragmentNewsBinding> {
             @Override
             public void onBindViewHolder(@NonNull RecyclerViewHolder holder, int position) {
                 String text = getResources().getString(R.string.recommendation);
-                holder.text(R.id.tv_title,text);
+                holder.text(R.id.tv_title, text);
             }
         };
 
@@ -178,7 +199,7 @@ public class DynamicFragment extends BaseFragment<FragmentNewsBinding> {
                     holder.image(R.id.iv_image, model.getImageUrl());
                     holder.click(R.id.card_view, v -> {
                         if (position > list.size()) {
-                            Utils.showResponse("好像出错了哦,下拉刷新重试一次吧");
+                            Utils.showResponse(getResources().getString(R.string.pull_to_refresh));
                             return;
                         }
                         NewInfo newInfo = getItem(position);

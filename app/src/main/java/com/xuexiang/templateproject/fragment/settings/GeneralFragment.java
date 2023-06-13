@@ -70,7 +70,7 @@ public class GeneralFragment extends BaseFragment<FragmentGeneralBinding> implem
                 break;
             case R.id.menu_language:
                 //多语言
-                LanguageUtil.changeAppLanguage(getActivity(), "en", MainActivity.class);
+                openPage(MultiLanguageFragment.class);
                 break;
             case R.id.menu_cache:
                 //清除缓存

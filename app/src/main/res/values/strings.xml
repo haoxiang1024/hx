@@ -123,7 +123,7 @@
     <string name="save">保存更改</string>
     <string name="hello_world">Hello, World!</string>
     <string name="text">设置后，会改变所有模块中的字体大小。如果在使用过程中存在问题或意见，可反馈给我们。</string>
-<!--页面标题-->
+    <!--页面标题-->
     <string name="detail">详情</string>
     <string name="send_lost_info">发布丢失信息</string>
     <string name="send_found_info">发布招领信息</string>
@@ -148,5 +148,20 @@
     <string name="switch_account">切换账号</string>
     <string name="logout">退出登录</string>
     <string name="splash_title">校园小助手</string>
-
+    <string name="night_mode">夜间模式</string>
+    <string name="font_size">字体大小</string>
+    <string name="multi_language">多语言</string>
+    <string name="clear_cache">清除缓存</string>
+    <string name="lang_zh_cn">简体中文</string>
+    <string name="lang_follow_system">跟随系统</string>
+    <string name="lang_en">English</string>
+    <string name="pull_to_refresh">下拉刷新重试一次吧</string>
+    <string name="submit_success">提交成功</string>
+    <string name="no_selection_made">未选择任何项</string>
+    <string name="no_info_posted_yet">还未发布任何信息</string>
+    <string name="verification_code_empty">验证码为空！</string>
+    <string name="no_relevant_info_found">没有找到相关信息</string>
+    <string name="nickname_cannot_be_empty">昵称不能为空！</string>
+    <string name="no_image_selected_yet">还未选择图片！</string>
+    <string name="no_cache_to_clear">没有需要清理的缓存</string>
 </resources>

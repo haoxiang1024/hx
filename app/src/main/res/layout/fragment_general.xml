@@ -17,20 +17,20 @@
                 <com.xuexiang.xui.widget.textview.supertextview.SuperTextView
                     android:id="@+id/menu_night"
                     style="@style/InfoItem.Account"
-                    app:sLeftTextString="夜间模式" />
+                    app:sLeftTextString="@string/night_mode" />
 
                 <com.xuexiang.xui.widget.textview.supertextview.SuperTextView
                     android:id="@+id/menu_font"
                     style="@style/InfoItem.Account"
-                    app:sLeftTextString="字体大小" />
+                    app:sLeftTextString="@string/font_size" />
                 <com.xuexiang.xui.widget.textview.supertextview.SuperTextView
                     android:id="@+id/menu_language"
                     style="@style/InfoItem.Account"
-                    app:sLeftTextString="多语言" />
+                    app:sLeftTextString="@string/multi_language" />
                 <com.xuexiang.xui.widget.textview.supertextview.SuperTextView
                     android:id="@+id/menu_cache"
                     style="@style/InfoItem.Account"
-                    app:sLeftTextString="清除缓存" />
+                    app:sLeftTextString="@string/clear_cache" />
 
 
             </LinearLayout>
