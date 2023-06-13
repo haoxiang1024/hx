@@ -2,7 +2,6 @@ package com.xuexiang.templateproject.fragment.other;
 
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
@@ -15,11 +14,15 @@ import android.widget.Button;
 
 import androidx.annotation.NonNull;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.mob.MobSDK;
 import com.xuexiang.templateproject.R;
 import com.xuexiang.templateproject.activity.MainActivity;
+import com.xuexiang.templateproject.adapter.entity.User;
 import com.xuexiang.templateproject.core.BaseFragment;
 import com.xuexiang.templateproject.databinding.FragmentLoginBinding;
+import com.xuexiang.templateproject.utils.RandomUtils;
 import com.xuexiang.templateproject.utils.SettingUtils;
 import com.xuexiang.templateproject.utils.TokenUtils;
 import com.xuexiang.templateproject.utils.Utils;
@@ -35,8 +38,10 @@ import com.xuexiang.xui.utils.ResUtils;
 import com.xuexiang.xui.utils.ThemeUtils;
 import com.xuexiang.xui.utils.ViewUtils;
 import com.xuexiang.xui.widget.actionbar.TitleBar;
+import com.xuexiang.xutil.app.ActivityUtils;
 
 import java.io.IOException;
+import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -269,11 +274,21 @@ public class LoginFragment extends BaseFragment<FragmentLoginBinding> implements
                     public void onResponse(Call call, Response response) throws IOException {
                         super.onResponse(call, response);
                         loginMsg = JsonOperate.getValue(result, "data");
-                        //设置令牌
-                        TokenUtils.setToken("login_token");
-                        Intent intent = new Intent(getContext(), MainActivity.class);
-                        intent.putExtra("loginMsg", loginMsg);
-                        startActivity(intent);
+                        //获取信息
+                        JSONObject jsonObject = (JSONObject) JSON.parse(loginMsg);
+                        int id = (int) jsonObject.get("id");
+                        String nickname = (String) jsonObject.get("nickname");
+                        String phone = (String) jsonObject.get("phone");
+                        String photo = (String) jsonObject.get("photo");
+                        String sex = (String) jsonObject.get("sex");
+                        Date reg_date = jsonObject.getDate("reg_date");
+                        User user = new User(id, nickname, photo, sex, phone, reg_date);
+                        //存储SharedPreferences以便之后调用
+                        Utils.saveBean2Sp(getContext(), user, "User", "user");
+                        //设置登录token
+                        TokenUtils.setToken(RandomUtils.getRandomLetters(6));
+                        //跳转主界面
+                        ActivityUtils.startActivity(MainActivity.class);
                     }
 
                     @Override

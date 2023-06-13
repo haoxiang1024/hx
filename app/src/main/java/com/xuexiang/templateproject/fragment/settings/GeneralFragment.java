@@ -2,7 +2,6 @@ package com.xuexiang.templateproject.fragment.settings;
 
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
@@ -10,13 +9,11 @@ import androidx.annotation.NonNull;
 
 import com.xuexiang.templateproject.R;
 import com.xuexiang.templateproject.activity.MainActivity;
-import com.xuexiang.templateproject.adapter.entity.User;
 import com.xuexiang.templateproject.core.BaseFragment;
 import com.xuexiang.templateproject.databinding.FragmentGeneralBinding;
 import com.xuexiang.templateproject.utils.CacheClean;
 import com.xuexiang.templateproject.utils.LanguageUtil;
 import com.xuexiang.templateproject.utils.Utils;
-import com.xuexiang.templateproject.utils.service.JsonOperate;
 import com.xuexiang.xpage.annotation.Page;
 import com.xuexiang.xui.widget.textview.supertextview.SuperTextView;
 

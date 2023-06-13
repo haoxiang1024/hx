@@ -2,7 +2,6 @@
 
 package com.xuexiang.templateproject.activity;
 
-import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -19,8 +18,6 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager.widget.ViewPager;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
 import com.bumptech.glide.Glide;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.xuexiang.templateproject.R;
@@ -29,12 +26,13 @@ import com.xuexiang.templateproject.core.BaseActivity;
 import com.xuexiang.templateproject.core.BaseFragment;
 import com.xuexiang.templateproject.databinding.ActivityMainBinding;
 import com.xuexiang.templateproject.fragment.dynamic.DynamicFragment;
+import com.xuexiang.templateproject.fragment.look.LookFragment;
 import com.xuexiang.templateproject.fragment.other.AboutFragment;
 import com.xuexiang.templateproject.fragment.other.SearchFragment;
-import com.xuexiang.templateproject.fragment.settings.SettingsFragment;
 import com.xuexiang.templateproject.fragment.personal.PersonalFragment;
 import com.xuexiang.templateproject.fragment.personal.user.AccountFragment;
-import com.xuexiang.templateproject.fragment.look.LookFragment;
+import com.xuexiang.templateproject.fragment.settings.SettingsFragment;
+import com.xuexiang.templateproject.utils.TokenUtils;
 import com.xuexiang.templateproject.utils.Utils;
 import com.xuexiang.templateproject.utils.sdkinit.XUpdateInit;
 import com.xuexiang.xaop.annotation.SingleClick;
@@ -48,9 +46,6 @@ import com.xuexiang.xutil.XUtil;
 import com.xuexiang.xutil.common.ClickUtils;
 import com.xuexiang.xutil.common.CollectionUtils;
 import com.xuexiang.xutil.display.Colors;
-
-import java.util.Arrays;
-import java.util.Date;
 
 /**
  * 程序主页面,只是一个简单的Tab例子
@@ -100,6 +95,8 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> implements V
     }
 
     private void initData() {
+        //已经登录成功
+        TokenUtils.setToken("login_succeed_token");
         XUpdateInit.checkUpdate(this, false);
     }
 
@@ -125,27 +122,9 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> implements V
                 ivAvatar.setImageTintList(ResUtils.getColors(R.color.xui_config_color_gray_3));
             }
         }
-        //获取从其他界面传过来的数据
-        Intent intent = getIntent();
-        String loginMsg = intent.getStringExtra("loginMsg");
-        //获取json对象
-        JSONObject jsonObject = (JSONObject) JSON.parse(loginMsg);
-        int balance = (int) jsonObject.get("balance");
-        int id = (int) jsonObject.get("id");
-        String nickname = (String) jsonObject.get("nickname");
-        String password = (String) jsonObject.get("password");
-        String phone = (String) jsonObject.get("phone");
-        String photo = (String) jsonObject.get("photo");
-        int prestige = (int) jsonObject.get("prestige");
-        String sex = (String) jsonObject.get("sex");
-        Date reg_date = jsonObject.getDate("reg_date");
-        //构造user
-        User user = new User(id, password, nickname, photo, sex, phone, balance, prestige, reg_date);
-        //存储SharedPreferences以便之后调用
-        Utils.saveBean2Sp(this, user, "User", "user");
-        //设置头像
+        //获取存储对象
+        User user = Utils.getBeanFromSp(this, "User", "user");
         //加载图片
-        user = Utils.getBeanFromSp(this, "User", "user");//获取存储对象
         if (TextUtils.isEmpty(user.getPhoto())) {
             tvAvatar.setVisibility(View.GONE);
         } else {

@@ -30,7 +30,7 @@
             android:configChanges="screenSize|keyboardHidden|orientation|keyboard"
             android:exported="true"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.Launch.App"
+            android:theme="@style/SplashTheme"
             android:windowSoftInputMode="adjustPan|stateHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,5 +1,9 @@
 <resources>
-
+    <style name="SplashTheme" parent="XUIBaseTheme">
+        <!-- 欢迎页背景引用刚才写好的 -->
+        <item name="android:windowBackground">@drawable/splash</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
     <!-- 拓展主题 theme. -->
     <style name="XUITheme" parent="XUIBaseTheme">
         <!--设置默认窗口的动画样式-->

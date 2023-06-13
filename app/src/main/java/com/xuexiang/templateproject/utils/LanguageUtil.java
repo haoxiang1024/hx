@@ -1,7 +1,5 @@
 package com.xuexiang.templateproject.utils;
 
-import static com.xuexiang.xutil.app.ActivityUtils.startActivity;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -12,19 +10,13 @@ import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 
-import com.xuexiang.templateproject.adapter.entity.User;
-import com.xuexiang.templateproject.utils.internet.OkHttpCallback;
-import com.xuexiang.templateproject.utils.internet.OkhttpUtils;
-import com.xuexiang.templateproject.utils.service.JsonOperate;
+import com.xuexiang.templateproject.R;
+import com.xuexiang.xutil.app.ActivityUtils;
 
 import org.apache.commons.lang3.StringUtils;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Locale;
-
-import okhttp3.Call;
-import okhttp3.Response;
 
 /**
  * 功能描述：修改app内部的语言工具类
@@ -69,37 +61,9 @@ public class LanguageUtil {
         editor.putString(LANG_KEY, language);
         editor.apply();
         // 重启app
-        User user = Utils.getBeanFromSp(activity, "User", "user");//获取存储对象
-        String phone = user.getPhone();
-        new Thread() {
-            @Override
-            public void run() {
-                super.run();
-                OkhttpUtils.get(Utils.rebuildUrl("/login?phone=" + phone, activity), new OkHttpCallback() {
-                    @Override
-                    public void onResponse(Call call, Response response) throws IOException {
-                        super.onResponse(call, response);
-                        String loginMsg = JsonOperate.getValue(result, "data");
-                        Intent intent = new Intent(activity, cls);
-                        intent.putExtra("loginMsg", loginMsg);
-                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                        startActivity(intent);
-                    }
-
-                    @Override
-                    public void onFailure(Call call, IOException e) {
-                        super.onFailure(call, e);
-                        String msg = "网络连接失败!";
-                        Utils.showResponse(msg);
-                    }
-                });
-            }
-        }.start();
-
-
-        //加载动画
-//        activity.overridePendingTransition(R.anim.anim_right_in, R.anim.anim_left_out);
-//        activity.overridePendingTransition(0, 0);
+        Intent intent = new Intent(activity, cls);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        ActivityUtils.startActivity(intent);
     }
 
     /**
