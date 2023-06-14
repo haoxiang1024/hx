@@ -63,7 +63,7 @@ public class Util {
         if (!matcher.matches()) {
             //获取ip地址
             String ip = Ip.getIp();
-            newPic = "http://" + ip + ":8082/images/" + oldPic;
+            newPic = "http://" + ip + ":8080/images/" + oldPic;
            // newPic = "http://111.67.203.931:8082/loadPhoto/" + oldPic;
             return newPic;
         }
