@@ -28,6 +28,7 @@ import com.xuexiang.templateproject.utils.internet.OkhttpUtils;
 import com.xuexiang.templateproject.utils.service.JsonOperate;
 import com.xuexiang.xpage.annotation.Page;
 import com.xuexiang.xui.widget.toast.XToast;
+import com.xuexiang.xutil.app.ActivityUtils;
 
 import java.io.File;
 import java.io.IOException;
@@ -90,7 +91,7 @@ public class PhotoFragment extends BaseFragment<FragmentPhotoBinding> {
             @Override
             public void onClick(View v) {
                 if (file == null) {
-                    Utils.showResponse("还未选择图片!");
+                    Utils.showResponse(Utils.getString(getContext(),R.string.no_image_selected_yet));
                 } else {
                     upload();//上传图片
                 }
@@ -159,12 +160,12 @@ public class PhotoFragment extends BaseFragment<FragmentPhotoBinding> {
                 if (response.body() != null) {
                     msg = response.body().string();
                 }
-                String msg1 = JsonOperate.getValue(msg, "msg");//获取服务器返回的信息
                 String data = JsonOperate.getValue(msg, "data");//获取数据
-                Intent intent = new Intent(getContext(), MainActivity.class);
-                intent.putExtra("loginMsg", data);
-                startActivity(intent);
-                Utils.showResponse(msg1);
+                //存储信息
+                Utils.doUserData(data);
+                //跳转主界面
+                ActivityUtils.startActivity(MainActivity.class);
+                Utils.showResponse(Utils.getString(getContext(),R.string.modify_success));
             }
         });
     }

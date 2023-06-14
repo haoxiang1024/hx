@@ -14,12 +14,9 @@ import android.widget.Button;
 
 import androidx.annotation.NonNull;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
 import com.mob.MobSDK;
 import com.xuexiang.templateproject.R;
 import com.xuexiang.templateproject.activity.MainActivity;
-import com.xuexiang.templateproject.adapter.entity.User;
 import com.xuexiang.templateproject.core.BaseFragment;
 import com.xuexiang.templateproject.databinding.FragmentLoginBinding;
 import com.xuexiang.templateproject.utils.RandomUtils;
@@ -41,7 +38,6 @@ import com.xuexiang.xui.widget.actionbar.TitleBar;
 import com.xuexiang.xutil.app.ActivityUtils;
 
 import java.io.IOException;
-import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -274,17 +270,8 @@ public class LoginFragment extends BaseFragment<FragmentLoginBinding> implements
                     public void onResponse(Call call, Response response) throws IOException {
                         super.onResponse(call, response);
                         loginMsg = JsonOperate.getValue(result, "data");
-                        //获取信息
-                        JSONObject jsonObject = (JSONObject) JSON.parse(loginMsg);
-                        int id = (int) jsonObject.get("id");
-                        String nickname = (String) jsonObject.get("nickname");
-                        String phone = (String) jsonObject.get("phone");
-                        String photo = (String) jsonObject.get("photo");
-                        String sex = (String) jsonObject.get("sex");
-                        Date reg_date = jsonObject.getDate("reg_date");
-                        User user = new User(id, nickname, photo, sex, phone, reg_date);
-                        //存储SharedPreferences以便之后调用
-                        Utils.saveBean2Sp(getContext(), user, "User", "user");
+                        //获取信息并存储
+                        Utils.doUserData(loginMsg);
                         //设置登录token
                         TokenUtils.setToken(RandomUtils.getRandomLetters(6));
                         //跳转主界面
@@ -294,8 +281,8 @@ public class LoginFragment extends BaseFragment<FragmentLoginBinding> implements
                     @Override
                     public void onFailure(Call call, IOException e) {
                         super.onFailure(call, e);
-                        String msg = "网络连接失败!";
-                        Utils.showResponse(msg);
+                        Utils.showResponse(Utils.getString(getContext(),R.string.internet_erro));
+
                     }
                 });
             }

@@ -84,7 +84,7 @@ public class FoundInfoFragment extends BaseFragment<FragmentFoundInfoBinding> im
                         getActivity().runOnUiThread(FoundInfoFragment.this::stopAnim);//结束加载动画
                         //没有发布信息
                         if (JsonOperate.getValue(result, "msg").equals("还未发布任何信息")) {
-                            Utils.showResponse("还未发布任何信息");
+                            Utils.showResponse(Utils.getString(getContext(),R.string.no_info_posted_yet));
                             return;
                         }
                         getActivity().runOnUiThread(() -> setAdapter(result));//设置适配器

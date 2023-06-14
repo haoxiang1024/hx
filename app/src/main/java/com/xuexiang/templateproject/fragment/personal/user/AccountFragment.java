@@ -2,7 +2,6 @@ package com.xuexiang.templateproject.fragment.personal.user;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
-import android.content.Intent;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,6 +24,7 @@ import com.xuexiang.templateproject.utils.internet.OkHttpCallback;
 import com.xuexiang.templateproject.utils.internet.OkhttpUtils;
 import com.xuexiang.templateproject.utils.service.JsonOperate;
 import com.xuexiang.xpage.annotation.Page;
+import com.xuexiang.xutil.app.ActivityUtils;
 
 import java.io.IOException;
 
@@ -120,6 +120,7 @@ public class AccountFragment extends BaseFragment<FragmentAccountBinding> implem
     protected String getPageTitle() {
         return getResources().getString(R.string.ac);
     }
+
     /**
      * Called when a view has been clicked.
      *
@@ -139,7 +140,7 @@ public class AccountFragment extends BaseFragment<FragmentAccountBinding> implem
 
     private void update() {
         if (binding.tvNickName.getText().length() == 0) {
-            Utils.showResponse("昵称不能为空!");
+            Utils.showResponse(Utils.getString(getContext(),R.string.nickname_cannot_be_empty));
         }
         //获取数据
         String nickName = String.valueOf(binding.tvNickName.getText());//昵称
@@ -148,9 +149,16 @@ public class AccountFragment extends BaseFragment<FragmentAccountBinding> implem
         //性别
         if (binding.rbMan.isChecked()) {
             String sex = String.valueOf(binding.rbMan.getText());
+            //判断中英文
+            if (sex.equals("Male")) {
+                sex = "男";
+            }
             server(nickName, sex, id);
         } else {
             String sex = String.valueOf(binding.rbWomen.getText());
+            if (sex.equals("Female")) {
+                sex = "女";
+            }
             server(nickName, sex, id);
         }
     }
@@ -165,12 +173,12 @@ public class AccountFragment extends BaseFragment<FragmentAccountBinding> implem
                     @Override
                     public void onResponse(Call call, Response response) throws IOException {
                         super.onResponse(call, response);
-                        String msg = JsonOperate.getValue(result, "msg");
                         String data = JsonOperate.getValue(result, "data");
-                        Intent intent = new Intent(getContext(), MainActivity.class);
-                        intent.putExtra("loginMsg", data);
-                        startActivity(intent);
-                        Utils.showResponse(msg);
+                        //更新信息
+                        Utils.doUserData(data);
+                        //跳转主界面
+                        ActivityUtils.startActivity(MainActivity.class);
+                        Utils.showResponse(Utils.getString(getContext(),R.string.modify_success));
                     }
                 });
             }

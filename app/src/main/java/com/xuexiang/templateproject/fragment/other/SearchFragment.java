@@ -5,6 +5,7 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 
+import com.xuexiang.templateproject.R;
 import com.xuexiang.templateproject.adapter.SearchInfoAdapter;
 import com.xuexiang.templateproject.adapter.entity.SearchInfo;
 import com.xuexiang.templateproject.core.BaseFragment;
@@ -81,7 +82,7 @@ public class SearchFragment extends BaseFragment<FragmentSearchBinding> {
                         super.onResponse(call, response);
                         //判断是否有返回数据
                         if (JsonOperate.getValue(result, "msg").equals("没有找到相关信息")) {
-                            Utils.showResponse("没有找到相关信息");
+                            Utils.showResponse(Utils.getString(getContext(), R.string.no_relevant_info_found));
                             return;
                         }
                         //获取返回结果转换list

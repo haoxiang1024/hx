@@ -76,10 +76,15 @@ public class GeneralFragment extends BaseFragment<FragmentGeneralBinding> implem
                 //清除缓存
                 String cacheSize = CacheClean.getTotalCacheSize(getContext());
                 if (cacheSize.equals("0.00MB")) {
-                    Utils.showResponse("没有需要清理的缓存");
+                    Utils.showResponse(Utils.getString(getContext(),R.string.no_cache_to_clear));
                 } else {
                     CacheClean.clearAllCache(getContext());
-                    Utils.showResponse("共清理" + cacheSize + "缓存");
+                    //判断语言显示不同消息
+                    if (Utils.language(getContext()).equals("zh")){
+                        Utils.showResponse("共清理" + cacheSize + "缓存");
+                    }else if (Utils.language(getContext()).equals("en")){
+                        Utils.showResponse("Clean" + cacheSize + "caches");
+                    }
                 }
                 break;
         }

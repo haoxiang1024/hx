@@ -117,7 +117,7 @@ public class LostInfoDetailFragment extends BaseFragment<FragmentLostInfoDetailB
                                     @Override
                                     public void onResponse(Call call, Response response) throws IOException {
                                         super.onResponse(call, response);
-                                        Utils.showResponse("提交成功");
+                                        Utils.showResponse(Utils.getString(getContext(),R.string.submit_success));
                                     }
                                 });
                             }
@@ -131,7 +131,7 @@ public class LostInfoDetailFragment extends BaseFragment<FragmentLostInfoDetailB
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
                 // 未选择任何项
-                Utils.showResponse("未选择任何项");
+                Utils.showResponse(Utils.getString(getContext(),R.string.no_selection_made));
             }
         });
         //设置发布日期

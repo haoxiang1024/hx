@@ -165,5 +165,11 @@
     <string name="nickname_cannot_be_empty">Nickname cannot be empty!</string>
     <string name="no_image_selected_yet">No image has been selected yet!</string>
     <string name="no_cache_to_clear">No cache to clear</string>
+    <string name="internet_erro">Internet Error</string>
+    <string name="login_su">Login success</string>
+    <string name="reset_su">Reset success</string>
+    <string name="modify_success">Modify profile successfully!</string>
+    <string name="logout_success">Logout success!</string>
+    <string name="logout_failed">Login failed!</string>
 
 </resources>

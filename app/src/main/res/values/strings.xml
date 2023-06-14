@@ -164,4 +164,10 @@
     <string name="nickname_cannot_be_empty">昵称不能为空！</string>
     <string name="no_image_selected_yet">还未选择图片！</string>
     <string name="no_cache_to_clear">没有需要清理的缓存</string>
+    <string name="internet_erro">网络连接失败</string>
+    <string name="login_su">登录成功</string>
+    <string name="reset_su">重置成功</string>
+    <string name="modify_success">修改资料成功！</string>
+    <string name="logout_success">登出成功！</string>
+    <string name="logout_failed">登录失败！</string>
 </resources>

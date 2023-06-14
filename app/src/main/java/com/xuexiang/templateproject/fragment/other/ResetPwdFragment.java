@@ -105,7 +105,7 @@ public class ResetPwdFragment extends BaseFragment<FragmentResetPwdBinding> impl
         int id = v.getId();
         if (id == R.id.btn_reset) {
             if (binding.etVerifyCode.getEditValue().length() == 0) {
-                Utils.showResponse("验证码为空!");
+                Utils.showResponse(Utils.getString(getContext(),R.string.verification_code_empty));
                 return;
             }            //验证手机密码格式是否通过
             if (binding.etPhoneNumber.validate()) {
@@ -169,8 +169,8 @@ public class ResetPwdFragment extends BaseFragment<FragmentResetPwdBinding> impl
                     @Override
                     public void onResponse(Call call, Response response) throws IOException {
                         super.onResponse(call, response);
-                        String msg = JsonOperate.getValue(result, "msg");
-                        Utils.showResponse(msg);
+                        Utils.showResponse(Utils.getString(getContext(),R.string.reset_su));
+
                     }
                 });
             }

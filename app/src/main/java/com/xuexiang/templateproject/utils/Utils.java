@@ -47,7 +47,10 @@ import android.view.View;
 import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.xuexiang.templateproject.R;
+import com.xuexiang.templateproject.adapter.entity.User;
 import com.xuexiang.templateproject.core.webview.AgentWebActivity;
 import com.xuexiang.templateproject.fragment.other.ServiceProtocolFragment;
 import com.xuexiang.xpage.base.XPageFragment;
@@ -67,6 +70,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 import java.util.Properties;
 
 /**
@@ -352,14 +356,38 @@ public final class Utils {
 
     //ui操作，提示框
     public static void showResponse(final String response) {
-        runOnUiThread(new Runnable() {
-            @SuppressLint("CheckResult")
-            @Override
-            public void run() {
-                // 在这里进行UI操作，将结果显示到界面上
-                XToast.info(getContext(), response).show();
-            }
+        runOnUiThread(() -> {
+            // 在这里进行UI操作，将结果显示到界面上
+            XToast.info(getContext(), response).show();
         });
+    }
+    //获取服务端返回的用户数据并存储
+
+    /**
+     * @param data 服务端返回的数据
+     * @return 重构的user对象
+     */
+    public static void doUserData(String data) {
+        JSONObject jsonObject = (JSONObject) JSON.parse(data);
+        int id = (int) jsonObject.get("id");
+        String nickname = (String) jsonObject.get("nickname");
+        String phone = (String) jsonObject.get("phone");
+        String photo = (String) jsonObject.get("photo");
+        String sex = (String) jsonObject.get("sex");
+        Date reg_date = jsonObject.getDate("reg_date");
+        User user = new User(id, nickname, photo, sex, phone, reg_date);
+        //存储SharedPreferences以便之后调用
+        Utils.saveBean2Sp(getContext(), user, "User", "user");
+    }
+    //判断当前语言
+    public static String language(Context context){
+        //获取app当前语言
+        Locale currentLocale =context.getResources().getConfiguration().locale;
+        return currentLocale.getLanguage();
+    }
+    //根据资源id读取字符串
+    public static String getString(Context context,int id){
+        return context.getResources().getString(id);
     }
 
 }

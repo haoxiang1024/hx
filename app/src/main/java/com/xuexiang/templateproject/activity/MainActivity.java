@@ -136,12 +136,24 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> implements V
         //设置简介
         //判断性别
         if (user.getSex().equals("男")) {
-            tvSign.setText("小哥哥");
+            //判断语言
+            String language = Utils.language(this);
+            if(language.equals("zh")){
+                tvSign.setText("小哥哥");
+            } else if (language.equals("en")) {
+                tvSign.setText("Male");
+            }
             //设置性别图标
             sexView.setVisibility(View.VISIBLE);
             Glide.with(this).load(R.drawable.man).into(sexView);
         } else {
-            tvSign.setText("小姐姐");
+            //判断语言
+            String language = Utils.language(this);
+            if(language.equals("zh")){
+                tvSign.setText("小姐姐");
+            } else if (language.equals("en")) {
+                tvSign.setText("FeMale");
+            }
             //设置性别图标
             sexView.setVisibility(View.VISIBLE);
             Glide.with(this).load(R.drawable.women).into(sexView);

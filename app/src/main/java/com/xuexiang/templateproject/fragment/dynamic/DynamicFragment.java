@@ -102,8 +102,7 @@ public class DynamicFragment extends BaseFragment<FragmentNewsBinding> {
                             @Override
                             public void onItemClick(View view, BannerItem item, int position) {
                                 //获取app当前语言
-                                Locale currentLocale = getResources().getConfiguration().locale;
-                                String currentLanguage = currentLocale.getLanguage();
+                                String currentLanguage = Utils.language(getContext());
                                 if (currentLanguage.equals("zh")) {
                                     //中文页
                                     switch (item.title) {
@@ -199,7 +198,7 @@ public class DynamicFragment extends BaseFragment<FragmentNewsBinding> {
                     holder.image(R.id.iv_image, model.getImageUrl());
                     holder.click(R.id.card_view, v -> {
                         if (position > list.size()) {
-                            Utils.showResponse(getResources().getString(R.string.pull_to_refresh));
+                            Utils.showResponse(Utils.getString(getContext(),R.string.pull_to_refresh));
                             return;
                         }
                         NewInfo newInfo = getItem(position);

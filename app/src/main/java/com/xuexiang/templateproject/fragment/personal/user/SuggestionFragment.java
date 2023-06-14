@@ -66,8 +66,7 @@ public class SuggestionFragment extends BaseFragment<FragmentSuggestionBinding> 
     public void onClick(SuperTextView view) {
         int id = view.getId();
         //获取app当前语言
-        Locale currentLocale = getResources().getConfiguration().locale;
-        String currentLanguage = currentLocale.getLanguage();
+        String currentLanguage = Utils.language(getContext());
         if(currentLanguage.equals("zh")){
             switch (id) {
                 case R.id.hot1:

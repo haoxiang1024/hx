@@ -111,8 +111,8 @@ public class OtherLoginFragment extends BaseFragment<FragmentOtherLoginBinding> 
                         Log.e(TAG, "onResponse: " + result);
                         String msg = JsonOperate.getValue(result, "msg");//登录信息
                         String loginMsg = JsonOperate.getValue(result, "data");//登录数据
-                        Utils.showResponse(msg);
                         if (msg.equals("登录成功")) {
+                            Utils.showResponse(Utils.getString(getContext(),R.string.login_su));
                             Intent intent = new Intent(getContext(), MainActivity.class);
                             intent.putExtra("loginMsg", loginMsg);
                             popToBack();

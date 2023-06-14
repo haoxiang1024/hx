@@ -122,8 +122,7 @@ public class PersonalFragment extends BaseFragment<FragmentProfileBinding> imple
             case R.id.tips:
                 //公告页
                 //获取app当前语言
-                Locale currentLocale = getResources().getConfiguration().locale;
-                String currentLanguage = currentLocale.getLanguage();
+                String currentLanguage = Utils.language(getContext());
                 if(currentLanguage.equals("zh")){
                     AgentWebActivity.goWeb(getContext(), Utils.rebuildUrl("/pages/notification.html", getContext()));
                 } else if (currentLanguage.equals("en")) {
