@@ -49,6 +49,7 @@ import androidx.annotation.NonNull;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.serializer.SerializeConfig;
 import com.xuexiang.templateproject.R;
 import com.xuexiang.templateproject.adapter.entity.User;
 import com.xuexiang.templateproject.core.webview.AgentWebActivity;
