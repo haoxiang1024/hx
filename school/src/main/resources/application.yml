@@ -1,0 +1,25 @@
+server:
+  servlet:
+    context-path: /school
+  port:
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/android_test?allowPublicKeyRetrieval=true&useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: 123456
+
+    redis:
+      host: localhost
+      port: 6379
+    servlet:
+      multipart:
+        max-request-size: 100MB #设置总上传数据总大小
+        max-file-size: 20MB #设置单个文件最大长度
+  mvc:
+    static-path-pattern: /static/**
+  web:
+    resources:
+      static-locations: /static/**
+file:
+   location: /static/upload/ #自定义上传文件本地保存路径

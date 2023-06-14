@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.school.mapper.FoundMapper">
+    <insert id="addFound" useGeneratedKeys="true" keyProperty="id">
+        insert into found (title, img, pub_date, content, place, phone, state, stick, lostfoundtype_id, user_id)
+        VALUES (#{found.title}, #{found.img}, #{found.pub_date}, #{found.content}, #{found.place}, #{found.phone},
+                #{found.state}, #{found.stick}, #{found.lostfoundtype_id}, #{found.user_id})
+
+    </insert>
+    <update id="updateFound">
+        update found
+        set img=#{img},
+            user_id=#{user_id}
+        where id = #{id}
+
+    </update>
+    <update id="updateState">
+        update found set state=#{state} where id=#{id}
+    </update>
+    <update id="updatephone">
+        update found set phone=#{phone} where user_id=#{user_id}
+    </update>
+
+
+    <select id="selectByTypeId" resultType="com.school.entity.Found">
+        select id,
+               title,
+               img,
+               pub_date,
+               content,
+               place,
+               phone,
+               state,
+               stick,
+               user_id
+        from found
+        where lostfoundtype_id = #{lostfoundtypeId}
+          and state = '未认领'
+        order by pub_date desc
+    </select>
+    <select id="searchUserNameId" resultType="java.lang.String">
+        select nickname
+        from user
+        where id = #{id}
+    </select>
+    <select id="getAllByIdFoundList" resultType="com.school.entity.Found">
+        select id,
+               title,
+               img,
+               pub_date,
+               content,
+               place,
+               phone,
+               state,
+               stick,
+               user_id
+        from found
+        where user_id = #{user_id}
+        order by pub_date desc
+    </select>
+    <select id="getAllList" resultType="com.school.entity.Found">
+        select *
+        from found
+    </select>
+    <select id="showFoundList" resultType="com.school.entity.Found">
+        select id,
+               title,
+               img,
+               pub_date,
+               content,
+               place,
+               phone,
+               state,
+               stick,
+               user_id,
+               lostfoundtype_id
+        from found
+        where stick = #{stick}
+          and state = '未认领'
+    </select>
+
+</mapper>
