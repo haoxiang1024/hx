@@ -151,10 +151,10 @@
     <string name="splash_title">School Helper</string>
     <string name="night_mode">Night Mode</string>
     <string name="font_size">Font Size</string>
-    <string name="multi_language">Multi Language</string>
+    <string name="multi_language">Multi Lang</string>
     <string name="clear_cache">Clear Cache</string>
     <string name="lang_zh_cn">Chinese</string>
-    <string name="lang_follow_system">Follow System</string>
+    <string name="lang_follow_system">Follow Sys</string>
     <string name="lang_en">English</string>
     <string name="pull_to_refresh">Pull down to refresh and try again</string>
     <string name="submit_success">Submitted successfully</string>
@@ -171,5 +171,10 @@
     <string name="modify_success">Modify profile successfully!</string>
     <string name="logout_success">Logout success!</string>
     <string name="logout_failed">Login failed!</string>
+    <string name="title_not_empty">Title cannot be empty</string>
+    <string name="content_not_empty">Content cannot be empty</string>
+    <string name="location_not_empty">Location cannot be empty</string>
+    <string name="category_not_selected">You haven\'t selected a category yet</string>
+    <string name="send_su">Send success</string>
 
 </resources>

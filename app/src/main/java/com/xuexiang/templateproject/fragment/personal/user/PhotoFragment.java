@@ -87,16 +87,13 @@ public class PhotoFragment extends BaseFragment<FragmentPhotoBinding> {
             }
 
         });
-        binding.uploadimg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (file == null) {
-                    Utils.showResponse(Utils.getString(getContext(),R.string.no_image_selected_yet));
-                } else {
-                    upload();//上传图片
-                }
-
+        binding.uploadimg.setOnClickListener(v -> {
+            if (file == null) {
+                Utils.showResponse(Utils.getString(getContext(),R.string.no_image_selected_yet));
+            } else {
+                upload();//上传图片
             }
+
         });
     }
 
@@ -178,9 +175,9 @@ public class PhotoFragment extends BaseFragment<FragmentPhotoBinding> {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == CHOOSE_PHOTO) {//显示图片
             binding.rivHeadPic.setImageURI(data.getData());
-            Log.e(TAG, "虚拟路径:" + data.getData());
+//            Log.e(TAG, "虚拟路径:" + data.getData());
             String realPath = Utils.getRealPath(getContext(), data);
-            Log.e(TAG, "真实路径:" + realPath);
+//            Log.e(TAG, "真实路径:" + realPath);
             String[] temp = realPath.replaceAll("\\\\", "/").split("/");
             if (temp.length > 1) {
                 fileName = temp[temp.length - 1];

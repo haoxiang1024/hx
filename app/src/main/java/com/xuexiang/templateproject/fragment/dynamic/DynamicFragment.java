@@ -107,32 +107,32 @@ public class DynamicFragment extends BaseFragment<FragmentNewsBinding> {
                                     //中文页
                                     switch (item.title) {
                                         case "紧急通知":
-                                            AgentWebActivity.goWeb(getContext(), Utils.rebuildUrl("/pages/notification.html", getContext()));
+                                            AgentWebActivity.goWeb(getContext(), Utils.rebuildUrl("/static/pages/notification.html", getContext()));
                                             break;
                                         case "意见反馈":
-                                            AgentWebActivity.goWeb(getContext(), Utils.rebuildUrl("/pages/contract.html", getContext()));
+                                            AgentWebActivity.goWeb(getContext(), Utils.rebuildUrl("/static/pages/contract.html", getContext()));
                                             break;
                                         case "app闪退":
-                                            AgentWebActivity.goWeb(getContext(), Utils.rebuildUrl("/pages/appcrash.html", getContext()));
+                                            AgentWebActivity.goWeb(getContext(), Utils.rebuildUrl("/static/pages/appcrash.html", getContext()));
                                             break;
                                         case "隐私":
-                                            AgentWebActivity.goWeb(getContext(), Utils.rebuildUrl("/pages/privacy.html", getContext()));
+                                            AgentWebActivity.goWeb(getContext(), Utils.rebuildUrl("/static/pages/privacy.html", getContext()));
                                             break;
                                     }
                                 } else if (currentLanguage.equals("en")) {
                                     //英文页
                                     switch (item.title) {
                                         case "紧急通知":
-                                            AgentWebActivity.goWeb(getContext(), Utils.rebuildUrl("/pages/notification_en.html", getContext()));
+                                            AgentWebActivity.goWeb(getContext(), Utils.rebuildUrl("/static/pages/notification_en.html", getContext()));
                                             break;
                                         case "意见反馈":
-                                            AgentWebActivity.goWeb(getContext(), Utils.rebuildUrl("/pages/contract_en.html", getContext()));
+                                            AgentWebActivity.goWeb(getContext(), Utils.rebuildUrl("/static/pages/contract_en.html", getContext()));
                                             break;
                                         case "app闪退":
-                                            AgentWebActivity.goWeb(getContext(), Utils.rebuildUrl("/pages/appcrash_en.html", getContext()));
+                                            AgentWebActivity.goWeb(getContext(), Utils.rebuildUrl("/static/pages/appcrash_en.html", getContext()));
                                             break;
                                         case "隐私":
-                                            AgentWebActivity.goWeb(getContext(), Utils.rebuildUrl("/pages/privacy_en.html", getContext()));
+                                            AgentWebActivity.goWeb(getContext(), Utils.rebuildUrl("/static/pages/privacy_en.html", getContext()));
                                             break;
                                     }
                                 }
@@ -167,7 +167,7 @@ public class DynamicFragment extends BaseFragment<FragmentNewsBinding> {
                         } else if (title.equals(stringArray[2])) {
                             openNewPage(SearchFragment.class);
                         } else if (title.equals(stringArray[3])) {
-                            AgentWebActivity.goWeb(getContext(), Utils.rebuildUrl("/static/pages/contract.html", getContext()));
+                            AgentWebActivity.goWeb(getContext(), Utils.rebuildUrl("/static/pages/contract_en.html", getContext()));
                         }
 
                     });

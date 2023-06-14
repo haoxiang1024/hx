@@ -132,19 +132,19 @@ public class AddLostFragment extends BaseFragment<FragmentAddLostBinding> {
             Log.e(TAG, "Data: " + lostJson);
             //上传图片
             if (file == null) {
-                result = "你还未选择任何图片!";
+                result = Utils.getString(getContext(),R.string.no_image_selected_yet);
                 showResponse(result);//反馈客户端
             } else if (TextUtils.isEmpty(lostTitleEditValue.trim())) {
-                result = "标题不能为空";
+                result = Utils.getString(getContext(),R.string.title_not_empty);
                 showResponse(result);
             } else if (TextUtils.isEmpty(contentEditValue.trim())) {
-                result = "内容不能为空";
+                result = Utils.getString(getContext(),R.string.content_not_empty);
                 showResponse(result);
             } else if (TextUtils.isEmpty(locationEditValue.trim())) {
-                result = "地点不能为空";
+                result = Utils.getString(getContext(),R.string.location_not_empty);
                 showResponse(result);
             } else if (binding.radioGroup.getCheckedRadioButtonId() == -1) {
-                result = "你还未选择分类";
+                result = Utils.getString(getContext(),R.string.category_not_selected);
                 showResponse(result);
             } else {
                 //将图片和lost对象上传服务端
@@ -186,10 +186,8 @@ public class AddLostFragment extends BaseFragment<FragmentAddLostBinding> {
 
             //请求成功响应函数
             @Override
-            public void onResponse(Call call, Response response) throws IOException {
-                String msg = response.body().string();
-                String msg1 = JsonOperate.getValue(msg, "msg");//获取服务器返回的信息
-                showResponse(msg1);
+            public void onResponse(Call call, Response response) {
+                showResponse(Utils.getString(getContext(),R.string.send_su));
 
             }
         });
@@ -278,14 +276,14 @@ public class AddLostFragment extends BaseFragment<FragmentAddLostBinding> {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == CHOOSE_PHOTO) {//显示图片
             binding.ivImage.setImageURI(data.getData());
-            Log.e(TAG, "图片在手机上的虚拟路径为:" + data.getData());
+//            Log.e(TAG, "图片在手机上的虚拟路径为:" + data.getData());
             String realPath = Utils.getRealPath(getContext(), data);
-            Log.e(TAG, "图片在手机上的真实路径为:" + realPath);
+//            Log.e(TAG, "图片在手机上的真实路径为:" + realPath);
             String[] temp = realPath.replaceAll("\\\\", "/").split("/");
             if (temp.length > 1) {
                 fileName = temp[temp.length - 1];
             }
-            Log.e(TAG, "onActivityResult: " + fileName);
+//            Log.e(TAG, "onActivityResult: " + fileName);
             file = new File(realPath);
         }
     }

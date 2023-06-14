@@ -16,6 +16,7 @@
                 android:paddingTop="20dp">
                 <com.xuexiang.xui.widget.textview.supertextview.SuperTextView
                     android:id="@+id/system_language"
+                    android:layout_width="wrap_content"
                     style="@style/InfoItem.Account"
                     app:sLeftTextString="@string/lang_follow_system" />
 

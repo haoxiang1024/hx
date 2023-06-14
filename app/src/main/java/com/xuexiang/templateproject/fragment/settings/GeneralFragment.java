@@ -51,8 +51,6 @@ public class GeneralFragment extends BaseFragment<FragmentGeneralBinding> implem
     @Override
     protected void initListeners() {
         super.initListeners();
-        binding.menuNight.setOnSuperTextViewClickListener(this);//夜间模式
-        binding.menuFont.setOnSuperTextViewClickListener(this);//字体大小
         binding.menuLanguage.setOnSuperTextViewClickListener(this);//多语言
         binding.menuCache.setOnSuperTextViewClickListener(this);//缓存清理
 
@@ -63,11 +61,6 @@ public class GeneralFragment extends BaseFragment<FragmentGeneralBinding> implem
     @Override
     public void onClick(SuperTextView view) {
         switch (view.getId()) {
-            case R.id.menu_night:
-                break;
-            case R.id.menu_font:
-                //字体大小
-                break;
             case R.id.menu_language:
                 //多语言
                 openPage(MultiLanguageFragment.class);

@@ -1,10 +1,17 @@
 package com.xuexiang.templateproject.fragment.settings;
 
+import static com.xuexiang.xutil.app.AppUtils.getPackageName;
+
 import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Build;
+import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 
 import com.xuexiang.templateproject.R;
 import com.xuexiang.templateproject.core.BaseFragment;
@@ -40,11 +47,10 @@ public class SettingsFragment extends BaseFragment<FragmentSettingsBinding> impl
     protected void initViews() {
         binding.menuCommon.setOnSuperTextViewClickListener(this);
         binding.menuPrivacy.setOnSuperTextViewClickListener(this);
-        binding.menuPush.setOnSuperTextViewClickListener(this);
-        binding.menuChangeAccount.setOnSuperTextViewClickListener(this);
         binding.menuLogout.setOnSuperTextViewClickListener(this);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @SuppressLint("NonConstantResourceId")
     @SingleClick
     @Override
@@ -56,13 +62,13 @@ public class SettingsFragment extends BaseFragment<FragmentSettingsBinding> impl
                 openPage(GeneralFragment.class);
                 break;
             case R.id.menu_privacy:
-                //隐私页面
-                break;
-            case R.id.menu_push:
-                //通知页面
-                break;
-            case R.id.menu_change_account:
-                //切换账户
+                //权限
+                Intent intent = new Intent();
+                intent.setAction(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+                Uri uri = Uri.fromParts("package", getPackageName(), null);
+                intent.setData(uri);
+                intent.putExtra(Settings.EXTRA_APP_PACKAGE, getPackageName());
+                startActivity(intent);
                 break;
             case R.id.menu_logout:
                 //退出登录

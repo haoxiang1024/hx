@@ -124,22 +124,22 @@ public class AddFoundFragment extends BaseFragment<FragmentAddFoundBinding> {
             Found found = new Found(foundTitleEditValue, "", date, contentEditValue, locationEditValue, phone, state, stick, id, userId);
             //对象转换json用于传输
             foundJson = JSON.toJSONString(found);
-            Log.e(TAG, "Data: " + foundJson);
+//            Log.e(TAG, "Data: " + foundJson);
             //上传图片
             if (file == null) {
-                result = "你还未选择任何图片!";
+                result = Utils.getString(getContext(),R.string.no_image_selected_yet);
                 showResponse(result);//反馈客户端
             } else if (TextUtils.isEmpty(foundTitleEditValue.trim())) {
-                result = "标题不能为空";
+                result = Utils.getString(getContext(),R.string.title_not_empty);
                 showResponse(result);
             } else if (TextUtils.isEmpty(contentEditValue.trim())) {
-                result = "内容不能为空";
+                result = Utils.getString(getContext(),R.string.content_not_empty);
                 showResponse(result);
             } else if (TextUtils.isEmpty(locationEditValue.trim())) {
-                result = "地点不能为空";
+                result = Utils.getString(getContext(),R.string.location_not_empty);
                 showResponse(result);
             } else if (binding.radioGroup.getCheckedRadioButtonId() == -1) {
-                result = "你还未选择分类";
+                result = Utils.getString(getContext(),R.string.category_not_selected);
                 showResponse(result);
             } else {
                 //将图片和对象上传服务端
@@ -179,10 +179,8 @@ public class AddFoundFragment extends BaseFragment<FragmentAddFoundBinding> {
 
             //请求成功响应函数
             @Override
-            public void onResponse(Call call, Response response) throws IOException {
-                String msg = response.body().string();
-                String msg1 = JsonOperate.getValue(msg, "msg");//获取服务器返回的信息
-                showResponse(msg1);
+            public void onResponse(Call call, Response response) {
+                showResponse(Utils.getString(getContext(),R.string.send_su));
 
             }
         });
