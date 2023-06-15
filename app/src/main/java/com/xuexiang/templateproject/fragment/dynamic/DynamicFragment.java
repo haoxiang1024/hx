@@ -167,7 +167,13 @@ public class DynamicFragment extends BaseFragment<FragmentNewsBinding> {
                         } else if (title.equals(stringArray[2])) {
                             openNewPage(SearchFragment.class);
                         } else if (title.equals(stringArray[3])) {
-                            AgentWebActivity.goWeb(getContext(), Utils.rebuildUrl("/static/pages/contract_en.html", getContext()));
+                            String language = Utils.language(getContext());
+                            if(language.equals("en")){
+                                AgentWebActivity.goWeb(getContext(), Utils.rebuildUrl("/static/pages/contract_en.html", getContext()));
+                            }else {
+                                AgentWebActivity.goWeb(getContext(), Utils.rebuildUrl("/static/pages/contract.html", getContext()));
+
+                            }
                         }
 
                     });

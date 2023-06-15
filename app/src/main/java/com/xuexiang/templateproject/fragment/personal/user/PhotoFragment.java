@@ -161,7 +161,7 @@ public class PhotoFragment extends BaseFragment<FragmentPhotoBinding> {
                 //存储信息
                 Utils.doUserData(data);
                 //跳转主界面
-                ActivityUtils.startActivity(MainActivity.class);
+                startActivity(new Intent(getContext(), MainActivity.class));
                 Utils.showResponse(Utils.getString(getContext(),R.string.modify_success));
             }
         });

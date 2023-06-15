@@ -120,12 +120,12 @@ public class LoginFragment extends BaseFragment<FragmentLoginBinding> implements
         titleBar.setTitle("");
         titleBar.setLeftImageDrawable(ResUtils.getVectorDrawable(getContext(), R.drawable.ic_login_close));
         titleBar.setActionTextColor(ThemeUtils.resolveColor(getContext(), R.attr.colorAccent));
-        mJumpView = titleBar.addAction(new TitleBar.TextAction(R.string.title_jump_login) {
-            @Override
-            public void performAction(View view) {
-                onLoginSuccess();
-            }
-        });
+//        mJumpView = titleBar.addAction(new TitleBar.TextAction(R.string.title_jump_login) {
+//            @Override
+//            public void performAction(View view) {
+//                onLoginSuccess();
+//            }
+//        });
         return titleBar;
     }
 

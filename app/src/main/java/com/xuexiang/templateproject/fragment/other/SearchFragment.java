@@ -23,7 +23,7 @@ import java.util.List;
 import okhttp3.Call;
 import okhttp3.Response;
 
-@Page(name = "搜索")
+@Page()
 public class SearchFragment extends BaseFragment<FragmentSearchBinding> {
     private SearchInfoAdapter searchInfoAdapter;//搜索适配器
 
@@ -49,6 +49,14 @@ public class SearchFragment extends BaseFragment<FragmentSearchBinding> {
     protected void initViews() {
         searchInfoAdapter = new SearchInfoAdapter(getContext());
         binding.listview.setAdapter(searchInfoAdapter);
+    }
+
+    /**
+     * 获取页面标题
+     */
+    @Override
+    protected String getPageTitle() {
+        return Utils.getString(getContext(),R.string.search);
     }
 
     @Override

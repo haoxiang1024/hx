@@ -2,6 +2,7 @@ package com.xuexiang.templateproject.fragment.personal.user;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -176,8 +177,7 @@ public class AccountFragment extends BaseFragment<FragmentAccountBinding> implem
                         String data = JsonOperate.getValue(result, "data");
                         //更新信息
                         Utils.doUserData(data);
-                        //跳转主界面
-                        ActivityUtils.startActivity(MainActivity.class);
+                        startActivity(new Intent(getContext(), MainActivity.class));
                         Utils.showResponse(Utils.getString(getContext(),R.string.modify_success));
                     }
                 });
