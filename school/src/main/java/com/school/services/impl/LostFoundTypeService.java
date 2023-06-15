@@ -1,5 +1,6 @@
 package com.school.services.impl;
 
+import com.school.entity.Lostfoundtype;
 import com.school.mapper.LostFoundMapper;
 import com.school.services.interfaces.LostFoundType;
 import com.school.utils.RedisService;
@@ -56,18 +57,24 @@ public class LostFoundTypeService implements LostFoundType {
         String[] en = {"Digital Devices", "Certificates", "Daily Necessities", "Clothing and Apparel", "Other"};
         String[] cn = {"数码设备", "证件", "日用品", "服饰", "其他"};
         Map<String, String> map = new HashMap<>();//建立关系
-        int typeIdByName = 0;
         for (int i = 0; i < en.length; i++) {
             map.put(en[i], cn[i]);
         }
-        for (String str : cn) {
-            if (name.equals(str)) {
-                typeIdByName = lostFoundMapper.typeIdByName(name);
+        //获取标题id
+        int id = 0;
+        List<Lostfoundtype> lostfoundtypes = lostFoundMapper.GetAll();
+        for (Lostfoundtype lostfoundtype : lostfoundtypes) {
+            if (lostfoundtype.getName().equals(name)) {
+                //中文
+                id = lostfoundtype.getId();
             } else {
-                String s = map.get(name);
-                typeIdByName = lostFoundMapper.typeIdByName(s);
+                //英文
+                String cnValue = map.get(name);
+                if (lostfoundtype.getName().equals(cnValue)) {
+                    id = lostfoundtype.getId();
+                }
             }
         }
-        return ServerResponse.createServerResponseBySuccess(typeIdByName, ResponseCode.GET_DATA_SUCCESS.getMsg());
+        return ServerResponse.createServerResponseBySuccess(id, ResponseCode.GET_DATA_SUCCESS.getMsg());
     }
 }
