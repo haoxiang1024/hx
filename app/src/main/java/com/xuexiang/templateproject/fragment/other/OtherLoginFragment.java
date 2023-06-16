@@ -16,7 +16,9 @@ import com.xuexiang.templateproject.activity.LoginActivity;
 import com.xuexiang.templateproject.activity.MainActivity;
 import com.xuexiang.templateproject.core.BaseFragment;
 import com.xuexiang.templateproject.databinding.FragmentOtherLoginBinding;
+import com.xuexiang.templateproject.utils.RandomUtils;
 import com.xuexiang.templateproject.utils.SettingUtils;
+import com.xuexiang.templateproject.utils.TokenUtils;
 import com.xuexiang.templateproject.utils.Utils;
 import com.xuexiang.templateproject.utils.internet.OkHttpCallback;
 import com.xuexiang.templateproject.utils.internet.OkhttpUtils;
@@ -25,6 +27,7 @@ import com.xuexiang.templateproject.utils.service.JsonOperate;
 import com.xuexiang.xpage.annotation.Page;
 import com.xuexiang.xui.utils.ViewUtils;
 import com.xuexiang.xui.widget.actionbar.TitleBar;
+import com.xuexiang.xutil.app.ActivityUtils;
 
 import java.io.IOException;
 
@@ -32,7 +35,6 @@ import okhttp3.Call;
 import okhttp3.Response;
 
 @Page
-
 public class OtherLoginFragment extends BaseFragment<FragmentOtherLoginBinding> implements View.OnClickListener {
 
     @Override
@@ -108,15 +110,18 @@ public class OtherLoginFragment extends BaseFragment<FragmentOtherLoginBinding> 
                     @Override
                     public void onResponse(Call call, Response response) throws IOException {
                         super.onResponse(call, response);
-                        Log.e(TAG, "onResponse: " + result);
                         String msg = JsonOperate.getValue(result, "msg");//登录信息
                         String loginMsg = JsonOperate.getValue(result, "data");//登录数据
                         if (msg.equals("登录成功")) {
                             Utils.showResponse(Utils.getString(getContext(),R.string.login_su));
-                            Intent intent = new Intent(getContext(), MainActivity.class);
-                            intent.putExtra("loginMsg", loginMsg);
-                            popToBack();
-                            startActivity(intent);
+                            //获取信息并存储
+                            Utils.doUserData(loginMsg);
+                            //设置登录token
+                            TokenUtils.setToken(RandomUtils.getRandomLetters(6));
+                            //跳转主界面
+                            ActivityUtils.startActivity(MainActivity.class);
+                        } else if (msg.equals("登录失败,请检查手机号密码是否正确")) {
+                            Utils.showResponse(Utils.getString(getContext(),R.string.login_fail));
                         }
 
                     }

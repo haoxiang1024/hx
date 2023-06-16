@@ -176,5 +176,6 @@
     <string name="location_not_empty">Location cannot be empty</string>
     <string name="category_not_selected">You haven\'t selected a category yet</string>
     <string name="send_su">Send success</string>
+    <string name="login_fail">Login failed, please check whether the phone number or password is correct</string>
 
 </resources>
