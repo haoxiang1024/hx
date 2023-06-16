@@ -92,9 +92,8 @@ public class UserService implements UserInterface {
             return ServerResponse.createServerResponseBySuccess("用户不存在");
         }
         User userInfo = userMapper.userInfo(userId);
-        if (userInfo.getPassword().equals(newPwd)) {
-            return ServerResponse.createServerResponseBySuccess("新密码不能与旧密码相同");
-        } else {
+        if(userInfo.getPassword()==null){
+            //新用户的密码重置
             if (userMapper.resetPwd(phone, newPwd)) {
                 userInfo = userMapper.userInfo(userId);
                 //设置头像
@@ -103,7 +102,22 @@ public class UserService implements UserInterface {
                 //重置成功
                 return ServerResponse.createServerResponseBySuccess(userInfo, "重置成功");
             }
+        }else {
+            //不是新新用户的密码重置
+            if (userInfo.getPassword().equals(newPwd)) {
+                return ServerResponse.createServerResponseBySuccess("新密码不能与旧密码相同");
+            } else {
+                if (userMapper.resetPwd(phone, newPwd)) {
+                    userInfo = userMapper.userInfo(userId);
+                    //设置头像
+                    String pic = Util.updatePic(userInfo.getPhoto());
+                    userInfo.setPhoto(pic);
+                    //重置成功
+                    return ServerResponse.createServerResponseBySuccess(userInfo, "重置成功");
+                }
+            }
         }
+
 
         return ServerResponse.createServerResponseBySuccess("重置失败");
     }
