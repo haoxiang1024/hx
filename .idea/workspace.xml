@@ -11,7 +11,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a80bac8e-27ad-46de-a48e-9846d84b180b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/xuexiang/templateproject/fragment/other/ResetPwdFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/xuexiang/templateproject/fragment/other/ResetPwdFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/url.properties" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/url.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
