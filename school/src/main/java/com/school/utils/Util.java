@@ -61,10 +61,8 @@ public class Util {
         Matcher matcher = pattern.matcher(oldPic); // 将正则表达式应用到输入字符串上
         String newPic = "";
         if (!matcher.matches()) {
-            //获取ip地址
-            String ip = Ip.getIp();
-            newPic = "http://" + ip + ":8080/school/static/upload/" + oldPic;
-           // newPic = "http://111.67.203.931:8082/loadPhoto/" + oldPic;
+           // newPic = "http://" + ip + ":8080/school/static/upload/" + oldPic;
+            newPic = "http://111.67.197.142:8081/school/images/" + oldPic;
             return newPic;
         }
         return oldPic;

@@ -41,7 +41,7 @@ public class UploadController {
     public ServerResponse upload(MultipartFile upload_file, String lostJson, String foundJson, String op) throws IOException {
         String filename = upload_file.getOriginalFilename();
         InputStream inputStream = upload_file.getInputStream();
-        File file = new File("src/main/resources/static/upload/" + filename);
+        File file = new File("/usr/project/upload/" + filename);
         OutputStream outputStream = Files.newOutputStream(file.toPath());
         int length;
         byte[] bytes = new byte[1024];

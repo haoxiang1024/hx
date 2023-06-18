@@ -45,7 +45,7 @@ public class UserController {
     public ServerResponse updatePic(MultipartFile upload_file,int id) throws IOException {
         String filename = upload_file.getOriginalFilename();
         InputStream inputStream = upload_file.getInputStream();
-        File file = new File("src/main/resources/static/upload/" + filename);
+        File file = new File("/usr/project/upload/" + filename);
         OutputStream outputStream = Files.newOutputStream(file.toPath());
         int length;
         byte[] bytes = new byte[1024];
