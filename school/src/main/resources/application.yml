@@ -1,16 +1,16 @@
 server:
   servlet:
     context-path: /school
-  port:
+  port: 8081
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/android_test?allowPublicKeyRetrieval=true&useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
-    username: root
+    url: jdbc:mysql://111.67.200.98:3306/android_test?allowPublicKeyRetrieval=true&useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: admin
     password: 123456
 
     redis:
-      host: localhost
+      host: 111.67.200.98
       port: 6379
     servlet:
       multipart:
