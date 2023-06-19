@@ -55,7 +55,7 @@ import com.xuexiang.xutil.display.Colors;
  */
 public class MainActivity extends BaseActivity<ActivityMainBinding> implements View.OnClickListener, BottomNavigationView.OnNavigationItemSelectedListener, ClickUtils.OnClick2ExitListener, Toolbar.OnMenuItemClickListener {
 
-    private String[] mTitles;
+    private String[] mTitles;//标题数组
 
     @Override
     protected ActivityMainBinding viewBindingInflate(LayoutInflater inflater) {
@@ -78,11 +78,13 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> implements V
 
     private void initViews() {
         WidgetUtils.clearActivityBackground(this);
+        //标题数组
         mTitles = getResources().getStringArray(R.array.home_titles);
+        //初始化标题栏
         binding.includeMain.toolbar.setTitle(mTitles[0]);
         binding.includeMain.toolbar.inflateMenu(R.menu.menu_main);
         binding.includeMain.toolbar.setOnMenuItemClickListener(this);
-        initHeader();
+        initHeader();//初始化侧边栏
         //主页内容填充
         BaseFragment[] fragments = new BaseFragment[]{
                 new DynamicFragment(),//主页
@@ -90,12 +92,12 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> implements V
                 new PersonalFragment()//我的页面
         };
         FragmentAdapter<BaseFragment> adapter = new FragmentAdapter<>(getSupportFragmentManager(), fragments);
-        binding.includeMain.viewPager.setOffscreenPageLimit(mTitles.length - 1);
-        binding.includeMain.viewPager.setAdapter(adapter);
+        binding.includeMain.viewPager.setOffscreenPageLimit(mTitles.length - 1);//设置ViewPager预加载页面数量的方法。它指定了当前页面两侧（左侧和右侧）的未选中页面数量，这些页面都会被预加载
+        binding.includeMain.viewPager.setAdapter(adapter);//viewpager 适配器
     }
 
     private void initData() {
-        //已经登录成功
+        //已经登录成功设置token 下次无需重复登录
         TokenUtils.setToken("login_succeed_token");
         XUpdateInit.checkUpdate(this, false);
     }
@@ -163,10 +165,10 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> implements V
 
 
     protected void initListeners() {
+        //页面切换行为
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, binding.drawerLayout, binding.includeMain.toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         binding.drawerLayout.addDrawerListener(toggle);
-        toggle.syncState();
-
+        toggle.syncState();//同步页面状态
         //侧边栏点击事件
         binding.navView.setNavigationItemSelectedListener(menuItem -> {
             //判断菜单是否有选中行为的菜单项有则切换,无则打开页面
@@ -197,10 +199,10 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> implements V
 
             @Override
             public void onPageSelected(int position) {
-                MenuItem item = binding.includeMain.bottomNavigation.getMenu().getItem(position);
-                binding.includeMain.toolbar.setTitle(item.getTitle());
-                item.setChecked(true);
-                updateSideNavStatus(item);
+                MenuItem item = binding.includeMain.bottomNavigation.getMenu().getItem(position);//底部导航栏菜单选项
+                binding.includeMain.toolbar.setTitle(item.getTitle());//设置被选中的页面的标题
+                item.setChecked(true);//设置被选中的菜单项
+                updateSideNavStatus(item);//更新侧边栏菜单选中状态
             }
 
             @Override
@@ -208,7 +210,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> implements V
 
             }
         });
-        binding.includeMain.bottomNavigation.setOnNavigationItemSelectedListener(this);
+        binding.includeMain.bottomNavigation.setOnNavigationItemSelectedListener(this);//底部导航栏点击事件(onNavigationItemSelected)
     }
 
     /**
@@ -220,8 +222,8 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> implements V
     private boolean handleNavigationItemSelected(@NonNull MenuItem menuItem) {
         int index = CollectionUtils.arrayIndexOf(mTitles, menuItem.getTitle());
         if (index != -1) {
-            binding.includeMain.toolbar.setTitle(menuItem.getTitle());
-            binding.includeMain.viewPager.setCurrentItem(index, false);
+            binding.includeMain.toolbar.setTitle(menuItem.getTitle());//设置标题栏标题
+            binding.includeMain.viewPager.setCurrentItem(index, false);//设置主页页面被选中页
             return true;
         }
         return false;
@@ -253,8 +255,8 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> implements V
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         int index = CollectionUtils.arrayIndexOf(mTitles, menuItem.getTitle());
         if (index != -1) {
-            binding.includeMain.toolbar.setTitle(menuItem.getTitle());
-            binding.includeMain.viewPager.setCurrentItem(index, false);
+            binding.includeMain.toolbar.setTitle(menuItem.getTitle());//设置标题栏标题
+            binding.includeMain.viewPager.setCurrentItem(index, false);//设置主页页面被选中页
             updateSideNavStatus(menuItem);
             return true;
         }
@@ -263,7 +265,6 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> implements V
 
     /**
      * 更新侧边栏菜单选中状态
-     *
      * @param menuItem
      */
     private void updateSideNavStatus(MenuItem menuItem) {

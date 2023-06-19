@@ -15,7 +15,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <!-- 侧边栏   -->
+    <!-- 侧边栏  include_navigation_header导航头部部分
+    menu_drawer 菜单项
+      -->
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view"
         android:layout_width="wrap_content"
