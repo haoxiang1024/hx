@@ -47,7 +47,6 @@ import com.xuexiang.xui.widget.imageview.RadiusImageView;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 import me.samlss.broccoli.Broccoli;
 import okhttp3.Call;
@@ -168,9 +167,9 @@ public class DynamicFragment extends BaseFragment<FragmentNewsBinding> {
                             openNewPage(SearchFragment.class);
                         } else if (title.equals(stringArray[3])) {
                             String language = Utils.language(getContext());
-                            if(language.equals("en")){
+                            if (language.equals("en")) {
                                 AgentWebActivity.goWeb(getContext(), Utils.rebuildUrl("/static/pages/contract_en.html", getContext()));
-                            }else {
+                            } else {
                                 AgentWebActivity.goWeb(getContext(), Utils.rebuildUrl("/static/pages/contract.html", getContext()));
 
                             }
@@ -204,7 +203,7 @@ public class DynamicFragment extends BaseFragment<FragmentNewsBinding> {
                     holder.image(R.id.iv_image, model.getImageUrl());
                     holder.click(R.id.card_view, v -> {
                         if (position > list.size()) {
-                            Utils.showResponse(Utils.getString(getContext(),R.string.pull_to_refresh));
+                            Utils.showResponse(Utils.getString(getContext(), R.string.pull_to_refresh));
                             return;
                         }
                         NewInfo newInfo = getItem(position);
@@ -222,7 +221,6 @@ public class DynamicFragment extends BaseFragment<FragmentNewsBinding> {
                     });
                 }
             }
-
 
             /**
              * 获取列表项
