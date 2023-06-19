@@ -9,13 +9,13 @@ spring:
     username: root
     password: 123456
 
-    redis:
-      host: 111.67.197.142
-      port: 6379
-    servlet:
-      multipart:
-        max-request-size: 100MB #设置总上传数据总大小
-        max-file-size: 20MB #设置单个文件最大长度
+  redis:
+    host: 111.67.197.142
+    port: 6379
+  servlet:
+    multipart:
+      max-request-size: 100MB #设置总上传数据总大小
+      max-file-size: 20MB #设置单个文件最大长度
   mvc:
     static-path-pattern: /static/**
   web:
