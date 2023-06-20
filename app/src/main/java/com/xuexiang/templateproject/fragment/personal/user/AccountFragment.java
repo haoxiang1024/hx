@@ -93,6 +93,10 @@ public class AccountFragment extends BaseFragment<FragmentAccountBinding> implem
             btnSure.setOnClickListener(v1 -> {
                 //确定操作
                 String newText = editText.getText().toString();
+                if(newText.length()==0){
+                    Utils.showResponse(Utils.getString(getContext(),R.string.nickname_cannot_be_empty));
+                    return;
+                }
                 binding.tvNickName.setText(newText);
                 alertDialog.dismiss();
             });
@@ -140,9 +144,6 @@ public class AccountFragment extends BaseFragment<FragmentAccountBinding> implem
     }
 
     private void update() {
-        if (binding.tvNickName.getText().length() == 0) {
-            Utils.showResponse(Utils.getString(getContext(),R.string.nickname_cannot_be_empty));
-        }
         //获取数据
         String nickName = String.valueOf(binding.tvNickName.getText());//昵称
         User user = Utils.getBeanFromSp(getContext(), "User", "user");//获取user对象
