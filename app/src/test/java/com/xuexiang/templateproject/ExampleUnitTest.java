@@ -2,7 +2,10 @@ package com.xuexiang.templateproject;
 
 import static org.junit.Assert.assertEquals;
 
+import android.content.Context;
+
 import com.xuexiang.templateproject.core.http.entity.TipInfo;
+import com.xuexiang.templateproject.utils.AppSigning;
 import com.xuexiang.templateproject.utils.internet.OkHttpCallback;
 import com.xuexiang.templateproject.utils.internet.OkhttpUtils;
 import com.xuexiang.templateproject.utils.service.JsonOperate;
@@ -28,6 +31,10 @@ import okhttp3.Response;
 public class ExampleUnitTest {
     public static String newsKey = "bec633393690881151584f0ce9462ecf";//新闻key
     EventHandler eventHandler;//事件处理
+
+    public ExampleUnitTest(Context context) {
+        this.context = context;
+    }
 
     @Test
     public void addition_isCorrect() {
@@ -96,6 +103,15 @@ public class ExampleUnitTest {
         public static void submitVerificationCode(String country, String phone, String code) {
             SMSSDK.submitVerificationCode(country, phone, code);
         }
+    }
+    private Context context;
+
+
+
+    @Test
+    public void Md5(){
+        System.err.println("111");
+        // System.err.println(AppSigning.getMD5(context));
     }
 
 }

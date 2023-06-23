@@ -22,12 +22,13 @@ import com.xuexiang.templateproject.utils.internet.OkhttpUtils;
 import com.xuexiang.templateproject.utils.service.JsonOperate;
 import com.xuexiang.xpage.annotation.Page;
 import com.xuexiang.xui.utils.CountDownButtonHelper;
-import com.xuexiang.xui.widget.actionbar.TitleBar;
 
 import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import cn.smssdk.EventHandler;
+import cn.smssdk.SMSSDK;
 import okhttp3.Call;
 import okhttp3.Response;
 
@@ -35,10 +36,57 @@ import okhttp3.Response;
 @Page
 public class ResetPwdFragment extends BaseFragment<FragmentResetPwdBinding> implements View.OnClickListener {
 
-    Timer timer;
     Button get_code_id;//获取验证码按钮
+    Timer timer;
     int count = 60;//定时
-    private String opCode;//操作码
+    String loginMsg = "";//登录信息
+    EventHandler eventHandler;//事件处理
+    @SuppressLint("HandlerLeak")
+    Handler handler = new Handler() {
+        @SuppressLint("SetTextI18n")
+        public void handleMessage(Message msg) {
+            int tag = msg.what;
+            if (tag == 1) {
+                int arg = msg.arg1;
+                if (arg == 1) {
+                    get_code_id.setText("重新获取");
+                    //计时结束停止计时把值恢复
+                    count = 60;
+                    timer.cancel();
+                    get_code_id.setEnabled(true);
+                } else {
+                    get_code_id.setText(count + "");
+                }
+            }
+
+        }
+    };
+
+    private void reset() {
+        //重置密码
+        String phone = binding.etPhoneNumber.getEditValue();
+        String newPwd = binding.etPassword.getEditValue();
+        new Thread() {
+            @Override
+            public void run() {
+                super.run();
+                OkhttpUtils.get(Utils.rebuildUrl("/resetPwd?phone=" + phone + "&newPwd=" + newPwd, getContext()), new OkHttpCallback() {
+                    @Override
+                    public void onResponse(Call call, Response response) throws IOException {
+                        super.onResponse(call, response);
+                        String msg = JsonOperate.getValue(result, "msg");
+                        Utils.showResponse(msg);
+                    }
+                });
+            }
+        }.start();
+
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
 
 
     private CountDownButtonHelper mCountDownHelper;//倒计时
@@ -56,6 +104,7 @@ public class ResetPwdFragment extends BaseFragment<FragmentResetPwdBinding> impl
         return FragmentResetPwdBinding.inflate(inflater, container, false);
     }
 
+
     /**
      * 初始化控件
      */
@@ -66,8 +115,9 @@ public class ResetPwdFragment extends BaseFragment<FragmentResetPwdBinding> impl
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void initListeners() {
+        binding.btnReset.setOnClickListener(this);
+        binding.btnGetVerifyCode.setOnClickListener(this);
 
     }
 
@@ -76,13 +126,7 @@ public class ResetPwdFragment extends BaseFragment<FragmentResetPwdBinding> impl
      */
     @Override
     protected String getPageTitle() {
-        return "重置密码";
-    }
-
-    @Override
-    protected void initListeners() {
-        binding.btnReset.setOnClickListener(this);
-        binding.btnGetVerifyCode.setOnClickListener(this);
+        return Utils.getString(getContext(), R.string.resetpwd);
     }
 
     /**
@@ -93,105 +137,76 @@ public class ResetPwdFragment extends BaseFragment<FragmentResetPwdBinding> impl
     @Override
     public void onClick(View v) {
         int id = v.getId();
-        if (id == R.id.btn_reset) {
-            if (binding.etVerifyCode.getEditValue().length() == 0) {
-                Utils.showResponse(Utils.getString(getContext(), R.string.verification_code_empty));
-                return;
-            }            //验证手机密码格式是否通过
+        String phone = "";
+        String code = "";
+        if (id == R.id.btn_get_verify_code) {
             if (binding.etPhoneNumber.validate()) {
-                if (binding.etPassword.validate() && binding.etPassword.getEditValue().equals(binding.rePassword.getEditValue())) {
-                    String verify_code = binding.etVerifyCode.getEditValue();
-                    String phone = binding.etPhoneNumber.getEditValue();
-                    opCode = "verify";
-                    new Thread() {
-                        @Override
-                        public void run() {
-                            super.run();
-                            OkhttpUtils.get(Utils.rebuildUrl("/sms?phone=" + phone + "&" + "codes=" + verify_code + "&" + "opCode=" + opCode, getContext()), new OkHttpCallback() {
-                                @Override
-                                public void onResponse(Call call, Response response) throws IOException {
-                                    super.onResponse(call, response);
-                                    Log.e(TAG, "onResponse: " + result);
-//                                    Utils.showResponse(JsonOperate.getValue(result, "msg"));
-                                    reset();//重置密码
-                                }
-                            });
-                        }
-                    }.start();
-
-                } else {
-                    binding.rePassword.setError("两次密码不一致");
-                }
-            }
-        } else if (id == R.id.btn_get_verify_code) {
-            if (binding.etPhoneNumber.validate()) {
-                String phone = binding.etPhoneNumber.getText().toString().trim();
+                phone = binding.etPhoneNumber.getText().toString().trim();
                 if (!TextUtils.isEmpty(phone)) {
                     //倒计时
                     CountdownStart();
-                    opCode = "send";
-                    new Thread() {
-                        @Override
-                        public void run() {
-                            super.run();
-                            OkhttpUtils.get(Utils.rebuildUrl("/sms?phone=" + phone + "&" + "opCode=" + opCode, getContext()), new OkHttpCallback() {
-                                @Override
-                                public void onResponse(Call call, Response response) throws IOException {
-                                    super.onResponse(call, response);
-                                    Log.e(TAG, "onResponse: " + result);
-                                    Utils.showResponse(JsonOperate.getValue(result, "msg"));
-                                }
-                            });
-                        }
-                    }.start();
+                    //发送验证码
+                    sendCode(phone);
                 } else {
                     Utils.showResponse(Utils.getString(getContext(), R.string.inputnum));
                 }
             }
 
+        } else if (id == R.id.btn_reset) {
+            if (binding.etPhoneNumber.validate() && binding.etVerifyCode.validate()) {
+                if (binding.etPassword.getEditValue().equals(binding.rePassword.getEditValue())) {
+                    phone = binding.etPhoneNumber.getText().toString().trim();
+                    code = binding.etVerifyCode.getText().toString().trim();
+                    //重置密码
+                    verify(phone, code);
+                } else {
+                    Utils.showResponse(Utils.getString(getContext(), R.string.pwdnotsame));
+                }
+            }
         }
-
     }
 
-
-    private void reset() {
-        //获取数据
-        String number = binding.etPhoneNumber.getEditValue();
-        String password = binding.etPassword.getEditValue();
+    private void verify(String phone, String code) {
         new Thread() {
             @Override
             public void run() {
                 super.run();
-                OkhttpUtils.get(Utils.rebuildUrl("/resetPwd?phone=" + number + "&newPwd=" + password, getContext()), new OkHttpCallback() {
+                OkhttpUtils.get(Utils.rebuildUrl("/sms?phone=" + phone + "&codes=" + code + "&opCode=verify", getContext()), new OkHttpCallback() {
                     @Override
                     public void onResponse(Call call, Response response) throws IOException {
                         super.onResponse(call, response);
-                        Utils.showResponse(Utils.getString(getContext(), R.string.reset_su));
+                        String msg = JsonOperate.getValue(result, "msg");
+                        if(msg.equals("手机号验证成功!")){
+                            reset();
+                        }else {
+                            Utils.showResponse(msg);
+                        }
+
                     }
                 });
             }
         }.start();
 
+
     }
 
-    @SuppressLint("HandlerLeak")
-    Handler handler = new Handler() {
-        public void handleMessage(Message msg) {
-            int tag = msg.what;
-            if (tag == 1) {
-                int arg = msg.arg1;
-                if (arg == 1) {
-                    get_code_id.setText("重新获取");
-                    //计时结束停止计时把值恢复
-                    count = 60;
-                    timer.cancel();
-                    get_code_id.setEnabled(true);
-                } else {
-                    get_code_id.setText(count + "");
-                }
+    private void sendCode(String phone) {
+        new Thread() {
+            @Override
+            public void run() {
+                super.run();
+                OkhttpUtils.get(Utils.rebuildUrl("/sms?phone=" + phone + "&opCode=send", getContext()), new OkHttpCallback() {
+                    @Override
+                    public void onResponse(Call call, Response response) throws IOException {
+                        super.onResponse(call, response);
+                        String msg = JsonOperate.getValue(result, "msg");
+                        Utils.showResponse(msg);
+                    }
+                });
+
             }
-        }
-    };
+        }.start();
+    }
 
     //倒计时函数
     private void CountdownStart() {
@@ -213,17 +228,42 @@ public class ResetPwdFragment extends BaseFragment<FragmentResetPwdBinding> impl
         }, 1000, 1000);
     }
 
-    @Override
-    protected TitleBar initTitle() {
-        return super.initTitle()
-                .setHeight(230);
+    /**
+     * cn.smssdk.SMSSDK.class
+     * 请求文本验证码
+     *
+     * @param country 国家区号
+     * @param phone   手机号
+     */
+    public static void getVerificationCode(String country, String phone) {
+        //获取短信验证码
+        SMSSDK.getVerificationCode(country, phone);
+    }
+
+    /**
+     * cn.smssdk.SMSSDK.class
+     * 提交验证码
+     *
+     * @param country 国家区号
+     * @param phone   手机号
+     * @param code    验证码
+     */
+    public static void submitVerificationCode(String country, String phone, String code) {
+        SMSSDK.submitVerificationCode(country, phone, code);
     }
 
     @Override
     public void onDestroyView() {
-        super.onDestroyView();
         if (mCountDownHelper != null) {
             mCountDownHelper.recycle();
         }
+        super.onDestroyView();
+    }
+
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+
     }
 }

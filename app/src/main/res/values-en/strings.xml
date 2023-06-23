@@ -177,5 +177,6 @@
     <string name="category_not_selected">You haven\'t selected a category yet</string>
     <string name="send_su">Send success</string>
     <string name="login_fail">Login failed, please check whether the phone number or password is correct</string>
+    <string name="pwdnotsame">Password is not same</string>
 
 </resources>

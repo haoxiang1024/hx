@@ -70,7 +70,6 @@ public class OtherLoginFragment extends BaseFragment<FragmentOtherLoginBinding> 
                     if (binding.etPassword.validate()) {
                         pwdLogin();
                     }
-
                 }
                 break;
             case R.id.tv_user_protocol:

@@ -176,6 +176,7 @@
     <string name="category_not_selected">你还未选择分类</string>
     <string name="send_su">发布成功</string>
     <string name="login_fail">登录失败，请检查手机号或密码是否正确</string>
+    <string name="pwdnotsame">两次密码不一致</string>
 
 
 </resources>

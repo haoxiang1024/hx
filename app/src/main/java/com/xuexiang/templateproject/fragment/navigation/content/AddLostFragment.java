@@ -129,7 +129,6 @@ public class AddLostFragment extends BaseFragment<FragmentAddLostBinding> {
             Lost lost = new Lost(lostTitleEditValue, "", date, contentEditValue, locationEditValue, phone, state, stick, id, userId);
             //lost对象转换json用于传输
             lostJson = JSON.toJSONString(lost);
-            Log.e(TAG, "Data: " + lostJson);
             //上传图片
             if (file == null) {
                 result = Utils.getString(getContext(),R.string.no_image_selected_yet);
