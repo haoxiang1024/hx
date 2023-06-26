@@ -19,13 +19,12 @@ import com.xuexiang.templateproject.activity.MainActivity;
 import com.xuexiang.templateproject.adapter.entity.User;
 import com.xuexiang.templateproject.core.BaseFragment;
 import com.xuexiang.templateproject.databinding.FragmentAccountBinding;
-import com.xuexiang.templateproject.fragment.other.ResetPwdFragment;
+import com.xuexiang.templateproject.fragment.other.ResetFragment;
 import com.xuexiang.templateproject.utils.Utils;
 import com.xuexiang.templateproject.utils.internet.OkHttpCallback;
 import com.xuexiang.templateproject.utils.internet.OkhttpUtils;
 import com.xuexiang.templateproject.utils.service.JsonOperate;
 import com.xuexiang.xpage.annotation.Page;
-import com.xuexiang.xutil.app.ActivityUtils;
 
 import java.io.IOException;
 
@@ -93,8 +92,8 @@ public class AccountFragment extends BaseFragment<FragmentAccountBinding> implem
             btnSure.setOnClickListener(v1 -> {
                 //确定操作
                 String newText = editText.getText().toString();
-                if(newText.length()==0){
-                    Utils.showResponse(Utils.getString(getContext(),R.string.nickname_cannot_be_empty));
+                if (newText.length() == 0) {
+                    Utils.showResponse(Utils.getString(getContext(), R.string.nickname_cannot_be_empty));
                     return;
                 }
                 binding.tvNickName.setText(newText);
@@ -135,7 +134,7 @@ public class AccountFragment extends BaseFragment<FragmentAccountBinding> implem
     public void onClick(View v) {
         int id = v.getId();
         if (id == R.id.tv_reset_pwd) {
-            openNewPage(ResetPwdFragment.class);//修改密码页
+            openNewPage(ResetFragment.class);//修改密码页
         } else if (id == R.id.btn_submit) {
             //提交账户资料
             update();
@@ -179,7 +178,7 @@ public class AccountFragment extends BaseFragment<FragmentAccountBinding> implem
                         //更新信息
                         Utils.doUserData(data);
                         startActivity(new Intent(getContext(), MainActivity.class));
-                        Utils.showResponse(Utils.getString(getContext(),R.string.modify_success));
+                        Utils.showResponse(Utils.getString(getContext(), R.string.modify_success));
                     }
                 });
             }

@@ -88,7 +88,7 @@ public class OtherLoginFragment extends BaseFragment<FragmentOtherLoginBinding> 
                 break;
             case R.id.tv_forget_password:
                 //忘记密码
-                openPage(ResetPwdFragment.class);
+                openPage(ResetFragment.class);
                 break;
             default:
                 break;
@@ -175,8 +175,6 @@ public class OtherLoginFragment extends BaseFragment<FragmentOtherLoginBinding> 
     private void handleSubmitPrivacy() {
         SettingUtils.setIsAgreePrivacy(true);
         UMengInit.init();
-        //mobsdk隐私政策
-        MobSDK.submitPolicyGrantResult(true);
     }
 
     /**

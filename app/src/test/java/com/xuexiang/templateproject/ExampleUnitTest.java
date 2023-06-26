@@ -55,9 +55,6 @@ public class ExampleUnitTest {
 
     @Test
     public void message() {
-        //mobsdk隐私政策
-        ///   MobSDK.submitPolicyGrantResult(true);
-
         String phone = "18682675515";
         VerifyCode.getVerificationCode("86", phone);
     }

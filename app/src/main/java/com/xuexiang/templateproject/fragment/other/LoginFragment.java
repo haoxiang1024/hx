@@ -53,8 +53,6 @@ import okhttp3.Response;
 /**
  * 登录页面
  *
- * @author xuexiang
- * @since 2019-11-17 22:15
  */
 @Page(anim = CoreAnim.none)
 public class LoginFragment extends BaseFragment<FragmentLoginBinding> implements View.OnClickListener {
@@ -65,12 +63,12 @@ public class LoginFragment extends BaseFragment<FragmentLoginBinding> implements
     String loginMsg = "";//登录信息
 
     private CountDownButtonHelper mCountDownHelper;//倒计时
+    EventHandler eventHandler;//事件处理
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        MobSDK.submitPolicyGrantResult(true);
-
+        init();
     }
 
     @SuppressLint("HandlerLeak")
@@ -78,24 +76,84 @@ public class LoginFragment extends BaseFragment<FragmentLoginBinding> implements
         @SuppressLint("SetTextI18n")
         public void handleMessage(Message msg) {
             int tag = msg.what;
-            if (tag == 1) {
-                int arg = msg.arg1;
-                if (arg == 1) {
-                    get_code_id.setText("重新获取");
-                    //计时结束停止计时把值恢复
-                    count = 60;
-                    timer.cancel();
-                    get_code_id.setEnabled(true);
-                } else {
-                    get_code_id.setText(count + "");
-                }
+            switch (tag) {
+                case 1:
+                    int arg = msg.arg1;
+                    if (arg == 1) {
+                        get_code_id.setText("重新获取");
+                        //计时结束停止计时把值恢复
+                        count = 60;
+                        timer.cancel();
+                        get_code_id.setEnabled(true);
+                    } else {
+                        get_code_id.setText(count + "");
+                    }
+                    break;
+                case 2:
+                    //验证码发送成功
+                    Utils.showResponse(Utils.getString(getContext(), R.string.smssdk_send_mobile_detail));
+                    break;
+                case 3:
+                    //验证码发送失败
+                    Utils.showResponse(Utils.getString(getContext(), R.string.smssdk_network_error));
+                    break;
+                case 4:
+                    //验证码验证失败
+                    Utils.showResponse(Utils.getString(getContext(), R.string.smssdk_virificaition_code_wrong));
+                    break;
+                case 5:
+                    //验证码验证成功
+                    onLoginSuccess();
+                    break;
+                default:
+                    break;
             }
 
         }
     };
 
-
-
+    private void init() {
+        eventHandler = new EventHandler() {
+            @Override
+            public void afterEvent(int event, int result, Object data) {
+// TODO 此处为子线程！不可直接处理UI线程！处理后续操作需传到主线程中操作！
+                if (result == SMSSDK.RESULT_COMPLETE) {
+                    //成功回调
+                    if (event == SMSSDK.EVENT_SUBMIT_VERIFICATION_CODE) {
+                        //提交短信、语音验证码成功
+                        Message message = new Message();
+                        message.what = 5;
+                        handler.sendMessage(message);
+                    } else if (event == SMSSDK.EVENT_GET_VERIFICATION_CODE) {
+                        Message message = new Message();
+                        message.what = 2;
+                        handler.sendMessage(message);
+                    } else if (event == SMSSDK.EVENT_GET_VOICE_VERIFICATION_CODE) {
+                        //获取语音验证码成功
+                        Message message = new Message();
+                        message.what = 2;
+                        handler.sendMessage(message);
+                    }
+                } else if (result == SMSSDK.RESULT_ERROR) {
+                    //失败回调
+                    String status = data.toString();
+                    Message message = new Message();
+                    if (status.contains("468")) {
+                        //验证码错误回调
+                        message.what = 4;
+                    } else {
+                        //其他错误回调
+                        message.what = 3;
+                    }
+                    handler.sendMessage(message);
+                } else {
+                    //其他失败回调
+                    ((Throwable) data).printStackTrace();
+                }
+            }
+        };
+        SMSSDK.registerEventHandler(eventHandler); //注册短信回调
+    }
     //初始化控件
     @Override
     protected void initViews() {
@@ -155,8 +213,6 @@ public class LoginFragment extends BaseFragment<FragmentLoginBinding> implements
     private void handleSubmitPrivacy() {
         SettingUtils.setIsAgreePrivacy(true);
         UMengInit.init();
-        //mobsdk隐私政策
-        MobSDK.submitPolicyGrantResult(true);
     }
 
     //控件点击事件
@@ -198,7 +254,7 @@ public class LoginFragment extends BaseFragment<FragmentLoginBinding> implements
 
         } else if (id == R.id.tv_forget_password) {
             //忘记密码
-            openPage(ResetPwdFragment.class);
+            openPage(ResetFragment.class);
         }
 
     }
@@ -228,8 +284,6 @@ public class LoginFragment extends BaseFragment<FragmentLoginBinding> implements
      */
     public static void submitVerificationCode(String country, String phone, String code) {
         SMSSDK.submitVerificationCode(country, phone, code);
-
-
     }
 
     //倒计时函数

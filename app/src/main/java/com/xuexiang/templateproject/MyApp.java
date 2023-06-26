@@ -2,18 +2,12 @@
 
 package com.xuexiang.templateproject;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
-import android.os.Bundle;
-import android.preference.PreferenceManager;
-import android.text.TextUtils;
 
 import androidx.multidex.MultiDex;
 
-import com.xuexiang.templateproject.activity.MainActivity;
-import com.xuexiang.templateproject.utils.LanguageUtil;
+import com.mob.MobSDK;
 import com.xuexiang.templateproject.utils.sdkinit.ANRWatchDogInit;
 import com.xuexiang.templateproject.utils.sdkinit.UMengInit;
 import com.xuexiang.templateproject.utils.sdkinit.XBasicLibInit;
@@ -29,6 +23,7 @@ public class MyApp extends Application {
     public static boolean isDebug() {
         return BuildConfig.DEBUG;
     }
+
     @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
@@ -54,6 +49,8 @@ public class MyApp extends Application {
         UMengInit.init(this);
         // ANR监控
         ANRWatchDogInit.init();
+        //mob隐私政策
+        MobSDK.submitPolicyGrantResult(true);
     }
 
 
