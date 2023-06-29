@@ -1,10 +1,13 @@
 package com.school.assistant.activity;
 
+
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.school.assistant.utils.LanguageUtil;
 import com.school.assistant.utils.TokenUtils;
 import com.xuexiang.xrouter.utils.TextUtils;

@@ -1,5 +1,9 @@
 package com.school.assistant.utils;
 
+import static com.xuexiang.xutil.app.AppUtils.getPackageManager;
+import static com.xuexiang.xutil.app.AppUtils.getPackageName;
+
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -51,7 +55,7 @@ public class AppSigning {
                 }
                 mList.add(tmp);
             }
-        } catch (Exception e) {
+        } catch (Exception ignored) {
 
         }
         mSignMap.put(type, mList);
@@ -160,24 +164,23 @@ public class AppSigning {
         String fingerprint = "error!";
         try {
             MessageDigest digest = MessageDigest.getInstance(type);
-            if (digest != null) {
-                byte[] digestBytes = digest.digest(hexBytes);
-                StringBuilder sb = new StringBuilder();
-                for (byte digestByte : digestBytes) {
-                    sb.append(((Integer.toHexString((digestByte & 0xFF) | 0x100)).substring(1, 3)).toUpperCase());
-                    sb.append(":");
-                }
-                fingerprint = sb.substring(0, sb.length() - 1).toString();
+            byte[] digestBytes = digest.digest(hexBytes);
+            StringBuilder sb = new StringBuilder();
+            for (byte digestByte : digestBytes) {
+                sb.append(((Integer.toHexString((digestByte & 0xFF) | 0x100)).substring(1, 3)).toUpperCase());
+                sb.append(":");
             }
-        } catch (Exception e) {
+            fingerprint = sb.substring(0, sb.length() - 1);
+        } catch (Exception ignored) {
 
         }
 
         return fingerprint;
     }
+
     public static String getMD5Signature(PackageManager pm, String packageName) {
         try {
-            PackageInfo packageInfo = pm.getPackageInfo(packageName, PackageManager.GET_SIGNATURES);
+            @SuppressLint("PackageManagerGetSignatures") PackageInfo packageInfo = pm.getPackageInfo(packageName, PackageManager.GET_SIGNATURES);
             Signature[] signatures = packageInfo.signatures;
             Signature signature = signatures[0];
 
@@ -191,13 +194,38 @@ public class AppSigning {
             }
 
             return sb.toString().toLowerCase();
-        } catch (PackageManager.NameNotFoundException e) {
-            e.printStackTrace();
-        } catch (NoSuchAlgorithmException e) {
+        } catch (PackageManager.NameNotFoundException | NoSuchAlgorithmException e) {
             e.printStackTrace();
         }
 
         return null;
+    }
+
+    //获取小写md5签名
+    public static String getMd5() {
+        PackageManager packageManager = getPackageManager();
+        String packageName = getPackageName();
+        byte[] signatureBytes = null;
+        try {
+            PackageInfo packageInfo = packageManager.getPackageInfo(packageName, PackageManager.GET_SIGNATURES);
+            Signature[] signatures = packageInfo.signatures;
+            signatureBytes = signatures[0].toByteArray();
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        MessageDigest md5Digest = null;
+        try {
+            md5Digest = MessageDigest.getInstance("MD5");
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+        md5Digest.update(signatureBytes);
+        byte[] digest = md5Digest.digest();
+        StringBuilder signatureBuilder = new StringBuilder();
+        for (byte b : digest) {
+            signatureBuilder.append(String.format("%02x", b));
+        }
+        return signatureBuilder.toString().toLowerCase();
     }
 }
 
