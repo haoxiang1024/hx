@@ -118,7 +118,7 @@ public class FoundInfoDetailFragment extends BaseFragment<FragmentFoundInfoDetai
                                 super.run();
                                 OkhttpUtils.get(Utils.rebuildUrl("/updateFoundState?id=" + found.getId() + "&state=" + selected + "&user_id=" + found.getId(), getContext()), new OkHttpCallback() {
                                     @Override
-                                    public void onResponse(Call call, Response response) throws IOException {
+                                    public void onResponse(@NonNull Call call, Response response) throws IOException {
                                         super.onResponse(call, response);
                                         Utils.showResponse(Utils.getString(getContext(),R.string.submit_success));
                                     }

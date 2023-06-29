@@ -317,7 +317,7 @@ public class LoginFragment extends BaseFragment<FragmentLoginBinding> implements
                 super.run();
                 OkhttpUtils.get(Utils.rebuildUrl("/login?phone=" + phone, getContext()), new OkHttpCallback() {
                     @Override
-                    public void onResponse(Call call, Response response) throws IOException {
+                    public void onResponse(@NonNull Call call, Response response) throws IOException {
                         super.onResponse(call, response);
                         loginMsg = JsonOperate.getValue(result, "data");
                         //获取信息并存储
@@ -330,7 +330,7 @@ public class LoginFragment extends BaseFragment<FragmentLoginBinding> implements
                     }
 
                     @Override
-                    public void onFailure(Call call, IOException e) {
+                    public void onFailure(@NonNull Call call, IOException e) {
                         super.onFailure(call, e);
                         Utils.showResponse(Utils.getString(getContext(), R.string.internet_erro));
 

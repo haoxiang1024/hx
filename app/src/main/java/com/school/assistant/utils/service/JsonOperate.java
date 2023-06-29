@@ -1,6 +1,8 @@
 package com.school.assistant.utils.service;
 
 
+import androidx.annotation.NonNull;
+
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
@@ -124,7 +126,7 @@ public class JsonOperate {
                     super.run();
                     OkhttpUtils.get("http://v.juhe.cn/toutiao/content?key=" + newsKey + "&uniquekey=" + uniquekey, new OkHttpCallback() {
                         @Override
-                        public void onResponse(Call call, Response response) throws IOException {
+                        public void onResponse(@NonNull Call call, Response response) throws IOException {
                             super.onResponse(call, response);
                             String result1 = JsonOperate.getValue(result, "result");
                             String content = JsonOperate.getValue(result1, "content");

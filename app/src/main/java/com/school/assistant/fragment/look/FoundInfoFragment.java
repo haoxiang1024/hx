@@ -80,7 +80,7 @@ public class FoundInfoFragment extends BaseFragment<FragmentFoundInfoBinding> im
                 super.run();
                 OkhttpUtils.get(Utils.rebuildUrl("/getAllFoundUserId?user_id=" + user.getId(), getContext()), new OkHttpCallback() {
                     @Override
-                    public void onResponse(Call call, Response response) throws IOException {
+                    public void onResponse(@NonNull Call call, Response response) throws IOException {
                         super.onResponse(call, response);
                         getActivity().runOnUiThread(FoundInfoFragment.this::stopAnim);//结束加载动画
                         //没有发布信息

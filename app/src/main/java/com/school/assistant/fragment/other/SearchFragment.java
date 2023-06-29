@@ -86,7 +86,7 @@ public class SearchFragment extends BaseFragment<FragmentSearchBinding> {
                 super.run();
                 OkhttpUtils.get(Utils.rebuildUrl("/searchInfo?value=" + value, getContext()), new OkHttpCallback() {
                     @Override
-                    public void onResponse(Call call, Response response) throws IOException {
+                    public void onResponse(@NonNull Call call, Response response) throws IOException {
                         super.onResponse(call, response);
                         //判断是否有返回数据
                         if (JsonOperate.getValue(result, "msg").equals("没有找到相关信息")) {

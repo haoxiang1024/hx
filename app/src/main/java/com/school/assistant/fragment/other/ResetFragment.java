@@ -1,7 +1,6 @@
 package com.school.assistant.fragment.other;
 
 import android.annotation.SuppressLint;
-import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.text.TextUtils;
@@ -14,11 +13,11 @@ import androidx.annotation.NonNull;
 
 import com.school.assistant.R;
 import com.school.assistant.core.BaseFragment;
+import com.school.assistant.databinding.FragmentResetBinding;
 import com.school.assistant.utils.Utils;
 import com.school.assistant.utils.internet.OkHttpCallback;
 import com.school.assistant.utils.internet.OkhttpUtils;
 import com.school.assistant.utils.service.JsonOperate;
-import com.school.assistant.databinding.FragmentResetBinding;
 import com.xuexiang.xpage.annotation.Page;
 import com.xuexiang.xui.utils.CountDownButtonHelper;
 import com.xuexiang.xui.widget.actionbar.TitleBar;
@@ -27,19 +26,20 @@ import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import cn.smssdk.EventHandler;
 import cn.smssdk.SMSSDK;
 import okhttp3.Call;
 import okhttp3.Response;
 
 @Page
 public class ResetFragment extends BaseFragment<FragmentResetBinding> implements View.OnClickListener {
-
+    //https://webapi.sms.mob.com/sms/verify?appkey=3803bb9f24195&phone=18682675515&zone=86&code=914226
     Timer timer;
     int count = 60;//定时
-    EventHandler eventHandler;//事件处理
     private CountDownButtonHelper mCountDownHelper;//倒计时
     private Button resetBtn;//重置按钮
+    String app_key = "3803bb9f24195";//验证密钥
+    private final String url = "https://webapi.sms.mob.com/sms/verify";
+    ;
 
     /**
      * 构建ViewBinding
@@ -81,47 +81,22 @@ public class ResetFragment extends BaseFragment<FragmentResetBinding> implements
         @SuppressLint("SetTextI18n")
         public void handleMessage(Message msg) {
             int tag = msg.what;
-            switch (tag) {
-                case 1:
-                    int arg = msg.arg1;
-                    if (arg == 1) {
-                        resetBtn.setText("重新获取");
-                        //计时结束停止计时把值恢复
-                        count = 60;
-                        timer.cancel();
-                        resetBtn.setEnabled(true);
-                    } else {
-                        resetBtn.setText(count + "");
-                    }
-                    break;
-                case 2:
-                    //验证码发送成功
-                    Utils.showResponse(Utils.getString(getContext(), R.string.smssdk_send_mobile_detail));
-                    break;
-                case 3:
-                    //验证码发送失败
-                    Utils.showResponse(Utils.getString(getContext(), R.string.smssdk_network_error));
-                    break;
-                case 4:
-                    //验证码验证失败
-                    Utils.showResponse(Utils.getString(getContext(), R.string.smssdk_virificaition_code_wrong));
-                    break;
-                case 5:
-                    //验证码验证成功
-                    reset();
-                    break;
-                default:
-                    break;
+            if (tag == 1) {
+                int arg = msg.arg1;
+                if (arg == 1) {
+                    resetBtn.setText("重新获取");
+                    //计时结束停止计时把值恢复
+                    count = 60;
+                    timer.cancel();
+                    resetBtn.setEnabled(true);
+                } else {
+                    resetBtn.setText(count + "");
+                }
             }
 
         }
     };
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        init();
-    }
 
     /**
      * 获取页面标题
@@ -129,50 +104,6 @@ public class ResetFragment extends BaseFragment<FragmentResetBinding> implements
     @Override
     protected String getPageTitle() {
         return Utils.getString(getContext(), R.string.resetpwd);
-    }
-
-
-    private void init() {
-        eventHandler = new EventHandler() {
-            @Override
-            public void afterEvent(int event, int result, Object data) {
-// TODO 此处为子线程！不可直接处理UI线程！处理后续操作需传到主线程中操作！
-                if (result == SMSSDK.RESULT_COMPLETE) {
-                    //成功回调
-                    if (event == SMSSDK.EVENT_SUBMIT_VERIFICATION_CODE) {
-                        //提交短信、语音验证码成功
-                        Message message = new Message();
-                        message.what = 5;
-                        handler.sendMessage(message);
-                    } else if (event == SMSSDK.EVENT_GET_VERIFICATION_CODE) {
-                        Message message = new Message();
-                        message.what = 2;
-                        handler.sendMessage(message);
-                    } else if (event == SMSSDK.EVENT_GET_VOICE_VERIFICATION_CODE) {
-                        //获取语音验证码成功
-                        Message message = new Message();
-                        message.what = 2;
-                        handler.sendMessage(message);
-                    }
-                } else if (result == SMSSDK.RESULT_ERROR) {
-                    //失败回调
-                    String status = data.toString();
-                    Message message = new Message();
-                    if (status.contains("468")) {
-                        //验证码错误回调
-                        message.what = 4;
-                    } else {
-                        //其他错误回调
-                        message.what = 3;
-                    }
-                    handler.sendMessage(message);
-                } else {
-                    //其他失败回调
-                    ((Throwable) data).printStackTrace();
-                }
-            }
-        };
-        SMSSDK.registerEventHandler(eventHandler); //注册短信回调
     }
 
     /**
@@ -197,19 +128,54 @@ public class ResetFragment extends BaseFragment<FragmentResetBinding> implements
             }
         } else if (id == R.id.btn_reset) {
             //重置密码
-            if (binding.etPhoneNumber.validate() && binding.etVerifyCode.validate()&&binding.etPassword.validate()&&binding.rePassword.validate()) {
+            if (binding.etPhoneNumber.validate() && binding.etVerifyCode.validate() && binding.etPassword.validate() && binding.rePassword.validate()) {
                 if (binding.etPassword.getEditValue().equals(binding.rePassword.getEditValue())) {
                     //提交手机。验证码
                     //获取验证码
                     phone = binding.etPhoneNumber.getText().toString().trim();
                     code = binding.etVerifyCode.getText().toString().trim();
-                    submitVerificationCode("86", phone, code);
+                    //使用接口验证验证码避免与登录时验证混淆
+                    //验证验证码
+                    verifyCode(phone, "86", code);
                 } else {
                     Utils.showResponse(Utils.getString(getContext(), R.string.pwdnotsame));
                 }
             }
         }
 
+    }
+
+    /**
+     * @param phone 要验证的手机号
+     * @param zone  区号
+     * @param code  验证码
+     */
+    private void verifyCode(String phone, String zone, String code) {
+        new Thread() {
+            @Override
+            public void run() {
+                super.run();
+                //网络请求
+                OkhttpUtils.get(url + "?appkey=" + app_key + "&phone=" + phone + "&zone=" + zone + "&code=" + code, new OkHttpCallback() {
+                    @Override
+                    public void onResponse(@NonNull Call call, Response response) throws IOException {
+                        super.onResponse(call, response);
+                        String status = JsonOperate.getValue(result, "status");
+                        if (status.equals("200")) {
+                            //验证成功
+                            reset();
+                        } else if (status.equals("468")) {
+                            //验证失败
+                            Utils.showResponse(Utils.getString(getContext(), R.string.smssdk_virificaition_code_wrong));
+                        } else {
+                            //其他错误
+                            Utils.showResponse(Utils.getString(getContext(), R.string.smssdk_network_error));
+                        }
+
+                    }
+                });
+            }
+        }.start();
     }
 
     /**
@@ -224,18 +190,6 @@ public class ResetFragment extends BaseFragment<FragmentResetBinding> implements
         SMSSDK.getVerificationCode(country, phone);
     }
 
-    /**
-     * cn.smssdk.SMSSDK.class
-     * 提交验证码
-     *
-     * @param country 国家区号
-     * @param phone   手机号
-     * @param code    验证码
-     */
-    public static void submitVerificationCode(String country, String phone, String code) {
-        SMSSDK.submitVerificationCode(country, phone, code);
-    }
-
     private void reset() {
         //重置密码
         String phone = binding.etPhoneNumber.getEditValue();
@@ -246,7 +200,7 @@ public class ResetFragment extends BaseFragment<FragmentResetBinding> implements
                 super.run();
                 OkhttpUtils.get(Utils.rebuildUrl("/resetPwd?phone=" + phone + "&newPwd=" + newPwd, getContext()), new OkHttpCallback() {
                     @Override
-                    public void onResponse(Call call, Response response) throws IOException {
+                    public void onResponse(@NonNull Call call, Response response) throws IOException {
                         super.onResponse(call, response);
                         String msg = JsonOperate.getValue(result, "msg");
                         Utils.showResponse(msg);
@@ -255,6 +209,7 @@ public class ResetFragment extends BaseFragment<FragmentResetBinding> implements
             }
         }.start();
     }
+
 
     //倒计时函数
     private void CountdownStart() {
@@ -276,12 +231,6 @@ public class ResetFragment extends BaseFragment<FragmentResetBinding> implements
         }, 1000, 1000);
     }
 
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        // 使用完EventHandler需注销，否则可能出现内存泄漏
-        SMSSDK.unregisterEventHandler(eventHandler);
-    }
 
     @Override
     public void onDestroyView() {

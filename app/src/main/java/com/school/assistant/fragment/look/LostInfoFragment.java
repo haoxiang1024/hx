@@ -86,7 +86,7 @@ public class LostInfoFragment extends BaseFragment<FragmentLostInfoBinding> {
                 super.run();
                 OkhttpUtils.get(Utils.rebuildUrl("/getAllLostUserId?user_id=" + user.getId(), getContext()), new OkHttpCallback() {
                     @Override
-                    public void onResponse(Call call, Response response) throws IOException {
+                    public void onResponse(@NonNull Call call, Response response) throws IOException {
                         super.onResponse(call, response);
                         getActivity().runOnUiThread(LostInfoFragment.this::stopAnim);//结束加载动画
                         //没有发布信息

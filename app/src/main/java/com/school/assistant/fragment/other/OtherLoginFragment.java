@@ -105,7 +105,7 @@ public class OtherLoginFragment extends BaseFragment<FragmentOtherLoginBinding> 
                 super.run();
                 OkhttpUtils.get(Utils.rebuildUrl("/loginByPwd?phone=" + number + "&pwd=" + password, getContext()), new OkHttpCallback() {
                     @Override
-                    public void onResponse(Call call, Response response) throws IOException {
+                    public void onResponse(@NonNull Call call, Response response) throws IOException {
                         super.onResponse(call, response);
                         String msg = JsonOperate.getValue(result, "msg");//登录信息
                         String loginMsg = JsonOperate.getValue(result, "data");//登录数据

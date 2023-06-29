@@ -230,7 +230,7 @@ public class AddLostFragment extends BaseFragment<FragmentAddLostBinding> {
                 super.run();
                 OkhttpUtils.get(Utils.rebuildUrl("/getTypeid?name=" + name, getContext()), new OkHttpCallback() {
                     @Override
-                    public void onResponse(Call call, Response response) throws IOException {
+                    public void onResponse(@NonNull Call call, Response response) throws IOException {
                         super.onResponse(call, response);
                         String data = JsonOperate.getValue(result, "data");
                         id = Integer.parseInt(data);

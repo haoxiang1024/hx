@@ -127,7 +127,7 @@ public class FoundFragment extends BaseFragment<FragmentFoundBinding> {
                 super.run();
                 OkhttpUtils.get(Utils.rebuildUrl("/DetailByTitleByFound?title=" + tabTitle, getContext()), new OkHttpCallback() {
                     @Override
-                    public void onResponse(Call call, Response response) throws IOException {
+                    public void onResponse(@NonNull Call call, Response response) throws IOException {
                         super.onResponse(call, response);
                         //获取返回结果转换list
                         detailList = JsonOperate.getList(result, Found.class);

@@ -278,7 +278,7 @@ public class DynamicFragment extends BaseFragment<FragmentNewsBinding> {
                 super.run();
                 OkhttpUtils.get("http://v.juhe.cn/toutiao/index?type=top&key=" + newsKey + "&page_size=5", new OkHttpCallback() {
                     @Override
-                    public void onResponse(Call call, Response response) throws IOException {
+                    public void onResponse(@NonNull Call call, Response response) throws IOException {
                         super.onResponse(call, response);
                         //解析JSON数据并封装成对象列表
                         list.addAll(JsonOperate.newsParseJsonData(result, "result"));
@@ -300,7 +300,7 @@ public class DynamicFragment extends BaseFragment<FragmentNewsBinding> {
                 //失物信息展示
                 OkhttpUtils.get(Utils.rebuildUrl("/showLostList?stick=1", getContext()), new OkHttpCallback() {
                     @Override
-                    public void onResponse(Call call, Response response) throws IOException {
+                    public void onResponse(@NonNull Call call, Response response) throws IOException {
                         super.onResponse(call, response);
                         List<Lost> newInfoList = JsonOperate.getList(result, Lost.class);
                         //若无置顶信息则不执行
@@ -323,7 +323,7 @@ public class DynamicFragment extends BaseFragment<FragmentNewsBinding> {
                 //招领信息展示
                 OkhttpUtils.get(Utils.rebuildUrl("/showFoundList?stick=1", getContext()), new OkHttpCallback() {
                     @Override
-                    public void onResponse(Call call, Response response) throws IOException {
+                    public void onResponse(@NonNull Call call, Response response) throws IOException {
                         super.onResponse(call, response);
                         List<Found> founds = JsonOperate.getList(result, Found.class);
                         //若无置顶信息则不执行

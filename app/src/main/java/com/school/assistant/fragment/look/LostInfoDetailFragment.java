@@ -115,7 +115,7 @@ public class LostInfoDetailFragment extends BaseFragment<FragmentLostInfoDetailB
                                 super.run();
                                 OkhttpUtils.get(Utils.rebuildUrl("/updateLostState?id=" + lost.getId() + "&state=" + selected + "&user_id=" + lost.getId(), getContext()), new OkHttpCallback() {
                                     @Override
-                                    public void onResponse(Call call, Response response) throws IOException {
+                                    public void onResponse(@NonNull Call call, Response response) throws IOException {
                                         super.onResponse(call, response);
                                         Utils.showResponse(Utils.getString(getContext(),R.string.submit_success));
                                     }

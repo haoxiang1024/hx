@@ -172,7 +172,7 @@ public class AccountFragment extends BaseFragment<FragmentAccountBinding> implem
                 super.run();
                 OkhttpUtils.get(Utils.rebuildUrl("/updateAc?nickname=" + nickname + "&sex=" + sex + "&id=" + id, getContext()), new OkHttpCallback() {
                     @Override
-                    public void onResponse(Call call, Response response) throws IOException {
+                    public void onResponse(@NonNull Call call, Response response) throws IOException {
                         super.onResponse(call, response);
                         String data = JsonOperate.getValue(result, "data");
                         //更新信息
