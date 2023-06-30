@@ -7,8 +7,8 @@ if (isNeedPackage.toBoolean() && isUseBooster.toBoolean()) {
 //应用mob插件
 apply plugin: 'com.mob.sdk'
 MobSDK {
-    appKey "3803bb9f24195"
-    appSecret "53d22a8a08db732553fb32e9a4143752"
+    appKey "38310cf01a35a"
+    appSecret "dbd795f8de174981d090090fcb99e76d"
     permissions {
         exclude "android.permission.READ_CONTACTS", "android.permission.READ_PHONE_STATE"
     }

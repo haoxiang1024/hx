@@ -1,0 +1,671 @@
+
+[step][2023.06.30_14:30:34:361][2][2][tid:398][:app] apply started null, version: 2023.0619.1131.
+
+[info][2023.06.30_14:30:34:362][3][1][tid:398][MobPropertyManager] init properties: [isNeedPackage:false, android.overridePathCheck:true, android.precompileDependenciesResources:false, android.injected.signing.key.password:111111, android.useAndroidX:true, android.injected.signing.store.file:D:\android\key_store\school_assistant.jks, isRelease:org.codehaus.groovy.runtime.MethodClosure@721c692b, AGP_INTERNAL__MIN_PLUGIN_VERSION_CHECK_STARTED:true, MobSDK.spEdition:FP, android.injected.invoked.from.ide:true, android.injected.apk.location:D:\android\project\SchoolAssistant\app, android.injected.signing.key.alias:key0, app_release:[storeFile:../keystores/android.keystore, storePassword:xuexiang, keyAlias:android.keystore, keyPassword:xuexiang], systemProp.http.proxyPort:80, build_versions:[min_sdk:19, target_sdk:31, build_tools:29.0.3], deps:[support:[annotations:com.android.support:support-annotations:28.0.0, app_compat:com.android.support:appcompat-v7:28.0.0, recyclerview:com.android.support:recyclerview-v7:28.0.0, cardview:com.android.support:cardview-v7:28.0.0, design:com.android.support:design:28.0.0, v4:com.android.support:support-v4:28.0.0, core_utils:com.android.support:support-core-utils:28.0.0], androidx:[annotations:androidx.annotation:annotation:1.2.0, appcompat:androidx.appcompat:appcompat:1.3.1, recyclerview:androidx.recyclerview:recyclerview:1.2.1, design:com.google.android.material:material:1.4.0, multidex:androidx.multidex:multidex:2.0.1], booster:[gradle_plugin:com.didiglobal.booster:booster-gradle-plugin:3.1.0, task_all:com.didiglobal.booster:booster-task-all:1.1.1, transform_all:com.didiglobal.booster:booster-transform-all:1.1.1, task_compression_cwebp:com.didiglobal.booster:booster-task-compression-cwebp:3.1.0, task_compression_pngquant:com.didiglobal.booster:booster-task-compression-pngquant:3.1.0, task_processed_res:com.didiglobal.booster:booster-task-compression-processed-res:3.1.0, task_resource_deredundancy:com.didiglobal.booster:booster-task-resource-deredundancy:3.1.0, task_check_snapshot:com.didiglobal.booster:booster-task-check-snapshot:3.1.0, transform_lint:com.didiglobal.booster:booster-transform-lint:3.1.0, transform_thread:com.didiglobal.booster:booster-transform-thread:3.1.0, transform_r_inline:com.didiglobal.booster:booster-transform-r-inline:3.1.0, transform_webview:com.didiglobal.booster:booster-transform-webview:3.1.0, transform_shared_preferences:com.didiglobal.booster:booster-transform-shared-preferences:3.1.0, transform_res_check:com.didiglobal.booster:booster-transform-res-check:3.1.0, transform_toast:com.didiglobal.booster:booster-transform-toast:3.1.0, transform_activity_thread:com.didiglobal.booster:booster-transform-activity-thread:3.1.0], butterknife:[runtime:com.jakewharton:butterknife:10.1.0, compiler:com.jakewharton:butterknife-compiler:10.1.0], espresso:[core:androidx.test.espresso:espresso-core:3.2.0, contrib:androidx.test.espresso:espresso-contrib:3.2.0, intents:androidx.test.espresso:espresso-intents:3.2.0], android_gradle_plugin:com.android.tools.build:gradle:7.1.2, android_maven_gradle_plugin:com.github.dcendents:android-maven-gradle-plugin:2.0, gradle_bintray_plugin:com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.0, glide:com.github.bumptech.glide:glide:4.11.0, constraint_layout:androidx.constraint:constraint-layout:2.1.0, junit:junit:junit:4.12, runner:androidx.test:runner:1.2.0, rxjava2:io.reactivex.rxjava2:rxjava:2.2.20, rxandroid:io.reactivex.rxjava2:rxandroid:2.1.1, rxbinding:com.jakewharton.rxbinding2:rxbinding:2.2.0, gson:com.google.code.gson:gson:2.8.5, okhttp3:com.squareup.okhttp3:okhttp:3.12.12, leakcanary:com.squareup.leakcanary:leakcanary-android:2.7, xlibrary:[xui:com.github.xuexiangjys:XUI:1.2.0, xupdate:com.github.xuexiangjys:XUpdate:2.1.3, xaop_runtime:com.github.xuexiangjys.XAOP:xaop-runtime:1.1.0, xaop_plugin:com.github.xuexiangjys.XAOP:xaop-plugin:1.1.0, xutil_core:com.github.xuexiangjys.XUtil:xutil-core:2.0.0, xhttp2:com.github.xuexiangjys:XHttp2:2.0.4, xpage_lib:com.github.xuexiangjys.XPage:xpage-lib:3.3.0, xpage_compiler:com.github.xuexiangjys.XPage:xpage-compiler:3.3.0, xrouter_runtime:com.github.xuexiangjys.XRouter:xrouter-runtime:1.1.0, xrouter_compiler:com.github.xuexiangjys.XRouter:xrouter-compiler:1.1.0, xrouter_plugin:com.github.xuexiangjys.XRouter:xrouter-plugin:1.1.0]], org.gradle.jvmargs:-Xmx8g, android.enableD8:true, android.enableJetifier:true, systemProp.http.proxyHost:, isUseBooster:false, android.injected.signing.store.password:111111, android.injected.attribution.file.location:D:\android\project\SchoolAssistant\.gradle, addRepos:org.codehaus.groovy.runtime.MethodClosure@55c190ac, android.injected.studio.version:2022.2.1 Patch 1]
+
+[step][2023.06.30_14:30:34:363][4][1][tid:398][MobPropertyManager] gotten mob properties: [MobSDK.spEdition:FP]
+
+[info][2023.06.30_14:30:34:364][5][1][tid:398][:app] usingDebugServer: false
+
+[info][2023.06.30_14:30:34:365][6][1][tid:398][:app] mobRepos: [], usingDebugServer: false
+
+[step][2023.06.30_14:30:34:366][7][1][tid:398][BuildSession] initialize start.
+
+[info][2023.06.30_14:30:34:410][51][44][tid:398][BuildSession] projectsEvaluated state: STARTED
+
+[step][2023.06.30_14:30:34:411][52][1][tid:398][:app][ConfigManager] mergeAndroidManifest configSet: 2
+
+[info][2023.06.30_14:30:34:412][53][1][tid:398][:app][ManifestManager] mergeAndroidManifest permissionSet: [android.permission.INTERNET, android.permission.ACCESS_WIFI_STATE, android.permission.CHANGE_WIFI_STATE, android.permission.ACCESS_NETWORK_STATE, android.permission.QUERY_ALL_PACKAGES, android.permission.READ_CONTACTS],customPermissionSet: [], featureSet: [], subNodeOfManifestSet: [], assignActivityActionMap: [:], metaDataMap: [Mob-AppKey:38310cf01a35a, Mob-AppSecret:dbd795f8de174981d090090fcb99e76d], providerMap: [com.mob.MobProvider:
+                <provider
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:tools="http://schemas.android.com/tools"
+                    android:name="com.mob.MobProvider"
+                    android:multiprocess="true"
+                    android:authorities="#MobApplicationId#.com.mob.MobProvider"
+                    android:exported="false"/>
+            ], serviceMap: [:], receiverMap: [:], activityMap: [com.mob.tools.MobUIShell:
+                <activity
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:tools="http://schemas.android.com/tools"
+                    tools:node="merge"
+                    android:theme="@android:style/Theme.Translucent.NoTitleBar"
+                    android:name="com.mob.tools.MobUIShell"
+                    android:exported="true"
+                    android:configChanges="keyboardHidden|orientation|screenSize"
+                    android:windowSoftInputMode="stateHidden|adjustResize"/>
+            ], mobConfigMetaDataMap: [Mob-AppKey:38310cf01a35a, Mob-AppSecret:dbd795f8de174981d090090fcb99e76d], encryptConfig: null
+
+[info][2023.06.30_14:30:34:413][54][1][tid:398][:app][ManifestManager] mergeAndroidManifest autoConfig: null
+
+[info][2023.06.30_14:30:34:413][54][0][tid:398][:app][ManifestManager] mergeAndroidManifest appBundleMode: null, disableNamespaceAware: null
+
+[info][2023.06.30_14:30:34:414][55][1][tid:398][:app][ManifestManager] mergeAndroidManifest appModel: true, variants: [com.android.build.gradle.internal.api.ApplicationVariantImpl_Decorated@529ddf19, com.android.build.gradle.internal.api.ApplicationVariantImpl_Decorated@3e5c4ad9]
+
+[info][2023.06.30_14:30:34:414][55][0][tid:398][:app][ManifestManager] mergeAndroidManifest abiDirList: []
+
+[info][2023.06.30_14:30:34:415][56][1][tid:398][:app][ManifestManager] mergeAndroidManifest packageName: com.school.assistant, abiDir: null, variant: com.android.build.gradle.internal.api.ApplicationVariantImpl_Decorated@529ddf19
+
+[info][2023.06.30_14:30:34:416][57][1][tid:398][:app][ManifestManager] mergeAndroidManifest task: task ':app:processDebugManifest'
+
+[info][2023.06.30_14:30:34:417][58][1][tid:398][:app][ManifestManager] ShareSDKConfig.listenAssetsTaskAndDeleteTmpDir: null
+
+[info][2023.06.30_14:30:34:417][58][0][tid:398][:app][ManifestManager] mergeAndroidManifest packageName: com.school.assistant, abiDir: null, variant: com.android.build.gradle.internal.api.ApplicationVariantImpl_Decorated@3e5c4ad9
+
+[info][2023.06.30_14:30:34:418][59][1][tid:398][:app][ManifestManager] mergeAndroidManifest task: task ':app:processReleaseManifest'
+
+[info][2023.06.30_14:30:34:419][60][1][tid:398][:app][ManifestManager] ShareSDKConfig.listenAssetsTaskAndDeleteTmpDir: null
+
+[step][2023.06.30_14:30:34:419][60][0][tid:398][:app][ConfigManager] mergeAndroidManifest result: true
+
+[step][2023.06.30_14:30:34:420][61][1][tid:398][:app][ConfigManager] doActionWhenProjectsEvaluated configSet: 2
+
+[info][2023.06.30_14:30:34:423][64][3][tid:398][:app] beforeResolve dependencies ':app:classpath', configureOnDemand: false, hasMobConfigEndTag: false
+
+[step][2023.06.30_14:30:34:424][65][1][tid:398][:app][ConfigManager] addDependencies extension: "MobSDKExtension": {"appKey":"38310cf01a35a", "appSecret":"dbd795f8de174981d090090fcb99e76d", "version":"null", "hiddenFields":{"fields":{},"unknown":{"permissions":"build_do93z19iumb3sn0spc4bji4m$_run_closure1$_closure4@3ec3f6f7"}}, "SDKConfigs":{"MobSDK":null,"SMSSDK":null}, "excludePermissionConfig":PermissionConfig={"excludePermissions":[android.permission.READ_CONTACTS, android.permission.READ_PHONE_STATE]}}
+
+[info][2023.06.30_14:30:34:424][65][0][tid:398][:app][BaseDependency][SMSSDK] version used: +, conf: null
+
+[step][2023.06.30_14:30:34:425][66][1][tid:398][:app][SMSSDK] addDependency: cn.smssdk:SMSSDK:+@aar£¬api: false, versionEqualOrAbove3: true, gradleVersion: 7.1.2
+
+[step][2023.06.30_14:30:34:426][67][1][tid:398][:app][SMSSDK] addDependency: cn.smssdk:ShortMessageSDKGUI:+@aar£¬api: false, versionEqualOrAbove3: true, gradleVersion: 7.1.2
+
+[info][2023.06.30_14:30:34:426][67][0][tid:398][:app][BaseDependency][MobSDK] version used: +, conf: null
+
+[info][2023.06.30_14:30:34:427][68][1][tid:398][:app][MobSDKDependency] MobSDKDependency_old_custom_artifacts_suffix used: null, conf: null
+
+[info][2023.06.30_14:30:34:428][69][1][tid:398][:app][MobSDKDependency] MobSDKDependency_spEdition used: null, conf: null
+
+[info][2023.06.30_14:30:34:428][69][0][tid:398][:app][MobSDKDependency] MobSDKDependency_svip used: null, conf: null
+
+[info][2023.06.30_14:30:34:429][70][1][tid:398][:app][MobSDKDependency] MobSDKDependency_appKey used: null, conf: null
+
+[info][2023.06.30_14:30:34:430][71][1][tid:398][:app][MobSDKDependency] after filter dependency: null
+
+[info][2023.06.30_14:30:34:431][72][1][tid:398][:app][MobSDKDependency] stand version support ult used: true, conf: true, forceRevert: false
+
+[info][2023.06.30_14:30:34:431][72][0][tid:398][:app][MobSDKDependency] awk used: false, config: false
+
+[info][2023.06.30_14:30:34:432][73][1][tid:398][:app][MobSDKDependency] gui used: null, MobGUI used: null, gui config: null, MobGUI config: null, disableMC: false, suffix: £¬cacheDependencyStr: ||ULT, tmpDependencyStr: ||ULT
+
+[step][2023.06.30_14:30:34:433][74][1][tid:398][:app][MobSDK] addDependency: com.mob:MobCoreULT:+@aar£¬api: false, versionEqualOrAbove3: true, gradleVersion: 7.1.2
+
+[step][2023.06.30_14:30:34:435][76][2][tid:398][:app][MobSDK] addDependency: com.mob:MobGUIULT:+£¬api: false, versionEqualOrAbove3: true, gradleVersion: 7.1.2
+
+[step][2023.06.30_14:30:34:436][77][1][tid:398][:app][MobSDK] addDependency: com.mob:MobSupportV1:+£¬api: false, versionEqualOrAbove3: true, gradleVersion: 7.1.2
+
+[info][2023.06.30_14:30:37:294][2935][2858][tid:1161]variantName: debug, manifestOutputDirectory: D:\android\project\SchoolAssistant\app\build\intermediates\merged_manifests\debug
+
+[info][2023.06.30_14:30:37:298][2939][4][tid:1161]Throwable: Could not get unknown property 'instantRunManifestOutputFile' for task ':app:processDebugManifest' of type com.android.build.gradle.tasks.ProcessMultiApkApplicationManifest.
+
+[step][2023.06.30_14:30:37:300][2941][2][tid:1161][:app][ManifestManager] mergeAndroidManifest doLast start manifestFileList: [D:\android\project\SchoolAssistant\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml])
+
+[info][2023.06.30_14:30:37:301][2942][1][tid:1161][:app][ManifestManager] mergeAndroidManifest doLast manifestFile: D:\android\project\SchoolAssistant\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml, exists: true)
+
+[info][2023.06.30_14:30:37:306][2947][5][tid:1161][:app][ManifestManager] mergeAndroidManifest doLast targetSdkVersion: 31
+
+[info][2023.06.30_14:30:37:307][2948][1][tid:1161][:app][ManifestManager] mergeAndroidManifest doLast app: 
+
+[info][2023.06.30_14:30:37:310][2951][3][tid:1161][:app][ManifestManager] mergeAndroidManifest doLast realAddComponents component: provider, name: com.mob.MobProvider, body: 
+                <provider
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:tools="http://schemas.android.com/tools"
+                    android:name="com.mob.MobProvider"
+                    android:multiprocess="true"
+                    android:authorities="#MobApplicationId#.com.mob.MobProvider"
+                    android:exported="false"/>
+            , node: class groovy.util.slurpersupport.NodeChild
+
+[info][2023.06.30_14:30:37:338][2979][28][tid:1161][:app][ManifestManager] mergeAndroidManifest doLast manifest text: <?xml version="1.0" encoding="UTF-8"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.school.assistant" android:versionName="1.0.0" android:versionCode="1">
+  <uses-sdk android:targetSdkVersion="31" android:minSdkVersion="19"/>
+  <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES"/>
+  <uses-permission android:name="android.permission.INTERNET"/>
+  <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+  <uses-permission android:name="android.permission.WAKE_LOCK"/>
+  <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+  <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+  <uses-permission android:name="android.permission.INSTALL_PACKAGES"/>
+  <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
+  <application android:configChanges="screenSize|keyboardHidden|orientation|keyboard|uiMode" android:requestLegacyExternalStorage="true" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:allowBackup="false" android:roundIcon="@drawable/school_assistant" android:usesCleartextTraffic="true" android:supportsRtl="true" android:debuggable="true" android:label="@string/app_name" android:name="com.school.assistant.MyApp" android:theme="@style/AppTheme" android:networkSecurityConfig="@xml/network_security_config" android:windowSoftInputMode="adjustPan|stateHidden" android:icon="@drawable/school_assistant">
+    <activity android:screenOrientation="portrait" android:name="com.school.assistant.activity.SplashActivity" android:configChanges="screenSize|keyboardHidden|orientation|keyboard" android:theme="@style/SplashTheme" android:exported="true" android:windowSoftInputMode="adjustPan|stateHidden">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN"/>
+        <category android:name="android.intent.category.LAUNCHER"/>
+      </intent-filter>
+    </activity>
+    <activity android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden" android:name="com.school.assistant.activity.MainActivity" android:configChanges="screenSize|keyboardHidden|orientation|keyboard" android:exported="true"/>
+    <activity android:screenOrientation="portrait" android:launchMode="singleInstance" android:name="com.school.assistant.activity.LoginActivity" android:configChanges="screenSize|keyboardHidden|orientation|keyboard" android:exported="true" android:windowSoftInputMode="adjustPan|stateHidden"/>
+    <activity android:hardwareAccelerated="true" android:label="@string/app_browser_name" android:name="com.school.assistant.core.webview.AgentWebActivity" android:configChanges="screenSize|keyboardHidden|orientation|keyboard" android:theme="@style/AppTheme" android:exported="true">
+      <intent-filter>
+        <action android:name="android.intent.action.VIEW"/>
+        <action android:name="com.xuexiang.xui.applink"/>
+        <category android:name="android.intent.category.DEFAULT"/>
+        <category android:name="android.intent.category.BROWSABLE"/>
+        <data android:scheme="http"/>
+        <data android:scheme="https"/>
+        <data android:scheme="about"/>
+        <data android:scheme="javascript"/>
+      </intent-filter>
+      <intent-filter android:autoVerify="true">
+        <action android:name="android.intent.action.VIEW"/>
+        <category android:name="android.intent.category.BROWSABLE"/>
+        <category android:name="android.intent.category.DEFAULT"/>
+        <data android:scheme="http"/>
+        <data android:scheme="https"/>
+        <data android:scheme="inline"/>
+        <data android:mimeType="text/html"/>
+        <data android:mimeType="text/plain"/>
+        <data android:mimeType="application/xhtml+xml"/>
+        <data android:mimeType="application/vnd.wap.xhtml+xml"/>
+      </intent-filter>
+    </activity>
+    <activity android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden" android:name="com.school.assistant.core.BaseActivity" android:configChanges="screenSize|keyboardHidden|orientation|keyboard"/>
+    <activity android:screenOrientation="portrait" android:name="com.school.assistant.utils.update.UpdateTipDialog" android:theme="@style/DialogTheme"/>
+    <activity android:screenOrientation="portrait" android:name="com.school.assistant.core.webview.WebViewInterceptDialog" android:theme="@style/DialogTheme"/>
+    <activity android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden" android:name="com.school.assistant.core.XPageTransferActivity" android:configChanges="screenSize|keyboardHidden|orientation|keyboard"/>
+    <meta-data android:name="design_width_in_dp" android:value="360"/>
+    <meta-data android:name="design_height_in_dp" android:value="640"/>
+    <provider android:name="com.xuexiang.xui.XUIInitProvider" android:exported="false" android:authorities="com.school.assistant.xui-init-provider" android:multiprocess="true"/>
+    <activity android:name="com.xuexiang.xui.widget.imageview.preview.ui.PreviewActivity" android:theme="@style/XUITheme.Translucent"/>
+    <activity android:name="com.xuexiang.xui.widget.imageview.preview.ui.VideoPlayerActivity" android:theme="@style/XUITheme.Translucent"/>
+    <receiver android:name="com.just.agentweb.download.NotificationCancelReceiver"/>
+    <provider android:name="com.just.agentweb.core.web.AgentWebFileProvider" android:grantUriPermissions="true" android:exported="false" android:authorities="com.school.assistant.AgentWebFileProvider">
+      <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/web_files_paths"/>
+    </provider>
+    <activity android:launchMode="standard" android:name="com.just.agentweb.action.ActionActivity" android:configChanges="keyboardHidden|orientation|screenSize" android:theme="@style/actionActivity" android:exported="false" android:windowSoftInputMode="stateHidden|stateAlwaysHidden"/>
+    <provider android:name="me.jessyan.autosize.InitProvider" android:exported="false" android:authorities="com.school.assistant.autosize-init-provider" android:multiprocess="true"/>
+    <activity android:windowSoftInputMode="stateHidden|stateAlwaysHidden" android:name="com.xuexiang.xutil.system.PermissionUtils$PermissionActivity" android:configChanges="orientation|keyboardHidden|screenSize" android:theme="@style/XUtil_Activity_Translucent"/>
+    <provider android:name="androidx.core.content.FileProvider4Utils" android:grantUriPermissions="true" android:exported="false" android:authorities="com.school.assistant.xutil.provider">
+      <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/xutil_provider_paths"/>
+    </provider>
+    <activity android:windowSoftInputMode="stateHidden|stateAlwaysHidden" android:name="com.xuexiang.xaop.util.PermissionUtils$PermissionActivity" android:configChanges="orientation|keyboardHidden|screenSize" android:theme="@style/AOP_Activity_Translucent"/>
+    <service android:name="com.xuexiang.xupdate.service.DownloadService"/>
+    <provider android:name="com.xuexiang.xupdate.utils.UpdateFileProvider" android:grantUriPermissions="true" android:exported="false" android:authorities="com.school.assistant.updateFileProvider">
+      <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/update_file_paths"/>
+    </provider>
+    <activity android:name="com.xuexiang.xupdate.widget.UpdateDialogActivity" android:theme="@style/XUpdate_DialogTheme"/>
+    <service android:enabled="true" android:name="com.mob.MobACService" android:exported="true">
+      <intent-filter>
+        <action android:name="com.mob.service.action.MOB_AC_SERVICE"/>
+      </intent-filter>
+    </service>
+    <activity android:name="com.mob.id.MobIDActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" android:exported="true">
+      <intent-filter>
+        <action android:name="com.mob.id.app_30000"/>
+        <category android:name="android.intent.category.DEFAULT"/>
+      </intent-filter>
+    </activity>
+    <activity android:name="com.mob.id.MobIDSYActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" android:exported="true">
+      <intent-filter>
+        <action android:name="com.mob.id.app_lk"/>
+        <category android:name="android.intent.category.DEFAULT"/>
+      </intent-filter>
+    </activity>
+    <service android:enabled="true" android:name="com.mob.id.MobIDService" android:exported="true">
+      <intent-filter>
+        <action android:name="com.mob.intent.MOB_ID_SERVICE"/>
+      </intent-filter>
+    </service>
+    <meta-data android:name="mob_guard_version" android:value="30000"/>
+    <meta-data android:name="mob_id_ver" android:value="30000"/>
+    <activity android:name="com.mob.guard.MobTranPullUpActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" android:exported="true">
+      <intent-filter>
+        <action android:name="com.mob.open.app_20000"/>
+        <category android:name="android.intent.category.DEFAULT"/>
+      </intent-filter>
+    </activity>
+    <activity android:name="com.mob.guard.MobTranPullLockActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" android:exported="true">
+      <intent-filter>
+        <action android:name="com.mob.open.app_lk"/>
+        <category android:name="android.intent.category.DEFAULT"/>
+      </intent-filter>
+    </activity>
+    <service android:enabled="true" android:name="com.mob.guard.MobGuardPullUpService" android:exported="true">
+      <intent-filter>
+        <action android:name="com.mob.intent.MOB_GUARD_SERVICE"/>
+      </intent-filter>
+    </service>
+    <provider android:name="com.mob.MobProvider" android:exported="false" android:authorities="com.school.assistant.com.mob.MobProvider" android:multiprocess="true"/>
+    <provider android:name="androidx.startup.InitializationProvider" android:exported="false" android:authorities="com.school.assistant.androidx-startup">
+      <meta-data android:name="androidx.emoji2.text.EmojiCompatInitializer" android:value="androidx.startup"/>
+      <meta-data android:name="androidx.lifecycle.ProcessLifecycleInitializer" android:value="androidx.startup"/>
+    </provider>
+    <meta-data xmlns:tools="http://schemas.android.com/tools" android:name="Mob-AppKey" android:value="38310cf01a35a" tools:node="merge"/>
+    <meta-data xmlns:tools="http://schemas.android.com/tools" android:name="Mob-AppSecret" android:value="dbd795f8de174981d090090fcb99e76d" tools:node="merge"/>
+    <activity xmlns:tools="http://schemas.android.com/tools" android:name="com.mob.tools.MobUIShell" android:configChanges="keyboardHidden|orientation|screenSize" android:theme="@android:style/Theme.Translucent.NoTitleBar" android:exported="true" android:windowSoftInputMode="stateHidden|adjustResize" tools:node="merge"/>
+  </application>
+  <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES"/>
+</manifest>
+
+
+[info][2023.06.30_14:31:06:074][31715][28736][tid:398][BuildSession] buildFinished state: EVALUATED
+
+[step][2023.06.30_14:31:06:075][31716][1][tid:398][:app][ConfigManager] doActionWhenBuildFinished configSet: 2
+
+[info][2023.06.30_14:31:06:077][31718][2][tid:398]================= finished log record start ===================
+
+[info][2023.06.30_14:31:06:077][31718][0][tid:398]========>buildResult: action:Build, failure: 
+
+[info][2023.06.30_14:31:06:078][31719][1][tid:398]========>ConfigStep: 4401
+
+[info][2023.06.30_14:31:06:078][31719][0][tid:398]==[addDependency: true]
+
+[info][2023.06.30_14:31:06:079][31720][1][tid:398]==[getMergeManifestTask: true]
+
+[info][2023.06.30_14:31:06:079][31720][0][tid:398]==[mergeManifestSuccess: true]
+
+[info][2023.06.30_14:31:06:080][31721][1][tid:398]==[mergeManifestFailed: false]
+
+[info][2023.06.30_14:31:06:081][31722][1][tid:398]==[actionAfterProjectsEvaluated: true]
+
+[info][2023.06.30_14:31:06:081][31722][0][tid:398]==[actionAfterBuildFinished: true]
+
+[info][2023.06.30_14:31:06:082][31723][1][tid:398]========>env info:
+
+[info][2023.06.30_14:31:06:083][31724][1][tid:398]==[gradleVersion: 7.2]
+
+[info][2023.06.30_14:31:06:083][31724][0][tid:398]==[gradlePluginVersion: 7.1.2]
+
+[info][2023.06.30_14:31:06:084][31725][1][tid:398]========>gradle.properties:
+
+[info][2023.06.30_14:31:06:085][31726][1][tid:398][isNeedPackage:false, android.overridePathCheck:true, android.precompileDependenciesResources:false, android.injected.signing.key.password:111111, android.useAndroidX:true, android.injected.signing.store.file:D:\android\key_store\school_assistant.jks, isRelease:org.codehaus.groovy.runtime.MethodClosure@721c692b, AGP_INTERNAL__MIN_PLUGIN_VERSION_CHECK_STARTED:true, MobSDK.spEdition:FP, android.injected.invoked.from.ide:true, android.injected.apk.location:D:\android\project\SchoolAssistant\app, android.injected.signing.key.alias:key0, app_release:[storeFile:../keystores/android.keystore, storePassword:xuexiang, keyAlias:android.keystore, keyPassword:xuexiang], systemProp.http.proxyPort:80, build_versions:[min_sdk:19, target_sdk:31, build_tools:29.0.3], deps:[support:[annotations:com.android.support:support-annotations:28.0.0, app_compat:com.android.support:appcompat-v7:28.0.0, recyclerview:com.android.support:recyclerview-v7:28.0.0, cardview:com.android.support:cardview-v7:28.0.0, design:com.android.support:design:28.0.0, v4:com.android.support:support-v4:28.0.0, core_utils:com.android.support:support-core-utils:28.0.0], androidx:[annotations:androidx.annotation:annotation:1.2.0, appcompat:androidx.appcompat:appcompat:1.3.1, recyclerview:androidx.recyclerview:recyclerview:1.2.1, design:com.google.android.material:material:1.4.0, multidex:androidx.multidex:multidex:2.0.1], booster:[gradle_plugin:com.didiglobal.booster:booster-gradle-plugin:3.1.0, task_all:com.didiglobal.booster:booster-task-all:1.1.1, transform_all:com.didiglobal.booster:booster-transform-all:1.1.1, task_compression_cwebp:com.didiglobal.booster:booster-task-compression-cwebp:3.1.0, task_compression_pngquant:com.didiglobal.booster:booster-task-compression-pngquant:3.1.0, task_processed_res:com.didiglobal.booster:booster-task-compression-processed-res:3.1.0, task_resource_deredundancy:com.didiglobal.booster:booster-task-resource-deredundancy:3.1.0, task_check_snapshot:com.didiglobal.booster:booster-task-check-snapshot:3.1.0, transform_lint:com.didiglobal.booster:booster-transform-lint:3.1.0, transform_thread:com.didiglobal.booster:booster-transform-thread:3.1.0, transform_r_inline:com.didiglobal.booster:booster-transform-r-inline:3.1.0, transform_webview:com.didiglobal.booster:booster-transform-webview:3.1.0, transform_shared_preferences:com.didiglobal.booster:booster-transform-shared-preferences:3.1.0, transform_res_check:com.didiglobal.booster:booster-transform-res-check:3.1.0, transform_toast:com.didiglobal.booster:booster-transform-toast:3.1.0, transform_activity_thread:com.didiglobal.booster:booster-transform-activity-thread:3.1.0], butterknife:[runtime:com.jakewharton:butterknife:10.1.0, compiler:com.jakewharton:butterknife-compiler:10.1.0], espresso:[core:androidx.test.espresso:espresso-core:3.2.0, contrib:androidx.test.espresso:espresso-contrib:3.2.0, intents:androidx.test.espresso:espresso-intents:3.2.0], android_gradle_plugin:com.android.tools.build:gradle:7.1.2, android_maven_gradle_plugin:com.github.dcendents:android-maven-gradle-plugin:2.0, gradle_bintray_plugin:com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.0, glide:com.github.bumptech.glide:glide:4.11.0, constraint_layout:androidx.constraint:constraint-layout:2.1.0, junit:junit:junit:4.12, runner:androidx.test:runner:1.2.0, rxjava2:io.reactivex.rxjava2:rxjava:2.2.20, rxandroid:io.reactivex.rxjava2:rxandroid:2.1.1, rxbinding:com.jakewharton.rxbinding2:rxbinding:2.2.0, gson:com.google.code.gson:gson:2.8.5, okhttp3:com.squareup.okhttp3:okhttp:3.12.12, leakcanary:com.squareup.leakcanary:leakcanary-android:2.7, xlibrary:[xui:com.github.xuexiangjys:XUI:1.2.0, xupdate:com.github.xuexiangjys:XUpdate:2.1.3, xaop_runtime:com.github.xuexiangjys.XAOP:xaop-runtime:1.1.0, xaop_plugin:com.github.xuexiangjys.XAOP:xaop-plugin:1.1.0, xutil_core:com.github.xuexiangjys.XUtil:xutil-core:2.0.0, xhttp2:com.github.xuexiangjys:XHttp2:2.0.4, xpage_lib:com.github.xuexiangjys.XPage:xpage-lib:3.3.0, xpage_compiler:com.github.xuexiangjys.XPage:xpage-compiler:3.3.0, xrouter_runtime:com.github.xuexiangjys.XRouter:xrouter-runtime:1.1.0, xrouter_compiler:com.github.xuexiangjys.XRouter:xrouter-compiler:1.1.0, xrouter_plugin:com.github.xuexiangjys.XRouter:xrouter-plugin:1.1.0]], org.gradle.jvmargs:-Xmx8g, android.enableD8:true, android.enableJetifier:true, systemProp.http.proxyHost:, isUseBooster:false, android.injected.signing.store.password:111111, android.injected.attribution.file.location:D:\android\project\SchoolAssistant\.gradle, addRepos:org.codehaus.groovy.runtime.MethodClosure@55c190ac, android.injected.studio.version:2022.2.1 Patch 1]
+
+[info][2023.06.30_14:31:06:086][31727][1][tid:398]================>projects info:================
+
+[info][2023.06.30_14:31:06:087][31728][1][tid:398]========>[:SchoolAssistant] MobSDKExtension: null========
+
+[info][2023.06.30_14:31:06:088][31729][1][tid:398]========[:SchoolAssistant] dependencies android: null variants: null========
+
+[info][2023.06.30_14:31:06:089][31730][1][tid:398]========>[:app] MobSDKExtension: "MobSDKExtension": {"appKey":"38310cf01a35a", "appSecret":"dbd795f8de174981d090090fcb99e76d", "version":"null", "hiddenFields":{"fields":{},"unknown":{"permissions":"build_do93z19iumb3sn0spc4bji4m$_run_closure1$_closure4@3ec3f6f7"}}, "SDKConfigs":{"MobSDK":null,"SMSSDK":null}, "excludePermissionConfig":PermissionConfig={"excludePermissions":[android.permission.READ_CONTACTS, android.permission.READ_PHONE_STATE]}}========
+
+[info][2023.06.30_14:31:06:090][31731][1][tid:398]====[:app][MobSDK]: com.mob.confs.commons.MobSDKConfig@60adcc87
+
+[info][2023.06.30_14:31:06:091][31732][1][tid:398]====[:app][SMSSDK]: "SMSSDKConfig": {"version":"null", "autoSMS":"false", "mobileAuth":"false", "mobileAuthVer":"+"}
+
+[info][2023.06.30_14:31:06:092][31733][1][tid:398]========[:app] dependencies android: extension 'android' variants: [com.android.build.gradle.internal.api.ApplicationVariantImpl_Decorated@529ddf19, com.android.build.gradle.internal.api.ApplicationVariantImpl_Decorated@3e5c4ad9]========
+
+[info][2023.06.30_14:31:06:093][31734][1][tid:398]====debug====
+
+[info][2023.06.30_14:31:06:096][31737][3][tid:398]==androidx.databinding:viewbinding:7.1.2
+
+[info][2023.06.30_14:31:06:097][31738][1][tid:398]==androidx.multidex:multidex:2.0.1
+
+[info][2023.06.30_14:31:06:097][31738][0][tid:398]==com.google.android.material:material:1.5.0
+
+[info][2023.06.30_14:31:06:098][31739][1][tid:398]==androidx.appcompat:appcompat:1.4.1
+
+[info][2023.06.30_14:31:06:099][31740][1][tid:398]==androidx.test:monitor:1.5.0
+
+[info][2023.06.30_14:31:06:100][31741][1][tid:398]==com.alibaba.android:vlayout:1.3.0
+
+[info][2023.06.30_14:31:06:100][31741][0][tid:398]==com.meituan.android.walle:library:1.1.6
+
+[info][2023.06.30_14:31:06:101][31742][1][tid:398]==androidx.recyclerview:recyclerview:1.2.1
+
+[info][2023.06.30_14:31:06:101][31742][0][tid:398]==com.github.bumptech.glide:glide:4.11.0
+
+[info][2023.06.30_14:31:06:102][31743][1][tid:398]==androidx.constraintlayout:constraintlayout:2.1.3
+
+[info][2023.06.30_14:31:06:102][31743][0][tid:398]==com.github.xuexiangjys.SmartRefreshLayout:refresh-header:1.1.5
+
+[info][2023.06.30_14:31:06:103][31744][1][tid:398]==com.github.xuexiangjys.SmartRefreshLayout:refresh-layout:1.1.5
+
+[info][2023.06.30_14:31:06:104][31745][1][tid:398]==com.github.xuexiangjys.AgentWeb:agentweb-core:1.0.0
+
+[info][2023.06.30_14:31:06:104][31745][0][tid:398]==com.github.xuexiangjys.AgentWeb:agentweb-download:1.0.0
+
+[info][2023.06.30_14:31:06:105][31746][1][tid:398]==com.tencent:mmkv:1.2.10
+
+[info][2023.06.30_14:31:06:106][31747][1][tid:398]==me.jessyan:autosize:1.2.1
+
+[info][2023.06.30_14:31:06:106][31747][0][tid:398]==com.umeng.umsdk:common:9.3.8
+
+[info][2023.06.30_14:31:06:107][31748][1][tid:398]==com.umeng.umsdk:asms:1.2.1
+
+[info][2023.06.30_14:31:06:107][31748][0][tid:398]==me.samlss:broccoli:1.0.0
+
+[info][2023.06.30_14:31:06:108][31749][1][tid:398]==com.zzhoujay.richtext:richtext:3.0.8
+
+[info][2023.06.30_14:31:06:108][31749][0][tid:398]==com.squareup.retrofit2:retrofit:2.9.0
+
+[info][2023.06.30_14:31:06:108][31749][0][tid:398]==com.squareup.okhttp3:okhttp:3.12.12
+
+[info][2023.06.30_14:31:06:109][31750][1][tid:398]==com.github.anrwatchdog:anrwatchdog:1.4.0
+
+[info][2023.06.30_14:31:06:109][31750][0][tid:398]==com.google.code.gson:gson:2.8.8
+
+[info][2023.06.30_14:31:06:110][31751][1][tid:398]==com.alibaba:fastjson:1.1.54.android
+
+[info][2023.06.30_14:31:06:110][31751][0][tid:398]==com.wang.avi:library:2.1.3
+
+[info][2023.06.30_14:31:06:111][31751][0][tid:398]==com.apistd.uni:uni-sdk:0.0.4
+
+[info][2023.06.30_14:31:06:111][31752][1][tid:398]==org.apache.commons:commons-lang3:3.12.0
+
+[info][2023.06.30_14:31:06:111][31752][0][tid:398]==org.aspectj:aspectjrt:1.8.9
+
+[info][2023.06.30_14:31:06:112][31753][1][tid:398]==com.github.xuexiangjys:XUI:1.2.0
+
+[info][2023.06.30_14:31:06:112][31753][0][tid:398]==com.github.xuexiangjys.XUtil:xutil-core:2.0.0
+
+[info][2023.06.30_14:31:06:113][31754][1][tid:398]==com.github.xuexiangjys.XAOP:xaop-runtime:1.1.0
+
+[info][2023.06.30_14:31:06:113][31754][0][tid:398]==com.github.xuexiangjys:XUpdate:2.1.3
+
+[info][2023.06.30_14:31:06:114][31755][1][tid:398]==com.github.xuexiangjys:XHttp2:2.0.4
+
+[info][2023.06.30_14:31:06:114][31755][0][tid:398]==io.reactivex.rxjava2:rxandroid:2.1.1
+
+[info][2023.06.30_14:31:06:115][31756][1][tid:398]==io.reactivex.rxjava2:rxjava:2.2.20
+
+[info][2023.06.30_14:31:06:116][31757][1][tid:398]==com.github.xuexiangjys.XPage:xpage-lib:3.3.0
+
+[info][2023.06.30_14:31:06:116][31757][0][tid:398]==com.github.xuexiangjys.XRouter:xrouter-runtime:1.1.0
+
+[info][2023.06.30_14:31:06:117][31758][1][tid:398]==cn.smssdk:SMSSDK:3.7.8
+
+[info][2023.06.30_14:31:06:117][31758][0][tid:398]==cn.smssdk:ShortMessageSDKGUI:3.7.8
+
+[info][2023.06.30_14:31:06:118][31759][1][tid:398]==com.mob:MobCoreULT:2023.0613.1728
+
+[info][2023.06.30_14:31:06:119][31760][1][tid:398]==com.mob:MobGUIULT:2023.0613.1728
+
+[info][2023.06.30_14:31:06:119][31760][0][tid:398]==com.mob:MobSupportV1:2023.0613.1728
+
+[info][2023.06.30_14:31:06:120][31761][1][tid:398]==androidx.annotation:annotation:1.3.0
+
+[info][2023.06.30_14:31:06:120][31761][0][tid:398]==androidx.viewpager2:viewpager2:1.0.0
+
+[info][2023.06.30_14:31:06:121][31762][1][tid:398]==androidx.fragment:fragment:1.3.6
+
+[info][2023.06.30_14:31:06:121][31762][0][tid:398]==androidx.drawerlayout:drawerlayout:1.1.1
+
+[info][2023.06.30_14:31:06:122][31763][1][tid:398]==androidx.coordinatorlayout:coordinatorlayout:1.1.0
+
+[info][2023.06.30_14:31:06:122][31763][0][tid:398]==androidx.dynamicanimation:dynamicanimation:1.0.0
+
+[info][2023.06.30_14:31:06:123][31764][1][tid:398]==androidx.transition:transition:1.2.0
+
+[info][2023.06.30_14:31:06:123][31764][0][tid:398]==androidx.vectordrawable:vectordrawable:1.1.0
+
+[info][2023.06.30_14:31:06:124][31765][1][tid:398]==androidx.core:core:1.7.0
+
+[info][2023.06.30_14:31:06:124][31765][0][tid:398]==androidx.cardview:cardview:1.0.0
+
+[info][2023.06.30_14:31:06:124][31765][0][tid:398]==androidx.lifecycle:lifecycle-runtime:2.4.0
+
+[info][2023.06.30_14:31:06:125][31766][1][tid:398]==androidx.annotation:annotation-experimental:1.1.0
+
+[info][2023.06.30_14:31:06:125][31766][0][tid:398]==androidx.activity:activity:1.2.4
+
+[info][2023.06.30_14:31:06:125][31766][0][tid:398]==androidx.appcompat:appcompat-resources:1.4.1
+
+[info][2023.06.30_14:31:06:126][31767][1][tid:398]==androidx.cursoradapter:cursoradapter:1.0.0
+
+[info][2023.06.30_14:31:06:127][31768][1][tid:398]==androidx.savedstate:savedstate:1.1.0
+
+[info][2023.06.30_14:31:06:127][31768][0][tid:398]==androidx.test:annotation:1.0.0
+
+[info][2023.06.30_14:31:06:128][31769][1][tid:398]==androidx.legacy:legacy-support-v4:1.0.0
+
+[info][2023.06.30_14:31:06:129][31770][1][tid:398]==com.meituan.android.walle:payload_reader:1.1.6
+
+[info][2023.06.30_14:31:06:129][31770][0][tid:398]==androidx.customview:customview:1.1.0
+
+[info][2023.06.30_14:31:06:130][31771][1][tid:398]==androidx.vectordrawable:vectordrawable-animated:1.1.0
+
+[info][2023.06.30_14:31:06:131][31772][1][tid:398]==com.github.bumptech.glide:gifdecoder:4.11.0
+
+[info][2023.06.30_14:31:06:131][31772][0][tid:398]==androidx.exifinterface:exifinterface:1.0.0
+
+[info][2023.06.30_14:31:06:132][31773][1][tid:398]==com.github.bumptech.glide:disklrucache:4.11.0
+
+[info][2023.06.30_14:31:06:133][31774][1][tid:398]==com.github.bumptech.glide:annotations:4.11.0
+
+[info][2023.06.30_14:31:06:133][31774][0][tid:398]==com.squareup.okio:okio:1.15.0
+
+[info][2023.06.30_14:31:06:134][31775][1][tid:398]==io.github.inflationx:calligraphy3:3.1.1
+
+[info][2023.06.30_14:31:06:134][31775][0][tid:398]==io.github.inflationx:viewpump:2.0.3
+
+[info][2023.06.30_14:31:06:135][31776][1][tid:398]==com.github.xuexiangjys.XAOP:xaop-annotation:1.1.0
+
+[info][2023.06.30_14:31:06:136][31777][1][tid:398]==org.reactivestreams:reactive-streams:1.0.3
+
+[info][2023.06.30_14:31:06:136][31777][0][tid:398]==com.github.xuexiangjys.XPage:xpage-annotation:3.3.0
+
+[info][2023.06.30_14:31:06:137][31778][1][tid:398]==com.github.xuexiangjys.XRouter:xrouter-annotation:1.1.0
+
+[info][2023.06.30_14:31:06:138][31779][1][tid:398]==androidx.collection:collection:1.1.0
+
+[info][2023.06.30_14:31:06:138][31779][0][tid:398]==androidx.viewpager:viewpager:1.0.0
+
+[info][2023.06.30_14:31:06:139][31780][1][tid:398]==androidx.loader:loader:1.0.0
+
+[info][2023.06.30_14:31:06:139][31780][0][tid:398]==androidx.lifecycle:lifecycle-viewmodel-savedstate:2.3.1
+
+[info][2023.06.30_14:31:06:140][31781][1][tid:398]==androidx.lifecycle:lifecycle-viewmodel:2.3.1
+
+[info][2023.06.30_14:31:06:140][31781][0][tid:398]==androidx.lifecycle:lifecycle-livedata-core:2.3.1
+
+[info][2023.06.30_14:31:06:141][31782][1][tid:398]==androidx.legacy:legacy-support-core-utils:1.0.0
+
+[info][2023.06.30_14:31:06:141][31782][0][tid:398]==androidx.versionedparcelable:versionedparcelable:1.1.1
+
+[info][2023.06.30_14:31:06:142][31783][1][tid:398]==androidx.lifecycle:lifecycle-common:2.4.0
+
+[info][2023.06.30_14:31:06:143][31784][1][tid:398]==androidx.arch.core:core-common:2.1.0
+
+[info][2023.06.30_14:31:06:143][31784][0][tid:398]==androidx.interpolator:interpolator:1.0.0
+
+[info][2023.06.30_14:31:06:144][31785][1][tid:398]==org.jetbrains.kotlin:kotlin-stdlib:1.3.21
+
+[info][2023.06.30_14:31:06:145][31786][1][tid:398]==androidx.lifecycle:lifecycle-livedata:2.0.0
+
+[info][2023.06.30_14:31:06:146][31787][1][tid:398]==androidx.documentfile:documentfile:1.0.0
+
+[info][2023.06.30_14:31:06:146][31787][0][tid:398]==androidx.localbroadcastmanager:localbroadcastmanager:1.0.0
+
+[info][2023.06.30_14:31:06:147][31788][1][tid:398]==androidx.print:print:1.0.0
+
+[info][2023.06.30_14:31:06:147][31788][0][tid:398]==org.jetbrains.kotlin:kotlin-stdlib-common:1.3.21
+
+[info][2023.06.30_14:31:06:148][31789][1][tid:398]==org.jetbrains:annotations:13.0
+
+[info][2023.06.30_14:31:06:149][31790][1][tid:398]==androidx.arch.core:core-runtime:2.1.0
+
+[info][2023.06.30_14:31:06:149][31790][0][tid:398]====release====
+
+[info][2023.06.30_14:31:06:183][31824][34][tid:398]==androidx.databinding:viewbinding:7.1.2
+
+[info][2023.06.30_14:31:06:183][31824][0][tid:398]==com.google.android.material:material:1.5.0
+
+[info][2023.06.30_14:31:06:184][31825][1][tid:398]==androidx.appcompat:appcompat:1.4.1
+
+[info][2023.06.30_14:31:06:185][31826][1][tid:398]==androidx.constraintlayout:constraintlayout:2.1.3
+
+[info][2023.06.30_14:31:06:186][31827][1][tid:398]==androidx.test:monitor:1.5.0
+
+[info][2023.06.30_14:31:06:187][31828][1][tid:398]==androidx.multidex:multidex:2.0.1
+
+[info][2023.06.30_14:31:06:188][31829][1][tid:398]==com.alibaba.android:vlayout:1.3.0
+
+[info][2023.06.30_14:31:06:189][31830][1][tid:398]==com.github.xuexiangjys.SmartRefreshLayout:refresh-header:1.1.5
+
+[info][2023.06.30_14:31:06:189][31830][0][tid:398]==com.github.xuexiangjys.SmartRefreshLayout:refresh-layout:1.1.5
+
+[info][2023.06.30_14:31:06:190][31831][1][tid:398]==com.github.xuexiangjys.AgentWeb:agentweb-core:1.0.0
+
+[info][2023.06.30_14:31:06:191][31832][1][tid:398]==com.github.xuexiangjys.AgentWeb:agentweb-download:1.0.0
+
+[info][2023.06.30_14:31:06:192][31833][1][tid:398]==com.tencent:mmkv:1.2.10
+
+[info][2023.06.30_14:31:06:193][31833][0][tid:398]==me.jessyan:autosize:1.2.1
+
+[info][2023.06.30_14:31:06:193][31834][1][tid:398]==com.umeng.umsdk:common:9.3.8
+
+[info][2023.06.30_14:31:06:194][31835][1][tid:398]==com.umeng.umsdk:asms:1.2.1
+
+[info][2023.06.30_14:31:06:195][31836][1][tid:398]==me.samlss:broccoli:1.0.0
+
+[info][2023.06.30_14:31:06:196][31837][1][tid:398]==com.zzhoujay.richtext:richtext:3.0.8
+
+[info][2023.06.30_14:31:06:196][31837][0][tid:398]==com.squareup.retrofit2:retrofit:2.9.0
+
+[info][2023.06.30_14:31:06:197][31838][1][tid:398]==com.github.anrwatchdog:anrwatchdog:1.4.0
+
+[info][2023.06.30_14:31:06:198][31839][1][tid:398]==com.meituan.android.walle:library:1.1.6
+
+[info][2023.06.30_14:31:06:198][31839][0][tid:398]==com.squareup.okhttp3:okhttp:3.12.12
+
+[info][2023.06.30_14:31:06:199][31840][1][tid:398]==com.google.code.gson:gson:2.8.8
+
+[info][2023.06.30_14:31:06:200][31841][1][tid:398]==com.alibaba:fastjson:1.1.54.android
+
+[info][2023.06.30_14:31:06:200][31841][0][tid:398]==com.wang.avi:library:2.1.3
+
+[info][2023.06.30_14:31:06:201][31842][1][tid:398]==com.apistd.uni:uni-sdk:0.0.4
+
+[info][2023.06.30_14:31:06:202][31843][1][tid:398]==org.apache.commons:commons-lang3:3.12.0
+
+[info][2023.06.30_14:31:06:202][31843][0][tid:398]==org.aspectj:aspectjrt:1.8.9
+
+[info][2023.06.30_14:31:06:203][31844][1][tid:398]==com.github.xuexiangjys:XUI:1.2.0
+
+[info][2023.06.30_14:31:06:204][31845][1][tid:398]==androidx.recyclerview:recyclerview:1.2.1
+
+[info][2023.06.30_14:31:06:205][31846][1][tid:398]==com.github.bumptech.glide:glide:4.11.0
+
+[info][2023.06.30_14:31:06:205][31846][0][tid:398]==com.github.xuexiangjys.XUtil:xutil-core:2.0.0
+
+[info][2023.06.30_14:31:06:206][31847][1][tid:398]==com.github.xuexiangjys.XAOP:xaop-runtime:1.1.0
+
+[info][2023.06.30_14:31:06:207][31848][1][tid:398]==com.github.xuexiangjys:XUpdate:2.1.3
+
+[info][2023.06.30_14:31:06:207][31848][0][tid:398]==com.github.xuexiangjys:XHttp2:2.0.4
+
+[info][2023.06.30_14:31:06:208][31849][1][tid:398]==io.reactivex.rxjava2:rxandroid:2.1.1
+
+[info][2023.06.30_14:31:06:209][31850][1][tid:398]==io.reactivex.rxjava2:rxjava:2.2.20
+
+[info][2023.06.30_14:31:06:210][31851][1][tid:398]==com.github.xuexiangjys.XPage:xpage-lib:3.3.0
+
+[info][2023.06.30_14:31:06:210][31851][0][tid:398]==com.github.xuexiangjys.XRouter:xrouter-runtime:1.1.0
+
+[info][2023.06.30_14:31:06:211][31852][1][tid:398]==cn.smssdk:SMSSDK:3.7.8
+
+[info][2023.06.30_14:31:06:212][31853][1][tid:398]==cn.smssdk:ShortMessageSDKGUI:3.7.8
+
+[info][2023.06.30_14:31:06:213][31854][1][tid:398]==com.mob:MobCoreULT:2023.0613.1728
+
+[info][2023.06.30_14:31:06:213][31854][0][tid:398]==com.mob:MobGUIULT:2023.0613.1728
+
+[info][2023.06.30_14:31:06:214][31855][1][tid:398]==com.mob:MobSupportV1:2023.0613.1728
+
+[info][2023.06.30_14:31:06:214][31855][0][tid:398]==androidx.annotation:annotation:1.3.0
+
+[info][2023.06.30_14:31:06:215][31856][1][tid:398]==androidx.viewpager2:viewpager2:1.0.0
+
+[info][2023.06.30_14:31:06:216][31857][1][tid:398]==androidx.fragment:fragment:1.3.6
+
+[info][2023.06.30_14:31:06:216][31857][0][tid:398]==androidx.drawerlayout:drawerlayout:1.1.1
+
+[info][2023.06.30_14:31:06:217][31858][1][tid:398]==androidx.coordinatorlayout:coordinatorlayout:1.1.0
+
+[info][2023.06.30_14:31:06:217][31858][0][tid:398]==androidx.dynamicanimation:dynamicanimation:1.0.0
+
+[info][2023.06.30_14:31:06:218][31859][1][tid:398]==androidx.transition:transition:1.2.0
+
+[info][2023.06.30_14:31:06:219][31860][1][tid:398]==androidx.vectordrawable:vectordrawable:1.1.0
+
+[info][2023.06.30_14:31:06:220][31861][1][tid:398]==androidx.core:core:1.7.0
+
+[info][2023.06.30_14:31:06:220][31861][0][tid:398]==androidx.cardview:cardview:1.0.0
+
+[info][2023.06.30_14:31:06:221][31862][1][tid:398]==androidx.lifecycle:lifecycle-runtime:2.4.0
+
+[info][2023.06.30_14:31:06:222][31863][1][tid:398]==androidx.annotation:annotation-experimental:1.1.0
+
+[info][2023.06.30_14:31:06:223][31864][1][tid:398]==androidx.activity:activity:1.2.4
+
+[info][2023.06.30_14:31:06:223][31864][0][tid:398]==androidx.appcompat:appcompat-resources:1.4.1
+
+[info][2023.06.30_14:31:06:224][31865][1][tid:398]==androidx.cursoradapter:cursoradapter:1.0.0
+
+[info][2023.06.30_14:31:06:225][31866][1][tid:398]==androidx.savedstate:savedstate:1.1.0
+
+[info][2023.06.30_14:31:06:226][31867][1][tid:398]==androidx.test:annotation:1.0.0
+
+[info][2023.06.30_14:31:06:227][31868][1][tid:398]==androidx.legacy:legacy-support-v4:1.0.0
+
+[info][2023.06.30_14:31:06:227][31868][0][tid:398]==com.meituan.android.walle:payload_reader:1.1.6
+
+[info][2023.06.30_14:31:06:228][31869][1][tid:398]==com.squareup.okio:okio:1.15.0
+
+[info][2023.06.30_14:31:06:229][31870][1][tid:398]==io.github.inflationx:calligraphy3:3.1.1
+
+[info][2023.06.30_14:31:06:230][31871][1][tid:398]==io.github.inflationx:viewpump:2.0.3
+
+[info][2023.06.30_14:31:06:231][31871][0][tid:398]==androidx.customview:customview:1.1.0
+
+[info][2023.06.30_14:31:06:231][31872][1][tid:398]==androidx.vectordrawable:vectordrawable-animated:1.1.0
+
+[info][2023.06.30_14:31:06:232][31873][1][tid:398]==com.github.bumptech.glide:gifdecoder:4.11.0
+
+[info][2023.06.30_14:31:06:233][31874][1][tid:398]==androidx.exifinterface:exifinterface:1.0.0
+
+[info][2023.06.30_14:31:06:233][31874][0][tid:398]==com.github.bumptech.glide:disklrucache:4.11.0
+
+[info][2023.06.30_14:31:06:234][31875][1][tid:398]==com.github.bumptech.glide:annotations:4.11.0
+
+[info][2023.06.30_14:31:06:235][31876][1][tid:398]==com.github.xuexiangjys.XAOP:xaop-annotation:1.1.0
+
+[info][2023.06.30_14:31:06:235][31876][0][tid:398]==org.reactivestreams:reactive-streams:1.0.3
+
+[info][2023.06.30_14:31:06:236][31877][1][tid:398]==com.github.xuexiangjys.XPage:xpage-annotation:3.3.0
+
+[info][2023.06.30_14:31:06:237][31878][1][tid:398]==com.github.xuexiangjys.XRouter:xrouter-annotation:1.1.0
+
+[info][2023.06.30_14:31:06:238][31879][1][tid:398]==androidx.collection:collection:1.1.0
+
+[info][2023.06.30_14:31:06:238][31879][0][tid:398]==androidx.viewpager:viewpager:1.0.0
+
+[info][2023.06.30_14:31:06:239][31880][1][tid:398]==androidx.loader:loader:1.0.0
+
+[info][2023.06.30_14:31:06:240][31881][1][tid:398]==androidx.lifecycle:lifecycle-viewmodel-savedstate:2.3.1
+
+[info][2023.06.30_14:31:06:240][31881][0][tid:398]==androidx.lifecycle:lifecycle-viewmodel:2.3.1
+
+[info][2023.06.30_14:31:06:241][31882][1][tid:398]==androidx.lifecycle:lifecycle-livedata-core:2.3.1
+
+[info][2023.06.30_14:31:06:241][31882][0][tid:398]==androidx.legacy:legacy-support-core-utils:1.0.0
+
+[info][2023.06.30_14:31:06:242][31883][1][tid:398]==androidx.versionedparcelable:versionedparcelable:1.1.1
+
+[info][2023.06.30_14:31:06:243][31884][1][tid:398]==androidx.lifecycle:lifecycle-common:2.4.0
+
+[info][2023.06.30_14:31:06:243][31884][0][tid:398]==androidx.arch.core:core-common:2.1.0
+
+[info][2023.06.30_14:31:06:244][31885][1][tid:398]==org.jetbrains.kotlin:kotlin-stdlib:1.3.21
+
+[info][2023.06.30_14:31:06:244][31885][0][tid:398]==androidx.interpolator:interpolator:1.0.0
+
+[info][2023.06.30_14:31:06:245][31886][1][tid:398]==androidx.lifecycle:lifecycle-livedata:2.0.0
+
+[info][2023.06.30_14:31:06:245][31886][0][tid:398]==androidx.documentfile:documentfile:1.0.0
+
+[info][2023.06.30_14:31:06:246][31887][1][tid:398]==androidx.localbroadcastmanager:localbroadcastmanager:1.0.0
+
+[info][2023.06.30_14:31:06:247][31888][1][tid:398]==androidx.print:print:1.0.0
+
+[info][2023.06.30_14:31:06:247][31888][0][tid:398]==org.jetbrains.kotlin:kotlin-stdlib-common:1.3.21
+
+[info][2023.06.30_14:31:06:248][31889][1][tid:398]==org.jetbrains:annotations:13.0
+
+[info][2023.06.30_14:31:06:248][31889][0][tid:398]==androidx.arch.core:core-runtime:2.1.0
+
+[info][2023.06.30_14:31:06:249][31890][1][tid:398]================= finished log record end ===================
+
+[step][2023.06.30_14:31:06:249][31890][0][tid:398]================= finished ===================
