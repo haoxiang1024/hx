@@ -40,7 +40,7 @@ public class SendMailController {
         String host = "smtp.qq.com";
         int port = 587;
         String username = "3502777299@qq.com";
-        String password = "fxtxioywllmrcjbd";//邮件授权码
+        String password = "gzreyhnsigbsdaei";//邮件授权码
         // 收件人邮箱和发送内容
         String to = "a3502777299@outlook.com";
         String subject = formData.getSubject();
